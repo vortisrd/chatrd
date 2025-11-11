@@ -46,7 +46,7 @@
 }
 
 #chat .event.kick.kicksgifted.small-gift .value span.gift-image img {
-    width: 28px;
+    height: 28px;
 }
 
 #chat .event.kick.kicksgifted .value span.gift-value {
