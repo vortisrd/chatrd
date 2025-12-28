@@ -324,7 +324,11 @@ body {
 }
 
 #chat.horizontal .item.chat.grouped .message {
-    padding: 0px 5px 7px 5px;
+    padding: 0px 5px 5px 5px;
+}
+
+#chat.horizontal .item.chat .message:has(.timestamp) {
+    padding: 0px 5px 3px 5px;
 }
 
 #chat.horizontal .item .actual-message img {
