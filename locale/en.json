@@ -68,7 +68,9 @@
       "send_highlighted_message":         "Highlight My Message",
       "chosen_sub_emote_unlock":          "Unlock an Emote for 24 hours",
       "random_sub_emote_unlock":          "Unlock a Random Sub Emote",
-      "chosen_modified_sub_emote_unlock": "Modify a Single Emote"
+      "chosen_modified_sub_emote_unlock": "Modify a Single Emote",
+      "celebration":                      "On-Screen Celebration",
+      "message_effect":                   "Message Effects"
     },
     "bits_action":             " cheered with ",
     "bits_singular":           "bit",

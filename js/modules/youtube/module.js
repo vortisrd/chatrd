@@ -211,7 +211,15 @@ async function youTubeSuperChatMessage(data) {
     header.remove();
 
     
-    user.textContent = data.user.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `${data.user.url}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+
+
     action.innerHTML = tRD('youtube.superchat_action');
     value.innerHTML = `<strong>${data.amount}</strong>`;
 
@@ -261,7 +269,14 @@ async function youTubeSuperStickerMessage(data) {
         header.remove();
     }
     
-    user.textContent = data.user.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `${data.user.url}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+
     action.innerHTML = tRD('youtube.supersticker_action');
 
     value.innerHTML = `<strong>(${data.amount})</strong>`;
@@ -306,7 +321,15 @@ async function youTubeNewSponsorMessage(data) {
     header.remove();
 
     
-    user.textContent = data.user.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `${data.user.url}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+
+
     action.innerHTML = tRD('youtube.sponsor_action');
 
     //var months = data.months > 1 ? 'months' : 'month';
@@ -359,7 +382,15 @@ async function youTubeGiftBombMessage(data) {
     header.remove();
 
     
-    user.textContent = data.user.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `${data.user.url}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+
+
     action.innerHTML = tRD('youtube.giftbomb_action');
 
     var count = data.count > 1 ? tRD('youtube.giftbomb_plural') : tRD('youtube.giftbomb_singular');
@@ -405,7 +436,15 @@ async function youTubeGiftBombReceivedMessage(data) {
     header.remove();
 
     
-    user.textContent = data.gifter.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `${data.user.url}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+
+    
     action.innerHTML = tRD('youtube.giftbomb_received_action');
     value.innerHTML = `<strong>${escapeHTML(data.user.name)}</strong>`;
 

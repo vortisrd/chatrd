@@ -78,6 +78,12 @@ const twitchMessageHandlers = {
         if (response.data.reward_type === "gigantify_an_emote") {
             twitchChatMessageGiantEmote(response.data);
         }
+        else if (response.data.reward_type === "celebration") {
+            twitchPowerUpRedemption(response.data);
+        }
+        else if (response.data.reward_type === "message_effect") {
+            twitchPowerUpRedemption(response.data);
+        }
         else {
             twitchAutomaticRewardRedemption(response.data);
         }
@@ -407,8 +413,16 @@ async function twitchWatchStreakMessage(data) {
 
     const displayName = data.displayName ?? data.user.name;
 	const watchStreak = data.watchStreak ?? data.streak_count;
+    
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${displayName.toLowerCase()}`;
 
-    user.textContent = displayName;
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = displayName;
+    userLinkElement.title = `${displayName} @ ${userLink}`;
+
+
     action.innerHTML = tRD('twitch.watch_streak_action', { count: watchStreak });
     value.remove();
 
@@ -459,7 +473,13 @@ async function twitchFollowMessage(data) {
     message.remove();
     value.remove();
 
-    user.textContent = data.user_name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.user_login}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user_name;
+    userLinkElement.title = `${data.user_name} @ ${userLink}`;
 
     action.innerHTML = tRD('twitch.follow_action');
 
@@ -566,7 +586,13 @@ async function twitchRewardRedemption(data) {
     
     
 
-    user.textContent = data.user_name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.user_login}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user_name;
+    userLinkElement.title = `${data.user_name} @ ${userLink}`;
 
 
 
@@ -655,9 +681,78 @@ async function twitchAutomaticRewardRedemption(data) {
         </div>
     `;
     
-    /*var userInput = data.user_input ? `${data.user_input}` : '';
+    /*var userInput = data.user_input ? `${data.user_input}` : `${data.message_text}`;
     message.textContent = `${userInput}`;*/
     message.remove();
+    
+    addEventItem('twitch', clone, classes, userId, messageId);
+}
+
+
+
+async function twitchPowerUpRedemption(data) {
+
+    if (showTwitchRewardRedemptions == false) return;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = data.user_login.toLowerCase();
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['twitch', 'reward'];
+
+    header.remove();
+
+    let title;
+
+    switch (data.reward_type) {
+        case "celebration" :
+            title = tRD('twitch.reward_auto.celebration');
+        break;
+
+        case "message_effect" :
+            title = tRD('twitch.reward_auto.message_effect');
+        break;
+
+    }
+    
+    
+    
+
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.user_login}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user_name;
+    userLinkElement.title = `${data.user_name} @ ${userLink}`;
+
+
+
+    action.innerHTML = tRD('twitch.reward_action');
+
+    value.innerHTML = `
+        <div class="gift-info">
+            <span class="gift-image"><strong>${title}</strong></span>
+            <span class="gift-value"><img src="js/modules/twitch/images/icon-powerups-bits.svg" alt="Power Up"> ${data.cost}</span>
+        </div>
+    `;
+    
+    var userInput = data.user_input ? `${data.user_input}` : `${data.message_text}`;
+    message.textContent = `${userInput}`;
+    //message.remove();
     
     addEventItem('twitch', clone, classes, userId, messageId);
 }
@@ -689,7 +784,16 @@ async function twitchBitsMessage(data) {
 
     header.remove();
     
-    user.textContent = data.user.name;
+    
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.user.login}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+
+
     action.innerHTML = tRD('twitch.bits_action');
 
     var bits = data.bits > 1 ? tRD('twitch.bits_plural') : tRD('twitch.bits_singular');
@@ -741,7 +845,14 @@ async function twitchSubMessage(data) {
     message.remove();
 
     
-    user.textContent = data.user.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.user.login}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+
 
     action.innerHTML = tRD('twitch.sub_action');
     var months = formatSubMonthDuration(data.duration_months);
@@ -785,7 +896,13 @@ async function twitchReSubMessage(data) {
     
     header.remove();
     
-    user.textContent = data.user.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.user.login}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
 
     action.innerHTML = tRD('twitch.resub_action');
 
@@ -848,7 +965,13 @@ async function twitchGiftMessage(data) {
     message.remove();
 
     
-    user.textContent = data.user.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.user.login}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
 
     var months = formatSubMonthDuration(data.durationMonths);
     var subs = data.durationMonths > 1 ? tRD('twitch.giftsub_plural') : tRD('twitch.giftsub_singular');
@@ -889,7 +1012,14 @@ async function twitchGiftBombMessage(data) {
     value.remove();
 
     
-    user.textContent = data.user.name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.user.login}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.user.name;
+    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+
 
     var subs = data.total > 1 ? tRD('twitch.giftbomb_subs_plural') : tRD('twitch.giftbomb_subs_singular');
     action.innerHTML = tRD('twitch.giftbomb_action', { total: `<strong>${data.total}</strong>`, tier: Math.floor(data.sub_tier/1000), subs: `<strong>${subs}</strong>` });
@@ -927,8 +1057,13 @@ async function twitchRaidMessage(data) {
     header.remove();
     message.remove();
 
-    
-    user.textContent = data.from_broadcaster_user_name;
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${data.from_broadcaster_user_name.toLowerCase()}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.from_broadcaster_user_name;
+    userLinkElement.title = `${data.from_broadcaster_user_name} @ ${userLink}`;
 
     var viewers = data.viewers > 1 ? tRD('twitch.raid_plural') : tRD('twitch.raid_singular');
     action.innerHTML = tRD('twitch.raid_action');

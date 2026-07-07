@@ -68,7 +68,9 @@
       "send_highlighted_message":         "Wyróżnij moją wiadomość",
       "chosen_sub_emote_unlock":          "Odblokuj emotkę na 24 godziny",
       "random_sub_emote_unlock":          "Odblokuj losową emotkę subskrybenta",
-      "chosen_modified_sub_emote_unlock": "Zmodyfikuj jedną emotkę"
+      "chosen_modified_sub_emote_unlock": "Zmodyfikuj jedną emotkę",
+      "celebration":                      "Świętowanie na ekranie",
+      "message_effect":                   "Efekty wiadomości"
     },
     "bits_action":             " podarował ",
     "bits_singular":           "bit",

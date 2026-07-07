@@ -68,7 +68,9 @@
       "send_highlighted_message":         "I-highlight ang Aking Mensahe",
       "chosen_sub_emote_unlock":          "I-unlock ang Emote sa loob ng 24 na oras",
       "random_sub_emote_unlock":          "I-unlock ang Random na Sub Emote",
-      "chosen_modified_sub_emote_unlock": "Baguhin ang Isang Emote"
+      "chosen_modified_sub_emote_unlock": "Baguhin ang Isang Emote",
+      "celebration":                      "Selebrasyon sa Screen",
+      "message_effect":                   "Mga Epekto ng Mensahe"
     },
     "bits_action":             " nagpadala ng ",
     "bits_singular":           "bit",

@@ -68,7 +68,9 @@
       "send_highlighted_message":         "Destacar Minha Mensagem",
       "chosen_sub_emote_unlock":          "Desbloquear um Emote por 24 horas",
       "random_sub_emote_unlock":          "Desbloquear um Emote de Inscrito Aleatório",
-      "chosen_modified_sub_emote_unlock": "Modificar um Único Emote"
+      "chosen_modified_sub_emote_unlock": "Modificar um Único Emote",
+      "celebration":                      "Celebração na Tela",
+      "message_effect":                   "Efeitos de Mensagem"
     },
     "bits_action":             " enviou ",
     "bits_singular":           "bit",

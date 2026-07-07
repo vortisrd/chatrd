@@ -68,7 +68,9 @@
       "send_highlighted_message":         "Meine Nachricht hervorheben",
       "chosen_sub_emote_unlock":          "Ein Emote für 24 Stunden freischalten",
       "random_sub_emote_unlock":          "Ein zufälliges Abo-Emote freischalten",
-      "chosen_modified_sub_emote_unlock": "Ein einzelnes Emote modifizieren"
+      "chosen_modified_sub_emote_unlock": "Ein einzelnes Emote modifizieren",
+      "celebration":                      "Bildschirmfeier",
+      "message_effect":                   "Nachrichteneffekte"
     },
     "bits_action":             " hat gejubelt mit ",
     "bits_singular":           "Bit",
