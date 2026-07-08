@@ -3,399 +3,305 @@
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
 }
+
+.chat .item .user a[data-seventv-paint-id="01G8GMD93G0004XP39FXMV7HPE"] {
+color: inherit !important;
+background-image: linear-gradient(90deg, rgba(117, 205, 216, 1.000) 0%, rgba(117, 205, 216, 1.000) 20%, rgba(240, 242, 231, 1.000) 20%, rgba(240, 242, 231, 1.000) 40%, rgba(255, 130, 150, 1.000) 40%, rgba(255, 130, 150, 1.000) 60%, rgba(240, 242, 231, 1.000) 60%, rgba(240, 242, 231, 1.000) 80%, rgba(117, 205, 216, 1.000) 80%, rgba(117, 205, 216, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(255, 130, 150, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01G8P2G5N8000927RGPZYETBVC"] {
+color: inherit !important;
+background-image: repeating-radial-gradient(ellipse, rgba(255, 211, 92, 1.000) 72%, rgba(255, 136, 0, 1.000) 87%, rgba(245, 122, 41, 1.000) 88%, rgba(249, 218, 134, 1.000) 95%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 1px rgba(204, 160, 0, 1.000)) drop-shadow(0px 0px 3.5px rgba(178, 75, 6, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01GEWY836G000EZEK94KRK9Y6T"] {
+color: inherit !important;
+background-image: linear-gradient(90deg, rgba(67, 127, 249, 1.000) 0%, rgba(67, 127, 249, 1.000) 20%, rgba(74, 165, 248, 1.000) 20%, rgba(74, 165, 248, 1.000) 40%, rgba(237, 247, 248, 1.000) 40%, rgba(237, 247, 248, 1.000) 60%, rgba(167, 249, 249, 1.000) 60%, rgba(167, 249, 249, 1.000) 80%, rgba(109, 206, 252, 1.000) 80%, rgba(109, 206, 252, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(67, 127, 249, 1.000)) drop-shadow(0px 0px 4px rgba(67, 127, 249, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01GHKK77KR0008D8QKE712PN43"] {
+color: inherit !important;
+background-image: repeating-linear-gradient(270deg, rgba(169, 41, 33, 1.000) 0%, rgba(169, 41, 33, 1.000) 25%, rgba(255, 58, 47, 1.000) 25%, rgba(255, 58, 47, 1.000) 50%, rgba(12, 176, 74, 1.000) 50%, rgba(12, 176, 74, 1.000) 75%, rgba(10, 117, 51, 1.000) 75%, rgba(10, 117, 51, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.5px rgba(254, 99, 88, 1.000)) !important;
+}
 .chat .item .user a[data-seventv-paint-id="01GPF2WSER00027RY0HK5QCJAC"] {
-    color: inherit !important;
-    background-image: repeating-linear-gradient(
-        135deg,
-        rgba(224, 179, 16, 1) 0%,
-        rgba(255, 149, 0, 1) 15%,
-        rgba(120, 120, 120, 1) 15%,
-        rgba(181, 181, 181, 1) 30%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(181, 181, 181, 1)) !important;
+color: inherit !important;
+background-image: repeating-linear-gradient(135deg, rgba(224, 179, 16, 1.000) 0%, rgba(255, 149, 0, 1.000) 15%, rgba(120, 120, 120, 1.000) 15%, rgba(181, 181, 181, 1.000) 30%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(181, 181, 181, 1.000)) !important;
 }
-.chat .item .user a[data-seventv-paint-id="01H0V773SR0007779TR98GJMB2"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        circle,
-        rgba(255, 229, 184, 1) 10%,
-        rgba(255, 255, 255, 1) 25%,
-        rgba(254, 139, 139, 1) 35%,
-        rgba(254, 159, 200, 1) 50%,
-        rgba(255, 56, 142, 1) 75%,
-        rgba(255, 0, 111, 1) 100%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(255, 0, 123, 1))
-        drop-shadow(0px 0px 4px rgba(255, 0, 123, 1)) !important;
+.chat .item .user a[data-seventv-paint-id="01GTK7N8B000009S59ZP7E4Z93"] {
+color: inherit !important;
+background-image: linear-gradient(90deg, rgba(156, 102, 255, 1.000) 25%, rgba(148, 230, 255, 1.000) 50%, rgba(244, 128, 255, 1.000) 75%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(88, 43, 156, 1.000)) drop-shadow(0px 0px 4px rgba(100, 37, 218, 1.000)) !important;
 }
-.chat .item .user a[data-seventv-paint-id="01H1VNS05R0007H191NVCWCJQD"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        circle,
-        rgba(238, 233, 185, 1) 0%,
-        rgba(238, 233, 185, 1) 20%,
-        rgba(241, 231, 126, 1) 20%,
-        rgba(238, 210, 90, 1) 70%,
-        rgba(238, 233, 185, 1) 70%,
-        rgba(238, 233, 185, 1) 80%,
-        rgba(247, 187, 0, 1) 80%,
-        rgba(247, 187, 0, 1) 100%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(247, 187, 0, 1)) !important;
+.chat .item .user a[data-seventv-paint-id="01GW7Y6TPR0005S46PF4C5FQNF"] {
+color: inherit !important;
+background-image: linear-gradient(156deg, rgba(199, 144, 254, 1.000) 0%, rgba(82, 226, 255, 1.000) 15%, rgba(10, 255, 161, 1.000) 30%, rgba(255, 77, 222, 1.000) 90%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 1px 0.1px rgba(158, 226, 255, 1.000)) drop-shadow(1px 0px 0.1px rgba(255, 112, 243, 1.000)) drop-shadow(1px 0px 3px rgba(95, 124, 116, 1.000)) !important;
 }
-.chat .item .user a[data-seventv-paint-id="01HEBYK3Q0000EV2G1SJ85XJQW"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        circle,
-        rgba(255, 0, 123, 1) 20%,
-        rgba(207, 65, 225, 1) 40%,
-        rgba(252, 46, 255, 1) 55.00000000000001%,
-        rgba(168, 62, 254, 1) 70%,
-        rgba(62, 60, 190, 1) 100%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(130, 46, 255, 1)) !important;
+.chat .item .user a[data-seventv-paint-id="01H470VCKG000DT06RDRDY7CQT"] {
+color: inherit !important;
+background-image: linear-gradient(135deg, rgba(25, 91, 112, 1.000) 0%, rgba(46, 255, 192, 1.000) 40%, rgba(255, 255, 255, 1.000) 50%, rgba(53, 223, 255, 1.000) 60%, rgba(2, 122, 154, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 3px rgba(10, 178, 159, 1.000)) drop-shadow(0px 0px 0.1px rgba(2, 122, 154, 1.000)) !important;
 }
-.chat .item .user a[data-seventv-paint-id="01HGHA0FA0000A0RAV1AFV8A9Q"] {
-    color: inherit !important;
-    background-image: repeating-linear-gradient(
-        135deg,
-        rgba(254, 201, 57, 1) 0%,
-        rgba(254, 201, 57, 1) 15%,
-        rgba(255, 237, 148, 1) 15%,
-        rgba(255, 237, 148, 1) 30%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(255, 149, 0, 1))
-        drop-shadow(0px 0px 4px rgba(255, 149, 0, 1)) !important;
+.chat .item .user a[data-seventv-paint-id="01HBP57GQR0006KBA68P5WR7XH"] {
+color: inherit !important;
+background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 1.000) 0%, rgba(255, 255, 255, 1.000) 15%, rgba(247, 247, 59, 1.000) 15%, rgba(255, 255, 82, 1.000) 28.999999999999996%, rgba(87, 255, 255, 1.000) 28.999999999999996%, rgba(108, 254, 254, 1.000) 43%, rgba(87, 255, 87, 1.000) 43%, rgba(77, 254, 77, 1.000) 56.99999999999999%, rgba(255, 102, 255, 1.000) 56.99999999999999%, rgba(254, 98, 254, 1.000) 71%, rgba(255, 61, 61, 1.000) 71%, rgba(255, 56, 56, 1.000) 85%, rgba(57, 57, 254, 1.000) 85%, rgba(72, 72, 254, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(74, 61, 255, 1.000)) !important;
 }
-.chat .item .user a[data-seventv-paint-id="01J6M387YG0000HJTPW7AY3FZX"] {
-    color: inherit !important;
-    background-image: image-set(
-        url("https://cdn.7tv.app/paint/01J6M387YG0000HJTPW7AY3FZX/layer/01JAMR3EW9Q3R9765PKXM7M4S8/1x.avif")
-            1x,
-        url("https://cdn.7tv.app/paint/01J6M387YG0000HJTPW7AY3FZX/layer/01JAMR3EW9Q3R9765PKXM7M4S8/2x.avif")
-            2x,
-        url("https://cdn.7tv.app/paint/01J6M387YG0000HJTPW7AY3FZX/layer/01JAMR3EW9Q3R9765PKXM7M4S8/3x.avif")
-            3x,
-        url("https://cdn.7tv.app/paint/01J6M387YG0000HJTPW7AY3FZX/layer/01JAMR3EW9Q3R9765PKXM7M4S8/4x.avif")
-            4x
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(158, 122, 255, 1))
-        drop-shadow(1px 1px 0.1px rgba(68, 38, 186, 1)) !important;
+.chat .item .user a[data-seventv-paint-id="01HEBYHWN0000EV2G1SJ85XJQR"] {
+color: inherit !important;
+background-image: radial-gradient(circle, rgba(255, 247, 0, 1.000) 15%, rgba(255, 149, 0, 1.000) 30%, rgba(219, 29, 15, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 4px rgba(224, 15, 0, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01HGV83AY80000421YCKFBCF2F"] {
+color: inherit !important;
+background-image: image-set(url("https://cdn.7tv.app/paint/01HGV83AY80000421YCKFBCF2F/layer/01JAMR2D63BRKZ3FVDZ0BDZXW8/1x.avif") 1x, url("https://cdn.7tv.app/paint/01HGV83AY80000421YCKFBCF2F/layer/01JAMR2D63BRKZ3FVDZ0BDZXW8/2x.avif") 2x, url("https://cdn.7tv.app/paint/01HGV83AY80000421YCKFBCF2F/layer/01JAMR2D63BRKZ3FVDZ0BDZXW8/3x.avif") 3x, url("https://cdn.7tv.app/paint/01HGV83AY80000421YCKFBCF2F/layer/01JAMR2D63BRKZ3FVDZ0BDZXW8/4x.avif") 4x) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(237, 175, 2, 1.000)) drop-shadow(1px 1px 0.1px rgba(157, 62, 12, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01HNFT9ZH8000EXZQWSVKBBZ5B"] {
+color: inherit !important;
+background-image: linear-gradient(90deg, rgba(249, 255, 30, 1.000) 19%, rgba(0, 255, 179, 1.000) 49%, rgba(0, 110, 255, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(0, 110, 255, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01HWNSAS4G000A7JCW03YY15YE"] {
+color: inherit !important;
+background-image: linear-gradient(90deg, rgba(255, 240, 163, 1.000) 25%, rgba(254, 230, 72, 1.000) 45%, rgba(116, 225, 76, 1.000) 75%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 4px rgba(255, 221, 0, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01J8WHGFER000DNWJ3ST67JDG5"] {
+color: inherit !important;
+background-image: linear-gradient(0deg, rgba(255, 241, 168, 1.000) 25%, rgba(250, 229, 41, 1.000) 35%, rgba(253, 151, 35, 1.000) 55.00000000000001%, rgba(242, 86, 32, 1.000) 70%, rgba(227, 22, 22, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(221, 34, 81, 1.000)) drop-shadow(0px 0px 4px rgba(227, 22, 22, 1.000)) !important;
 }
 .chat .item .user a[data-seventv-paint-id="01JB02BWCFNT0P5ZRQPT5KQMM6"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        circle,
-        rgba(247, 247, 247, 1) 0%,
-        rgba(255, 255, 255, 1) 27%,
-        rgba(244, 255, 92, 1) 28.000000000000004%,
-        rgba(253, 255, 148, 1) 54%,
-        rgba(255, 148, 246, 1) 57.99999999999999%,
-        rgba(255, 158, 229, 1) 100%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(255, 148, 246, 1))
-        drop-shadow(0px 0px 4px rgba(212, 89, 202, 1)) !important;
+color: inherit !important;
+background-image: radial-gradient(circle, rgba(247, 247, 247, 1.000) 0%, rgba(255, 255, 255, 1.000) 27%, rgba(244, 255, 92, 1.000) 28.000000000000004%, rgba(253, 255, 148, 1.000) 54%, rgba(255, 148, 246, 1.000) 57.99999999999999%, rgba(255, 158, 229, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(255, 148, 246, 1.000)) drop-shadow(0px 0px 4px rgba(212, 89, 202, 1.000)) !important;
 }
 .chat .item .user a[data-seventv-paint-id="01JEDE45FTB7XTQGRFXP0BA2PT"] {
-    color: inherit !important;
-    background-image: image-set(
-        url("https://cdn.7tv.app/paint/01JEDE45FTB7XTQGRFXP0BA2PT/layer/01JF06XNCYM98WZAGNT0D51SQ3/1x.avif")
-            1x,
-        url("https://cdn.7tv.app/paint/01JEDE45FTB7XTQGRFXP0BA2PT/layer/01JF06XNCYM98WZAGNT0D51SQ3/2x.avif")
-            2x,
-        url("https://cdn.7tv.app/paint/01JEDE45FTB7XTQGRFXP0BA2PT/layer/01JF06XNCYM98WZAGNT0D51SQ3/3x.avif")
-            3x,
-        url("https://cdn.7tv.app/paint/01JEDE45FTB7XTQGRFXP0BA2PT/layer/01JF06XNCYM98WZAGNT0D51SQ3/4x.avif")
-            4x
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: inherit !important;
+color: inherit !important;
+background-image: image-set(url("https://cdn.7tv.app/paint/01JEDE45FTB7XTQGRFXP0BA2PT/layer/01JF06XNCYM98WZAGNT0D51SQ3/1x.avif") 1x, url("https://cdn.7tv.app/paint/01JEDE45FTB7XTQGRFXP0BA2PT/layer/01JF06XNCYM98WZAGNT0D51SQ3/2x.avif") 2x, url("https://cdn.7tv.app/paint/01JEDE45FTB7XTQGRFXP0BA2PT/layer/01JF06XNCYM98WZAGNT0D51SQ3/3x.avif") 3x, url("https://cdn.7tv.app/paint/01JEDE45FTB7XTQGRFXP0BA2PT/layer/01JF06XNCYM98WZAGNT0D51SQ3/4x.avif") 4x) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: inherit !important;
 }
-.chat .item .user a[data-seventv-paint-id="01JEY00EDNVW20AWX2NPG4HTNF"] {
-    color: inherit !important;
-    background-image: image-set(
-        url("https://cdn.7tv.app/paint/01JEY00EDNVW20AWX2NPG4HTNF/layer/01JH1Q77D54RJ8DKK9M5WCYR27/1x.avif")
-            1x,
-        url("https://cdn.7tv.app/paint/01JEY00EDNVW20AWX2NPG4HTNF/layer/01JH1Q77D54RJ8DKK9M5WCYR27/2x.avif")
-            2x,
-        url("https://cdn.7tv.app/paint/01JEY00EDNVW20AWX2NPG4HTNF/layer/01JH1Q77D54RJ8DKK9M5WCYR27/3x.avif")
-            3x,
-        url("https://cdn.7tv.app/paint/01JEY00EDNVW20AWX2NPG4HTNF/layer/01JH1Q77D54RJ8DKK9M5WCYR27/4x.avif")
-            4x
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(26, 113, 255, 1)) !important;
+.chat .item .user a[data-seventv-paint-id="01JFQV4W300XYMWDJW7E1TVY34"] {
+color: inherit !important;
+background-image: image-set(url("https://cdn.7tv.app/paint/01JFQV4W300XYMWDJW7E1TVY34/layer/01JX6ANAHY9JZXQTV4JGBPRYT9/1x.avif") 1x, url("https://cdn.7tv.app/paint/01JFQV4W300XYMWDJW7E1TVY34/layer/01JX6ANAHY9JZXQTV4JGBPRYT9/2x.avif") 2x, url("https://cdn.7tv.app/paint/01JFQV4W300XYMWDJW7E1TVY34/layer/01JX6ANAHY9JZXQTV4JGBPRYT9/3x.avif") 3x, url("https://cdn.7tv.app/paint/01JFQV4W300XYMWDJW7E1TVY34/layer/01JX6ANAHY9JZXQTV4JGBPRYT9/4x.avif") 4x) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(1px 1px 0.1px rgba(0, 55, 107, 1.000)) drop-shadow(0px 0px 4px rgba(0, 161, 201, 1.000)) !important;
 }
 .chat .item .user a[data-seventv-paint-id="01JFT4JVKHGXJPJ97Y31SDWX85"] {
-    color: inherit !important;
-    background-image: image-set(
-        url("https://cdn.7tv.app/paint/01JFT4JVKHGXJPJ97Y31SDWX85/layer/01JJYTWP33019J8XSF3099YFEK/1x.avif")
-            1x,
-        url("https://cdn.7tv.app/paint/01JFT4JVKHGXJPJ97Y31SDWX85/layer/01JJYTWP33019J8XSF3099YFEK/2x.avif")
-            2x,
-        url("https://cdn.7tv.app/paint/01JFT4JVKHGXJPJ97Y31SDWX85/layer/01JJYTWP33019J8XSF3099YFEK/3x.avif")
-            3x,
-        url("https://cdn.7tv.app/paint/01JFT4JVKHGXJPJ97Y31SDWX85/layer/01JJYTWP33019J8XSF3099YFEK/4x.avif")
-            4x
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(102, 201, 253, 1)) !important;
+color: inherit !important;
+background-image: image-set(url("https://cdn.7tv.app/paint/01JFT4JVKHGXJPJ97Y31SDWX85/layer/01JJYTWP33019J8XSF3099YFEK/1x.avif") 1x, url("https://cdn.7tv.app/paint/01JFT4JVKHGXJPJ97Y31SDWX85/layer/01JJYTWP33019J8XSF3099YFEK/2x.avif") 2x, url("https://cdn.7tv.app/paint/01JFT4JVKHGXJPJ97Y31SDWX85/layer/01JJYTWP33019J8XSF3099YFEK/3x.avif") 3x, url("https://cdn.7tv.app/paint/01JFT4JVKHGXJPJ97Y31SDWX85/layer/01JJYTWP33019J8XSF3099YFEK/4x.avif") 4x) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(102, 201, 253, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01JN4CG3JCZ2MHVX401K8957GH"] {
+color: inherit !important;
+background-image: linear-gradient(0deg, rgba(245, 255, 112, 1.000) 0%, rgba(254, 251, 180, 1.000) 35%, rgba(255, 255, 255, 1.000) 45%, rgba(46, 255, 252, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(222, 255, 56, 1.000)) drop-shadow(0px 0px 4px rgba(140, 153, 20, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01JQM5X9N65Z6M8Q3Z6RV8BDT4"] {
+color: inherit !important;
+background-image: radial-gradient(circle, rgba(10, 255, 105, 1.000) 11%, rgba(238, 255, 5, 1.000) 24%, rgba(137, 255, 10, 1.000) 37%, rgba(255, 254, 212, 1.000) 52%, rgba(154, 232, 237, 1.000) 68%, rgba(154, 232, 237, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(167, 230, 236, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01JQM68WYPTC7PFSE1QZKGWSTX"] {
+color: inherit !important;
+background-image: linear-gradient(0deg, rgba(255, 255, 255, 1.000) 0%, rgba(189, 189, 189, 1.000) 26%, rgba(153, 153, 153, 1.000) 40%, rgba(97, 97, 97, 1.000) 44%, rgba(255, 255, 255, 1.000) 50%, rgba(255, 255, 255, 1.000) 65%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 1.000)) drop-shadow(0px 0px 4px rgba(135, 135, 135, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01JT1KJ447G4S5MWH0G0V9J7DQ"] {
+color: inherit !important;
+background-image: linear-gradient(180deg, rgba(255, 255, 255, 1.000) 40%, rgba(77, 254, 219, 1.000) 65%, rgba(117, 255, 145, 1.000) 80%, rgba(54, 247, 163, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(0, 89, 184, 1.000)) drop-shadow(0px 0px 4px rgba(0, 174, 209, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01JZ0RQWFYHX44WPNG3MQ8SSDY"] {
+color: inherit !important;
+background-image: image-set(url("https://cdn.7tv.app/paint/01JZ0RQWFYHX44WPNG3MQ8SSDY/layer/01JZ0RQWFY4CC7QWBTVA0H2FZJ/1x.avif") 1x, url("https://cdn.7tv.app/paint/01JZ0RQWFYHX44WPNG3MQ8SSDY/layer/01JZ0RQWFY4CC7QWBTVA0H2FZJ/2x.avif") 2x, url("https://cdn.7tv.app/paint/01JZ0RQWFYHX44WPNG3MQ8SSDY/layer/01JZ0RQWFY4CC7QWBTVA0H2FZJ/3x.avif") 3x, url("https://cdn.7tv.app/paint/01JZ0RQWFYHX44WPNG3MQ8SSDY/layer/01JZ0RQWFY4CC7QWBTVA0H2FZJ/4x.avif") 4x) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(169, 112, 250, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01JZ0RS7W7AV5EPPFKJTT70R6Q"] {
+color: inherit !important;
+background-image: radial-gradient(ellipse, rgba(255, 255, 255, 1.000) 0%, rgba(255, 246, 189, 1.000) 15%, rgba(253, 255, 148, 1.000) 35%, rgba(229, 36, 255, 1.000) 84%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 1px 0.1px rgba(255, 0, 208, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01K1BPJE3QD64B7W0RN7FG2AYK"] {
+color: inherit !important;
+background-image: radial-gradient(circle, rgba(255, 157, 0, 1.000) 0%, rgba(255, 157, 0, 1.000) 14.000000000000002%, rgba(255, 0, 38, 1.000) 34%, rgba(192, 41, 66, 1.000) 47%, rgba(192, 41, 66, 1.000) 60%, rgba(102, 56, 65, 1.000) 71%, rgba(59, 59, 59, 1.000) 86%, rgba(59, 59, 59, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(102, 56, 65, 1.000)) drop-shadow(1px 1px 0.1px rgba(25, 0, 0, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01K3ZX8T98F02VMEHRYJ4SNVMJ"] {
+color: inherit !important;
+background-image: radial-gradient(circle, rgba(24, 114, 91, 1.000) 0%, rgba(68, 227, 166, 1.000) 20%, rgba(222, 237, 14, 1.000) 40%, rgba(220, 250, 249, 1.000) 60%, rgba(49, 112, 91, 1.000) 80%, rgba(49, 112, 91, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(62, 110, 91, 1.000)) !important;
 }
 .chat .item .user a[data-seventv-paint-id="01K66X7SKXH492KNGX9H91BXX7"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        circle,
-        rgba(64, 108, 196, 1) 15%,
-        rgba(34, 94, 191, 1) 35%,
-        rgba(255, 255, 255, 1) 60%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 1px 0.1px rgba(154, 211, 254, 1))
-        drop-shadow(0px 0px 3px rgba(0, 110, 255, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01KDH5PXBBQHJ49XCEE34FH0HJ"] {
-    color: inherit !important;
-    background-image: linear-gradient(
-        360deg,
-        rgba(255, 255, 255, 1) 20%,
-        rgba(46, 77, 127, 1) 37%,
-        rgba(90, 255, 87, 1) 54%,
-        rgba(225, 255, 0, 1) 70%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 4px rgba(45, 128, 0, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01KDP2BCYQH80NJRS84B0CV4DF"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        ellipse,
-        rgba(255, 255, 255, 1) 30%,
-        rgba(184, 255, 247, 1) 40%,
-        rgba(101, 119, 139, 1) 65%,
-        rgba(77, 101, 111, 1) 80%,
-        rgba(70, 134, 129, 1) 100%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(45, 109, 113, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01KG85VVBYG9KRKFME5E6GACB0"] {
-    color: inherit !important;
-    background-image: linear-gradient(
-        0deg,
-        rgba(255, 0, 208, 1) 0%,
-        rgba(255, 255, 255, 1) 38%,
-        rgba(255, 0, 208, 1) 71%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0px rgba(255, 0, 174, 1))
-        drop-shadow(0px 0px 1px rgba(140, 0, 255, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01KMXG1P52896435KQHE0FKR94"] {
-    color: inherit !important;
-    background-image: repeating-linear-gradient(
-        70deg,
-        rgba(133, 208, 255, 1) 35%,
-        rgba(46, 137, 255, 1) 60%,
-        rgba(46, 137, 255, 1) 63%,
-        rgba(254, 32, 98, 1) 65%,
-        rgba(236, 168, 91, 1) 88%,
-        rgba(255, 146, 20, 1) 82%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(68, 138, 253, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01KQ92ZQRGHYMNGXYNTVYF5AEB"] {
-    color: inherit !important;
-    background-image: linear-gradient(
-        360deg,
-        rgba(254, 1, 154, 1) 25%,
-        rgba(252, 112, 142, 1) 40%,
-        rgba(245, 166, 124, 1) 50%,
-        rgba(231, 212, 94, 1) 59%,
-        rgba(207, 255, 4, 1) 80%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 4px rgba(255, 0, 187, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01KSKJ7YSBNE4YVC0M8W29KAVJ"] {
-    color: inherit !important;
-    background-image: repeating-linear-gradient(
-        229deg,
-        rgba(0, 194, 94, 1) 5%,
-        rgba(102, 102, 102, 1) 20%,
-        rgba(64, 64, 64, 1) 25%,
-        rgba(0, 184, 89, 1) 35%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(12, 100, 55, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01HNFTV3CG0008Y0WDTPT0GPGT"] {
-    color: inherit !important;
-    background-image: repeating-radial-gradient(
-        circle,
-        rgba(255, 255, 255, 1) 17%,
-        rgba(255, 255, 255, 1) 19%,
-        rgba(255, 184, 215, 1) 34%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 1px rgba(255, 184, 242, 1))
-        drop-shadow(1px 1px 0.5px rgba(254, 144, 144, 1))
-        drop-shadow(0.5px 0.5px 0.5px rgba(106, 36, 36, 1))
-        drop-shadow(0.5px 0.5px 0.3px rgba(255, 148, 226, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01H9903SQR000BVQ7MEDFXVNTJ"] {
-    color: inherit !important;
-    background-image: repeating-radial-gradient(
-        circle,
-        rgba(238, 235, 255, 1) 33%,
-        rgba(112, 77, 255, 1) 50%,
-        rgba(238, 235, 255, 1) 70%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.5px rgba(94, 62, 254, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01KA84S7GDS77JGK2RRG7ZZ946"] {
-    color: inherit !important;
-    background-image: image-set(
-        url("https://cdn.7tv.app/paint/01KA84S7GDS77JGK2RRG7ZZ946/layer/01KAMWGXF22HF19PMHFB34ET2A/1x.avif")
-            1x,
-        url("https://cdn.7tv.app/paint/01KA84S7GDS77JGK2RRG7ZZ946/layer/01KAMWGXF22HF19PMHFB34ET2A/2x.avif")
-            2x,
-        url("https://cdn.7tv.app/paint/01KA84S7GDS77JGK2RRG7ZZ946/layer/01KAMWGXF22HF19PMHFB34ET2A/3x.avif")
-            3x,
-        url("https://cdn.7tv.app/paint/01KA84S7GDS77JGK2RRG7ZZ946/layer/01KAMWGXF22HF19PMHFB34ET2A/4x.avif")
-            4x
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 3.5px rgba(196, 139, 9, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01JB025A5YPQJFQECGG41WWGY5"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        circle,
-        rgba(255, 245, 245, 1) 20%,
-        rgba(153, 255, 122, 1) 35%,
-        rgba(51, 255, 156, 1) 70%,
-        rgba(51, 255, 194, 1) 100%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(153, 255, 122, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01JDMG54FXCJ617Q8NG9QVY2JV"] {
-    color: inherit !important;
-    background-image: linear-gradient(
-        0deg,
-        rgba(133, 104, 74, 1) 0%,
-        rgba(133, 104, 74, 1) 25%,
-        rgba(201, 175, 134, 1) 25%,
-        rgba(201, 175, 134, 1) 50%,
-        rgba(253, 240, 220, 1) 50%,
-        rgba(253, 240, 220, 1) 75%,
-        rgba(159, 75, 35, 1) 100%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 1px rgba(159, 75, 35, 1))
-        drop-shadow(0px 0px 0.5px rgba(211, 188, 150, 1)) !important;
+color: inherit !important;
+background-image: radial-gradient(circle, rgba(64, 108, 196, 1.000) 15%, rgba(34, 94, 191, 1.000) 35%, rgba(255, 255, 255, 1.000) 60%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 1px 0.1px rgba(154, 211, 254, 1.000)) drop-shadow(0px 0px 3px rgba(0, 110, 255, 1.000)) !important;
 }
 .chat .item .user a[data-seventv-paint-id="01K6ZYWT597ZQ7TEDRT26R5BNM"] {
-    color: inherit !important;
-    background-image: image-set(
-        url("https://cdn.7tv.app/paint/01K6ZYWT597ZQ7TEDRT26R5BNM/layer/01K8W5RJAQ183DG7Y1D450VVTF/1x.avif")
-            1x,
-        url("https://cdn.7tv.app/paint/01K6ZYWT597ZQ7TEDRT26R5BNM/layer/01K8W5RJAQ183DG7Y1D450VVTF/2x.avif")
-            2x,
-        url("https://cdn.7tv.app/paint/01K6ZYWT597ZQ7TEDRT26R5BNM/layer/01K8W5RJAQ183DG7Y1D450VVTF/3x.avif")
-            3x,
-        url("https://cdn.7tv.app/paint/01K6ZYWT597ZQ7TEDRT26R5BNM/layer/01K8W5RJAQ183DG7Y1D450VVTF/4x.avif")
-            4x
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: inherit !important;
+color: inherit !important;
+background-image: image-set(url("https://cdn.7tv.app/paint/01K6ZYWT597ZQ7TEDRT26R5BNM/layer/01K8W5RJAQ183DG7Y1D450VVTF/1x.avif") 1x, url("https://cdn.7tv.app/paint/01K6ZYWT597ZQ7TEDRT26R5BNM/layer/01K8W5RJAQ183DG7Y1D450VVTF/2x.avif") 2x, url("https://cdn.7tv.app/paint/01K6ZYWT597ZQ7TEDRT26R5BNM/layer/01K8W5RJAQ183DG7Y1D450VVTF/3x.avif") 3x, url("https://cdn.7tv.app/paint/01K6ZYWT597ZQ7TEDRT26R5BNM/layer/01K8W5RJAQ183DG7Y1D450VVTF/4x.avif") 4x) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: inherit !important;
 }
-.chat .item .user a[data-seventv-paint-id="01KQARKPY5QDJTKEQ4SST2450F"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        circle,
-        rgba(99, 99, 99, 1) 0%,
-        rgba(54, 54, 54, 1) 27%,
-        rgba(254, 247, 241, 1) 36%,
-        rgba(251, 251, 251, 1) 65%,
-        rgba(69, 69, 69, 1) 80%,
-        rgba(54, 54, 54, 1) 100%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 3px rgba(18, 18, 18, 1)) !important;
-}
-.chat .item .user a[data-seventv-paint-id="01K1BPH75HG2B1P7RF4TQ8VG51"] {
-    color: inherit !important;
-    background-image: linear-gradient(
-        0deg,
-        rgba(112, 36, 255, 1) 23%,
-        rgba(0, 255, 238, 1) 61%,
-        rgba(0, 255, 179, 1) 73%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(52, 193, 254, 1)) !important;
+.chat .item .user a[data-seventv-paint-id="01K8RGJWPP72DXJHCT2PEW2VMW"] {
+color: inherit !important;
+background-image: radial-gradient(circle, rgba(215, 248, 254, 1.000) 0%, rgba(20, 255, 255, 1.000) 21%, rgba(0, 179, 179, 1.000) 43%, rgba(153, 153, 153, 1.000) 57.99999999999999%, rgba(255, 255, 255, 1.000) 78%, rgba(99, 99, 99, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 4px rgba(99, 99, 99, 1.000)) !important;
 }
 .chat .item .user a[data-seventv-paint-id="01KAJ3AVYAAKFSPZ5B05AB42WZ"] {
-    color: inherit !important;
-    background-image: image-set(
-        url("https://cdn.7tv.app/paint/01KAJ3AVYAAKFSPZ5B05AB42WZ/layer/01KAJ3AVYA570TMQBWHCBCEKCC/1x.avif")
-            1x,
-        url("https://cdn.7tv.app/paint/01KAJ3AVYAAKFSPZ5B05AB42WZ/layer/01KAJ3AVYA570TMQBWHCBCEKCC/2x.avif")
-            2x,
-        url("https://cdn.7tv.app/paint/01KAJ3AVYAAKFSPZ5B05AB42WZ/layer/01KAJ3AVYA570TMQBWHCBCEKCC/3x.avif")
-            3x,
-        url("https://cdn.7tv.app/paint/01KAJ3AVYAAKFSPZ5B05AB42WZ/layer/01KAJ3AVYA570TMQBWHCBCEKCC/4x.avif")
-            4x
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0.7px 0.7px 0.2px rgba(255, 158, 0, 1)) !important;
+color: inherit !important;
+background-image: image-set(url("https://cdn.7tv.app/paint/01KAJ3AVYAAKFSPZ5B05AB42WZ/layer/01KAJ3AVYA570TMQBWHCBCEKCC/1x.avif") 1x, url("https://cdn.7tv.app/paint/01KAJ3AVYAAKFSPZ5B05AB42WZ/layer/01KAJ3AVYA570TMQBWHCBCEKCC/2x.avif") 2x, url("https://cdn.7tv.app/paint/01KAJ3AVYAAKFSPZ5B05AB42WZ/layer/01KAJ3AVYA570TMQBWHCBCEKCC/3x.avif") 3x, url("https://cdn.7tv.app/paint/01KAJ3AVYAAKFSPZ5B05AB42WZ/layer/01KAJ3AVYA570TMQBWHCBCEKCC/4x.avif") 4x) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0.7px 0.7px 0.2px rgba(255, 158, 0, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KB62NJSY5DR1Y7H8GAY8C4C6"] {
+color: inherit !important;
+background-image: linear-gradient(180deg, rgba(255, 190, 237, 1.000) 0%, rgba(255, 122, 228, 1.000) 35%, rgba(249, 229, 245, 1.000) 45%, rgba(251, 229, 245, 1.000) 56.99999999999999%, rgba(0, 255, 238, 1.000) 82%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(242, 132, 227, 1.000)) drop-shadow(0px 0px 3px rgba(206, 115, 194, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KDP2BCYQH80NJRS84B0CV4DF"] {
+color: inherit !important;
+background-image: radial-gradient(ellipse, rgba(255, 255, 255, 1.000) 30%, rgba(184, 255, 247, 1.000) 40%, rgba(101, 119, 139, 1.000) 65%, rgba(77, 101, 111, 1.000) 80%, rgba(70, 134, 129, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(45, 109, 113, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KDREVNA4XVTD3G04PWWDQMGF"] {
+color: inherit !important;
+background-image: linear-gradient(45deg, rgba(156, 40, 169, 1.000) 0%, rgba(239, 92, 255, 1.000) 20%, rgba(92, 255, 154, 1.000) 40%, rgba(77, 255, 237, 1.000) 60%, rgba(34, 89, 109, 1.000) 80%, rgba(34, 89, 109, 1.000) 100%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(124, 251, 237, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KG85YVKV7YPFC98TMTB8QD1F"] {
+color: inherit !important;
+background-image: linear-gradient(118deg, rgba(242, 204, 64, 1.000) 21%, rgba(240, 232, 166, 1.000) 32%, rgba(242, 90, 63, 1.000) 49%, rgba(215, 121, 207, 1.000) 57.99999999999999%, rgba(253, 180, 254, 1.000) 74%, rgba(255, 0, 111, 1.000) 89%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 2px rgba(255, 0, 123, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KJC4X1AX612462QN89EH0R5J"] {
+color: inherit !important;
+background-image: linear-gradient(150deg, rgba(248, 244, 236, 1.000) 35%, rgba(255, 143, 183, 1.000) 37%, rgba(232, 60, 145, 1.000) 61%, rgba(67, 51, 79, 1.000) 65%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 1px 0.1px rgba(65, 60, 93, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KJC6HFRW7SXNVEX17QG57CTT"] {
+color: inherit !important;
+background-image: repeating-radial-gradient(circle, rgba(255, 170, 0, 1.000) 0%, rgba(255, 0, 89, 1.000) 24%, rgba(153, 0, 77, 1.000) 28.000000000000004%, rgba(89, 89, 89, 1.000) 38%, rgba(255, 255, 255, 1.000) 44%, rgba(255, 255, 255, 1.000) 47%, rgba(201, 201, 201, 1.000) 50%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(0, 0, 0, 1.000)) drop-shadow(0px 0px 1.1px rgba(71, 0, 0, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KMVHRGY2PX88R5TDK354RW33"] {
+color: inherit !important;
+background-image: linear-gradient(137deg, rgba(255, 255, 255, 1.000) 50%, rgba(144, 192, 254, 1.000) 50%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 1px 0.1px rgba(159, 200, 254, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KQ92ZQRGHYMNGXYNTVYF5AEB"] {
+color: inherit !important;
+background-image: linear-gradient(360deg, rgba(254, 1, 154, 1.000) 25%, rgba(252, 112, 142, 1.000) 40%, rgba(245, 166, 124, 1.000) 50%, rgba(231, 212, 94, 1.000) 59%, rgba(207, 255, 4, 1.000) 80%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 4px rgba(255, 0, 187, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KSWJZBQBXFD3RKXKCB3NJQG9"] {
+color: inherit !important;
+background-image: linear-gradient(180deg, rgba(255, 199, 69, 1.000) 14.000000000000002%, rgba(245, 151, 44, 1.000) 28.999999999999996%, rgba(255, 77, 0, 1.000) 46%, rgba(236, 254, 252, 1.000) 61%, rgba(2, 210, 237, 1.000) 84%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(241, 85, 114, 1.000)) !important;
 }
 .chat .item .user a[data-seventv-paint-id="01KSWWQGADNZAA4S0JKBZXSFP9"] {
-    color: inherit !important;
-    background-image: radial-gradient(
-        circle,
-        rgba(0, 55, 255, 1) 0%,
-        rgba(0, 251, 255, 1) 25%,
-        rgba(0, 255, 42, 1) 45%,
-        rgba(251, 255, 0, 1) 60%,
-        rgba(255, 0, 162, 1) 90%
-    ) !important;
-    background-size: 100% 100% !important;
-    background-repeat: unset !important;
-    filter: drop-shadow(0px 0px 0.1px rgba(0, 55, 255, 1)) !important;
+color: inherit !important;
+background-image: radial-gradient(circle, rgba(0, 55, 255, 1.000) 0%, rgba(0, 251, 255, 1.000) 25%, rgba(0, 255, 42, 1.000) 45%, rgba(251, 255, 0, 1.000) 60%, rgba(255, 0, 162, 1.000) 90%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 0.1px rgba(0, 55, 255, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KV4PWWEZCAEW63A9EPPAYTNE"] {
+color: inherit !important;
+background-image: image-set(url("https://cdn.7tv.app/paint/01KV4PWWEZCAEW63A9EPPAYTNE/layer/01KV4QBDYP2ZMXH8KJ6VMP3NNM/1x.avif") 1x, url("https://cdn.7tv.app/paint/01KV4PWWEZCAEW63A9EPPAYTNE/layer/01KV4QBDYP2ZMXH8KJ6VMP3NNM/2x.avif") 2x, url("https://cdn.7tv.app/paint/01KV4PWWEZCAEW63A9EPPAYTNE/layer/01KV4QBDYP2ZMXH8KJ6VMP3NNM/3x.avif") 3x, url("https://cdn.7tv.app/paint/01KV4PWWEZCAEW63A9EPPAYTNE/layer/01KV4QBDYP2ZMXH8KJ6VMP3NNM/4x.avif") 4x) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KW7H0JWNJB13QMYWX7388149"] {
+color: inherit !important;
+background-image: repeating-radial-gradient(ellipse, rgba(31, 89, 224, 1.000) 0%, rgba(0, 251, 255, 1.000) 21%, rgba(0, 95, 143, 1.000) 35%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 0px 4px rgba(0, 98, 255, 1.000)) !important;
+}
+.chat .item .user a[data-seventv-paint-id="01KW7KH09JXWYBNGFCBJMWDQYH"] {
+color: inherit !important;
+background-image: linear-gradient(180deg, rgba(185, 87, 34, 1.000) 25%, rgba(187, 90, 48, 1.000) 40%, rgba(79, 37, 46, 1.000) 70%) !important;
+background-size: 100% 100% !important;
+background-repeat: unset !important;
+filter: drop-shadow(0px 1px 0.1px rgba(60, 37, 55, 1.000)) !important;
 }
