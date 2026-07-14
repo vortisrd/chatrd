@@ -316,15 +316,18 @@ async function kickChatMessage(data) {
 
     if (userSlug == kickUserName) classes.push('streamer');
 
-    const [avatarImage, messageHTML, badgesHTML] = await Promise.all([
+    const [avatarImage, messageHTML, badgesHTML, badgesHTMLV2, roles] = await Promise.all([
         getKickAvatar(data.sender.slug),
         getKickEmotes(data.content),
         getKickBadges(data.sender.identity.badges),
+        getKickBadgesV2(data.sender.identity.badges_v2),
+        getKickRoles(data.sender.identity.badges)
     ]);
 
     header.remove();
     firstMessage.remove();
 
+    classes.push(...roles);
         
     if (!kickStreamer.broadcasterUserName) {
         const streamerInfo = await getStreamerInfo();
@@ -349,9 +352,9 @@ async function kickChatMessage(data) {
 
     if (showAvatar) avatar.innerHTML = `<img src="${avatarImage}">`; else avatar.remove();
     if (showBadges) {
-        if (!badgesHTML) { badges.remove(); }
-        else { badges.innerHTML = badgesHTML; }
-     }
+        if ((!badgesHTML) && (!badgesHTMLV2)) { badges.remove(); }
+        else { badges.innerHTML = badgesHTMLV2 + badgesHTML; }
+    }
     else { badges.remove(); }
 
     if (data.type == "reply") {
@@ -821,6 +824,20 @@ async function getKick7TVEmotes(userId) {
     }
 }
 
+
+
+async function getKickRoles(roles) {
+    const rolesArray = [];
+    
+    roles.forEach(role => {
+        rolesArray.push(role.type);
+    });
+
+    return rolesArray;
+}
+
+
+
 async function getKickBadges(badges) {
     const badgesArray = [];
     
@@ -834,10 +851,26 @@ async function getKickBadges(badges) {
                 .filter(badge => badge.months <= targetMonths)
                 .sort((a, b) => b.months - a.months); // sorts from highest to lowest
 
-            badgesArray.push(`<img src="${eligibleBadges[0]?.badge_image?.src || 'icons/badges/kick-subscriber.svg'}" class="badge">`);
+            badgesArray.push(`<img src="${eligibleBadges[0]?.badge_image?.src || 'js/modules/kick/images/badge-subscriber.svg'}" class="badge">`);
         }
         else {
             badgesArray.push(`<img src="js/modules/kick/images/badge-${badge.type}.svg" class="badge">`);
+        }
+    });
+
+    return badgesArray.join(' ');
+}
+
+async function getKickBadgesV2(badges) {
+
+    const badgesArray = [];
+    
+    badges.forEach(badge => {
+        if (badge.badge_type === 'global') {
+            if (badge.selected == true) {
+                badgesArray.push(`<img src="${escapeHTML(badge.image_url)}" class="badge">`);
+            }
+
         }
     });
 

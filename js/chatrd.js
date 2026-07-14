@@ -47,10 +47,10 @@ const loadedEmotes = new Set();
 
 /* ✅ Explicit whitelist */
 const SKINS = {
-    default: "skin-default.css?nocache=35",
-    nutting: "skin-nutting.css?nocache=35",
-    kimballs: "skin-kimballs.css?nocache=35",
-    bubbles: "skin-bubbles.css?nocache=35"
+    default: "skin-default.css?nocache=36",
+    nutting: "skin-nutting.css?nocache=36",
+    kimballs: "skin-kimballs.css?nocache=36",
+    bubbles: "skin-bubbles.css?nocache=36"
 };
 
 const skinFile = SKINS[chatrdSkin] || SKINS.default;
@@ -831,6 +831,7 @@ async function executeModCommand(event, command) {
     chatInputForm.requestSubmit();
 }
 
+
 async function getAndReplaceLinks(el) {
   const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
   const urlRegex = /\b((?:https?:\/\/|www\.)[^\s<>"')]+)\b/g;
@@ -883,6 +884,9 @@ async function getAndReplaceLinks(el) {
     node.parentNode.replaceChild(frag, node);
   });
 }
+
+
+
 
 
 const _escapeDiv = document.createElement('div');
@@ -1126,6 +1130,7 @@ function chatGhostRezise() {
     const chatWidth = `${chat.offsetWidth}px`;
     chatGhost.style.width = chat.offsetWidth + 'px';
 }
+
 
 function adjustScreenMediaQuery() {
     const chat = document.getElementById('chat');

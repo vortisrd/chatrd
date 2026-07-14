@@ -167,6 +167,12 @@ async function youTubeChatMessage(data) {
     if (showAvatar) avatar.innerHTML = `<img src="${data.user.profileImageUrl}">`; else avatar.remove();
     if (showBadges) badges.innerHTML = badgeList; else badges.remove();
 
+
+    if (data.user.isSponsor) { classes.push('subscriber'); }
+    if (data.user.isModerator) { classes.push('moderator'); }
+    if (data.user.isVerified) { classes.push('verified'); }
+
+    
     if (data.user.isOwner) {
         classes.push('streamer');
         userLinkElement.style = `--user-color: #000000`;

@@ -269,7 +269,10 @@ async function twitchChatMessage(data) {
 
     if (showAvatar) avatar.innerHTML = `<img src="${avatarImage}">`; else avatar.remove();
     if (showBadges) badges.innerHTML = badgeList; else badges.remove();
-
+    
+    if (data.user.subscribed == true) { classes.push('subscriber'); }
+    if (data.user.role == 2) { classes.push('vip'); }
+    if (data.user.role == 3) { classes.push('moderator'); }
     if (data.user.role == 4) { classes.push('streamer'); }
 
     if (data.meta.firstMessage) {
@@ -282,7 +285,6 @@ async function twitchChatMessage(data) {
         classes.push('highlighted');
     }
     
-
     if (data.isReply == true) {
         classes.push('reply');
 
@@ -1992,7 +1994,7 @@ async function getTwitchMessageFromParts(parts) {
                 case 'BetterTTV':       url = url.replace('/3x', '/1x'); break;
             }
 
-            return `<img src="${url}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}" class="emote">`;
+            return `<img src="${escapeHTML(url)}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}" class="emote">`;
         }
 
         if (part.type === 'cheer') {
