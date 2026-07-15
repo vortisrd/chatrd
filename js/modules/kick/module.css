@@ -13,7 +13,7 @@
 
 
 .chat .item.kick.streamer-mentioned .message {
-    background: rgba(72,212,21,0.75);
+    background: rgba(72,212,21,0.35);
 }
 
 .chat .item.kick .info .avatar { position: relative; }
