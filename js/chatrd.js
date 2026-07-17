@@ -64,10 +64,10 @@ const loadedEmotes = new Set();
 
 /* ✅ Explicit whitelist */
 const SKINS = {
-    default: "skin-default.css?nocache=38",
-    nutting: "skin-nutting.css?nocache=38",
-    kimballs: "skin-kimballs.css?nocache=38",
-    bubbles: "skin-bubbles.css?nocache=38"
+    default: "skin-default.css?nocache=39",
+    nutting: "skin-nutting.css?nocache=39",
+    kimballs: "skin-kimballs.css?nocache=39",
+    bubbles: "skin-bubbles.css?nocache=39"
 };
 
 const skinFile = SKINS[chatrdSkin] || SKINS.default;
@@ -871,6 +871,38 @@ async function getAndReplaceLinks(platform, element) {
 		}
 	}
 
+	// percorre recursivamente e coleta todo "conteúdo significativo" da mensagem:
+	// texto não-vazio conta, e qualquer elemento "folha" (img de emote, br, etc.) também conta,
+	// já que ele representa conteúdo extra além do link
+	function collectMeaningfulNodes(node, out) {
+		if (node.nodeType === Node.TEXT_NODE) {
+			if (node.nodeValue.trim().length > 0) out.push(node);
+			return;
+		}
+		if (node.nodeType === Node.ELEMENT_NODE) {
+			if (node.childNodes.length === 0) {
+				out.push(node); // ex: <img> de emote
+				return;
+			}
+			for (const child of node.childNodes) {
+				collectMeaningfulNodes(child, out);
+			}
+		}
+	}
+
+	// se a mensagem inteira tiver exatamente UM nó significativo, e esse nó for
+	// o texto do link, então (e só então) a mensagem inteira é "apenas um link"
+	function getWholeMessageTextNode(root) {
+		const meaningful = [];
+		collectMeaningfulNodes(root, meaningful);
+		if (meaningful.length === 1 && meaningful[0].nodeType === Node.TEXT_NODE) {
+			return meaningful[0];
+		}
+		return null;
+	}
+
+	const wholeMessageTextNode = getWholeMessageTextNode(el);
+
 	// cria o <a> normal (fallback e caso padrão)
 	function createLink(cleanUrl) {
 		const a = document.createElement('a');
@@ -893,7 +925,6 @@ async function getAndReplaceLinks(platform, element) {
 			proxiedSrc = 'https://external-content.duckduckgo.com/iu/?u=' + encodeURIComponent(urlObj.toString());
 		}
 		catch {
-			// URL inválida, não cria imagem
 			return null;
 		}
 
@@ -901,7 +932,6 @@ async function getAndReplaceLinks(platform, element) {
 		img.classList.add('embedded');
 		img.src = proxiedSrc;
 
-		// se der erro (404, CORS, etc), substitui pelo link normal
 		img.onerror = () => {
 			img.replaceWith(createLink(rawUrl));
 		};
@@ -912,8 +942,9 @@ async function getAndReplaceLinks(platform, element) {
 	nodes.forEach(node => {
 		const text = node.nodeValue;
 
-		// só é candidato a imagem se o nó inteiro (sem espaços nas pontas) for exclusivamente o link
-		const isWholeMessageLink = singleUrlRegex.test(text.trim());
+		// só é candidato a imagem se ESSE nó for o único conteúdo significativo
+		// da mensagem inteira E ele mesmo, sozinho, for exclusivamente o link
+		const isWholeMessageLink = node === wholeMessageTextNode && singleUrlRegex.test(text.trim());
 
 		let match, lastIndex = 0;
 		const frag = document.createDocumentFragment();
@@ -921,7 +952,6 @@ async function getAndReplaceLinks(platform, element) {
 		while ((match = urlRegex.exec(text))) {
 			const raw = match[1];
 
-			// texto antes do link
 			if (match.index > lastIndex) {
 				frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
 			}
@@ -941,16 +971,11 @@ async function getAndReplaceLinks(platform, element) {
 
 			if (isImage) {
 				const img = createProxiedImage(clean);
-				if (img) {
-					frag.appendChild(img);
-				} else {
-					frag.appendChild(createLink(clean));
-				}
+				frag.appendChild(img ?? createLink(clean));
 			} else {
 				frag.appendChild(createLink(clean));
 			}
 
-			// se tinha pontuação colada, mantém
 			if (clean.length < raw.length) {
 				frag.appendChild(document.createTextNode(raw.slice(clean.length)));
 			}
@@ -958,7 +983,7 @@ async function getAndReplaceLinks(platform, element) {
 			lastIndex = match.index + raw.length;
 		}
 
-		if (lastIndex === 0) return; // nada casou
+		if (lastIndex === 0) return;
 
 		if (lastIndex < text.length) {
 			frag.appendChild(document.createTextNode(text.slice(lastIndex)));
