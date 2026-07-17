@@ -74,7 +74,9 @@
     "chat_field_hint": "Adds a chat field for you to type in your chat.",
     "moderation_buttons": "Moderation Buttons",
     "moderation_buttons_hint": "Adds buttons for moderator actions.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> The Chat Field also accepts <strong>/commands</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Commands Supported</a>.</strong>"
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> The Chat Field also accepts <strong>/commands</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Commands Supported</a>.</strong>",
+    "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Be careful when enabling this.</u></strong> Your viewers might post images that are against the platform's Terms of Service and you could face penalties. <strong>You have been warned!</strong>",
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Embedding Permissions<br><small>Select which roles would be able to embed images.</small>"
   },
 
   "twitch": {
@@ -113,7 +115,8 @@
     "pronouns": "Pronouns",
     "pronouns_hint": "Shows Pronouns to those whom enabled them on Twitch chat.",
     "statistics": "Statistics",
-    "statistics_hint": "Shows Twitch Viewers."
+    "statistics_hint": "Shows Twitch Viewers.",
+    "embed_images_label" : "Twitch Embedded Images<br><small>Turn image links into embedded images in ChatRD.</small>"
   },
 
   "youtube": {
@@ -134,7 +137,8 @@
     "statistics_hint": "Shows YouTube Viewers and Likes.",
     "custom_emotes_label": "Members Only Emotes",
     "custom_emotes_hint": "You have to add member emotes manually because YouTube's API doesn't relay them to Streamer.bot.",
-    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Don't</strong> use Discord, Imgur or any temporary image hosting platforms to host your emotes. You could right click on the emote image on YouTube and copy the image URL 😊"
+    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Don't</strong> use Discord, Imgur or any temporary image hosting platforms to host your emotes. You could right click on the emote image on YouTube and copy the image URL 😊",
+    "embed_images_label" : "YouTube Embedded Images<br><small>Turn image links into embedded images in ChatRD.</small>"
   },
 
   "tiktok": {
@@ -156,7 +160,8 @@
     "superfans": "SuperFans/Subscribers",
     "statistics": "Statistics",
     "statistics_hint": "Shows TikTok Viewers and Likes.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> If you have <strong>Chat Field</strong> enabled, you need to <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">follow the instructions</a></strong> to send messages to TikTok."
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> If you have <strong>Chat Field</strong> enabled, you need to <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">follow the instructions</a></strong> to send messages to TikTok.",
+    "embed_images_label" : "TikTok Embedded Images<br><small>Turn image links into embedded images in ChatRD.</small>"
   },
 
   "kick": {
@@ -182,7 +187,8 @@
     "raids": "Host",
     "raids_hint": "It's like \"raid\" but on Kick.",
     "statistics": "Statistics",
-    "statistics_hint": "Shows Kick Viewers."
+    "statistics_hint": "Shows Kick Viewers.",
+    "embed_images_label" : "Kick Embedded Images<br><small>Turn image links into embedded images in ChatRD.</small>"
   },
 
   "streamelements": {

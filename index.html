@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@11.2.3/public/assets/styles/choices.min.css">-->
+
+    <link rel="stylesheet" href="js/libs/mchoice/multi-choice-field.css">
     <link rel="stylesheet" href="css/settings.css">
 </head>
 <body>
@@ -149,11 +152,6 @@
                                     <option value="bubbles" data-i18n="general.skin_options.bubbles">Bubbles</option>
                                 </select>
                             </label>
-                        </div>
-                        <div class="config">
-                            <small class="warning" data-i18n-html="general.skin_beta_warning">
-                                <i class="fa-solid fa-circle-info"></i> ChatRD Skin is in <strong>BETA</strong>.
-                            </small>
                         </div>
                         
                         <hr>
@@ -401,6 +399,22 @@
                         </div>
                         <hr>
                         <div class="config">
+                            <label data-i18n-html="twitch.embed_images_label">Twitch Embedded Images<br><small>Turn image links into embedded images in ChatRD.</small></label>
+                            <label class="switch"><input type="checkbox" name="showTwitchEmbedImages" data-default="false"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label data-i18n-html="general.embedding_roles"><i class="fa-solid fa-arrow-turn-up"></i> Embedding Permissions<br><small>Select which roles would be able to embed images.</small></label>
+                        </div>
+                        <div class="config full">
+                            <input type="text" name="twitchEmbedImageRoles" id="twitchEmbedImageRoles" value="streamer,moderator" data-default="streamer,moderator" placeholder="Select Permissions">
+                        </div>
+                        <div class="config">
+                            <small class="warning" data-i18n-html="general.embed_image_warning">
+                                <i class="fa-solid fa-triangle-exclamation"></i> <strong><u>Be careful when enabling this.</u></strong> Your viewers might post images that are against the platform's Terms of Service and you could face penalties. <strong>You have been warned!</strong>
+                            </small>
+                        </div>
+                        <hr>
+                        <div class="config">
                             <label data-i18n="twitch.hype_train_section">Hype Train</label>
                         </div>
                         <div class="config">
@@ -505,6 +519,23 @@
                             </label>
                             <label class="switch"><input type="checkbox" name="showYouTubeMembershipsTrain" checked data-default="true"><span class="slider"></span></label>
                         </div>
+                        <hr>
+                        <div class="config">
+                            <label data-i18n-html="youtube.embed_images_label">YouTube Embedded Images<br><small>Turn image links into embedded images in ChatRD.</small></label>
+                            <label class="switch"><input type="checkbox" name="showYouTubeEmbedImages" data-default="false"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label data-i18n-html="general.embedding_roles"><i class="fa-solid fa-arrow-turn-up"></i> Embedding Permissions<br><small>Select which roles would be able to embed images.</small></label>
+                        </div>
+                        <div class="config full">
+                            <input type="text" name="youtubeEmbedImageRoles" id="youtubeEmbedImageRoles" value="streamer,moderator" data-default="streamer,moderator" placeholder="Select Permissions">
+                        </div>
+                        <div class="config">
+                            <small class="warning" data-i18n-html="general.embed_image_warning">
+                                <i class="fa-solid fa-triangle-exclamation"></i> <strong><u>Be careful when enabling this.</u></strong> Your viewers might post images that are against the platform's Terms of Service and you could face penalties. <strong>You have been warned!</strong>
+                            </small>
+                        </div>
+                        <hr>
                         <div class="config">
                             <label>
                                 <span data-i18n="youtube.statistics">Statistics</span><br>
@@ -531,83 +562,6 @@
                         <div class="config">
                             <small class="warning" data-i18n-html="youtube.custom_emote_information">
                                 <i class="fa-solid fa-circle-info"></i> <strong>Don't</strong> use Discord, Imgur or any temporary image hosting platforms to host your emotes. You could right click on the emote image on YouTube and copy the image URL 😊
-                            </small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── TikTok ─────────────────────────────────────────────── -->
-                <div class="platform" id="tiktok">
-                    <div class="config">
-                        <h2><img src="js/modules/tiktok/images/logo-tiktok.svg"><span data-i18n="tiktok.title">TikTok</span></h2>
-                        <div class="platform-enable">
-                            <label><small data-i18n="tiktok.enable">Enable</small></label>
-                            <label class="switch">
-                                <input type="checkbox" name="showTiktok" data-default="false"><span class="slider"></span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="setup" style="overflow: hidden; transition: max-height 0.4s, opacity 0.4s; display: none; max-height: 0px; opacity: 0;">
-                        <div class="config">
-                            <label>
-                                <span data-i18n="tiktok.chat">Chat</span><br>
-                                <small data-i18n="tiktok.chat_hint">Reads TikTok chat.</small>
-                            </label>
-                            <label class="switch"><input type="checkbox" name="showTikTokMessages" checked data-default="true"><span class="slider"></span></label>
-                        </div>
-                        <div class="config">
-                            <label data-i18n="tiktok.followers">Followers</label>
-                            <label class="switch"><input type="checkbox" name="showTikTokFollows" checked data-default="true"><span class="slider"></span></label>
-                        </div>
-                        <div class="config">
-                            <label>
-                                <span data-i18n="tiktok.likes">Likes</span><br>
-                                <small data-i18n-html="tiktok.likes_hint">Shows likes in <strong>15</strong> increments. Why? <em>Blame TikFinity!</em> 🤣</small>
-                            </label>
-                            <label class="switch"><input type="checkbox" name="showTikTokLikes" data-default="false"><span class="slider"></span></label>
-                        </div>
-                        <div class="config">
-                            <label>
-                                <span data-i18n="tiktok.joins">Joins</span><br>
-                                <small data-i18n="tiktok.joins_hint">Shows who joined chat at the bottom of the widget.</small>
-                            </label>
-                            <label class="switch"><input type="checkbox" name="showTikTokJoins" data-default="false"><span class="slider"></span></label>
-                        </div>
-                        <div class="config">
-                            <label>
-                                <span data-i18n="tiktok.shares">Shares</span><br>
-                                <small data-i18n="tiktok.shares_hint">Shows who shared -or clicks the "Share" button- to the stream.</small>
-                            </label>
-                            <label class="switch"><input type="checkbox" name="showTikTokShares" data-default="false"><span class="slider"></span></label>
-                        </div>
-                        <div class="config">
-                            <label>
-                                <span data-i18n="tiktok.gifts">Gifts</span><br>
-                                <small data-i18n="tiktok.gifts_hint">Shows TikTok Gifts, such as roses, galaxies, etc.</small>
-                            </label>
-                            <label class="switch"><input type="checkbox" name="showTikTokGifts" checked data-default="true"><span class="slider"></span></label>
-                        </div>
-                        <div class="config">
-                            <label>
-                                <span data-i18n-html="tiktok.small_gifts"><i class="fa-solid fa-arrow-turn-up"></i> Small Gift Images</span><br>
-                                <small data-i18n="tiktok.small_gifts_hint">Shrinks the size of the gift image to 28px.</small>
-                            </label>
-                            <label class="switch"><input type="checkbox" name="showSmallTikTokGifts" data-default="false"><span class="slider"></span></label>
-                        </div>
-                        <div class="config">
-                            <label data-i18n="tiktok.superfans">SuperFans/Subscribers</label>
-                            <label class="switch"><input type="checkbox" name="showTikTokSubs" checked data-default="true"><span class="slider"></span></label>
-                        </div>
-                        <div class="config">
-                            <label>
-                                <span data-i18n="tiktok.statistics">Statistics</span><br>
-                                <small data-i18n="tiktok.statistics_hint">Shows TikTok Viewers and Likes.</small>
-                            </label>
-                            <label class="switch"><input type="checkbox" name="showTikTokStatistics" checked data-default="true"><span class="slider"></span></label>
-                        </div> 
-                        <div class="config">
-                            <small class="warning" data-i18n-html="tiktok.chat_field_warning">
-                                <i class="fa-solid fa-circle-info"></i> If you have <strong>Chat Field</strong> enabled, you need to <strong><a target="_blank" href="https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok">follow the instructions</a></strong> to send messages to TikTok.
                             </small>
                         </div>
                     </div>
@@ -695,12 +649,123 @@
                             </label>
                             <label class="switch"><input type="checkbox" name="showKickRaids" checked data-default="true"><span class="slider"></span></label>
                         </div>
+                        <hr>
+                        <div class="config">
+                            <label data-i18n-html="kick.embed_images_label">Kick Embedded Images<br><small>Turn image links into embedded images in ChatRD.</small></label>
+                            <label class="switch"><input type="checkbox" name="showKickEmbedImages" data-default="false"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label data-i18n-html="general.embedding_roles"><i class="fa-solid fa-arrow-turn-up"></i> Embedding Permissions<br><small>Select which roles would be able to embed images.</small></label>
+                        </div>
+                        <div class="config full">
+                            <input type="text" name="kickEmbedImageRoles" id="kickEmbedImageRoles" value="broadcaster,moderator" data-default="broadcaster,moderator" placeholder="Select Permissions">
+                        </div>
+                        <div class="config">
+                            <small class="warning" data-i18n-html="general.embed_image_warning">
+                                <i class="fa-solid fa-triangle-exclamation"></i> <strong><u>Be careful when enabling this.</u></strong> Your viewers might post images that are against the platform's Terms of Service and you could face penalties. <strong>You have been warned!</strong>
+                            </small>
+                        </div>
+                        <hr>
                         <div class="config">
                             <label>
                                 <span data-i18n="kick.statistics">Statistics</span><br>
                                 <small data-i18n-html="kick.statistics_hint">Shows Kick Viewers.</small>
                             </label>
                             <label class="switch"><input type="checkbox" name="showKickViewers" checked data-default="true"><span class="slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── TikTok ─────────────────────────────────────────────── -->
+                <div class="platform" id="tiktok">
+                    <div class="config">
+                        <h2><img src="js/modules/tiktok/images/logo-tiktok.svg"><span data-i18n="tiktok.title">TikTok</span></h2>
+                        <div class="platform-enable">
+                            <label><small data-i18n="tiktok.enable">Enable</small></label>
+                            <label class="switch">
+                                <input type="checkbox" name="showTiktok" data-default="false"><span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="setup" style="overflow: hidden; transition: max-height 0.4s, opacity 0.4s; display: none; max-height: 0px; opacity: 0;">
+                        <div class="config">
+                            <label>
+                                <span data-i18n="tiktok.chat">Chat</span><br>
+                                <small data-i18n="tiktok.chat_hint">Reads TikTok chat.</small>
+                            </label>
+                            <label class="switch"><input type="checkbox" name="showTikTokMessages" checked data-default="true"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label data-i18n="tiktok.followers">Followers</label>
+                            <label class="switch"><input type="checkbox" name="showTikTokFollows" checked data-default="true"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label>
+                                <span data-i18n="tiktok.likes">Likes</span><br>
+                                <small data-i18n-html="tiktok.likes_hint">Shows likes in <strong>15</strong> increments. Why? <em>Blame TikFinity!</em> 🤣</small>
+                            </label>
+                            <label class="switch"><input type="checkbox" name="showTikTokLikes" data-default="false"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label>
+                                <span data-i18n="tiktok.joins">Joins</span><br>
+                                <small data-i18n="tiktok.joins_hint">Shows who joined chat at the bottom of the widget.</small>
+                            </label>
+                            <label class="switch"><input type="checkbox" name="showTikTokJoins" data-default="false"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label>
+                                <span data-i18n="tiktok.shares">Shares</span><br>
+                                <small data-i18n="tiktok.shares_hint">Shows who shared -or clicks the "Share" button- to the stream.</small>
+                            </label>
+                            <label class="switch"><input type="checkbox" name="showTikTokShares" data-default="false"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label>
+                                <span data-i18n="tiktok.gifts">Gifts</span><br>
+                                <small data-i18n="tiktok.gifts_hint">Shows TikTok Gifts, such as roses, galaxies, etc.</small>
+                            </label>
+                            <label class="switch"><input type="checkbox" name="showTikTokGifts" checked data-default="true"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label>
+                                <span data-i18n-html="tiktok.small_gifts"><i class="fa-solid fa-arrow-turn-up"></i> Small Gift Images</span><br>
+                                <small data-i18n="tiktok.small_gifts_hint">Shrinks the size of the gift image to 28px.</small>
+                            </label>
+                            <label class="switch"><input type="checkbox" name="showSmallTikTokGifts" data-default="false"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label data-i18n="tiktok.superfans">SuperFans/Subscribers</label>
+                            <label class="switch"><input type="checkbox" name="showTikTokSubs" checked data-default="true"><span class="slider"></span></label>
+                        </div>
+                        <!--<hr>
+                        <div class="config">
+                            <label data-i18n-html="tiktok.embed_images_label">TikTok Embedded Images<br><small>Turn image links into embedded images in ChatRD.</small></label>
+                            <label class="switch"><input type="checkbox" name="showTikTokEmbedImages" data-default="false"><span class="slider"></span></label>
+                        </div>
+                        <div class="config">
+                            <label data-i18n-html="general.embedding_roles"><i class="fa-solid fa-arrow-turn-up"></i> Embedding Permissions<br><small>Select which roles would be able to embed images.</small></label>
+                        </div>
+                        <div class="config full">
+                            <input type="text" name="tiktokEmbedImageRoles" id="tiktokEmbedImageRoles" value="streamer,moderator" data-default="streamer,moderator" placeholder="Select Permissions">
+                        </div>
+                        <div class="config">
+                            <small class="warning" data-i18n-html="general.embed_image_warning">
+                                <i class="fa-solid fa-triangle-exclamation"></i> <strong><u>Be careful when enabling this.</u></strong> Your viewers might post images that are against the platform's Terms of Service and you could face penalties. <strong>You have been warned!</strong>
+                            </small>
+                        </div>
+                        <hr>-->
+                        <div class="config">
+                            <label>
+                                <span data-i18n="tiktok.statistics">Statistics</span><br>
+                                <small data-i18n="tiktok.statistics_hint">Shows TikTok Viewers and Likes.</small>
+                            </label>
+                            <label class="switch"><input type="checkbox" name="showTikTokStatistics" checked data-default="true"><span class="slider"></span></label>
+                        </div> 
+                        <div class="config">
+                            <small class="warning" data-i18n-html="tiktok.chat_field_warning">
+                                <i class="fa-solid fa-circle-info"></i> If you have <strong>Chat Field</strong> enabled, you need to <strong><a target="_blank" href="https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok">follow the instructions</a></strong> to send messages to TikTok.
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -983,10 +1048,13 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@streamerbot/client@1.12.1/dist/streamerbot-client.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/choices.js@11.2.3/public/assets/scripts/choices.min.js"></script>-->
+
+<script src="js/libs/mchoice/multi-choice-field.js"></script>
 
 <!-- i18n deve ser carregado ANTES do settings.js -->
-<script src="js/i18n-settings.js?nocache=37"></script>
-<script src="js/speakerbot.js?nocache=37"></script>
-<script src="js/settings.js?nocache=37"></script>
+<script src="js/i18n-settings.js?nocache=38"></script>
+<script src="js/speakerbot.js?nocache=38"></script>
+<script src="js/settings.js?nocache=38"></script>
 </body>
 </html>

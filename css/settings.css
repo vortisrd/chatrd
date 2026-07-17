@@ -97,6 +97,11 @@ hr {
     align-items: center;
 }
 
+#settings .config.full {
+    display: block;
+    width: 100%;
+}
+
 #settings .config strong {
     font-weight: 900;
 }

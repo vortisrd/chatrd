@@ -168,7 +168,7 @@ async function youTubeChatMessage(data) {
     if (showBadges) badges.innerHTML = badgeList; else badges.remove();
 
 
-    if (data.user.isSponsor) { classes.push('subscriber'); }
+    if (data.user.isSponsor) { classes.push('sponsor'); }
     if (data.user.isModerator) { classes.push('moderator'); }
     if (data.user.isVerified) { classes.push('verified'); }
 

@@ -74,7 +74,9 @@
     "chat_field_hint": "Añade un campo para que escribas en tu chat.",
     "moderation_buttons": "Botones de Moderación",
     "moderation_buttons_hint": "Añade botones para acciones de moderación.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> El Campo de Chat también acepta <strong>/comandos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Comandos Soportados</a>.</strong>"
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> El Campo de Chat también acepta <strong>/comandos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Comandos Soportados</a>.</strong>",
+    "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Ten cuidado al habilitar esto.</u></strong> Tus espectadores podrían publicar imágenes que infrinjan los Términos de Servicio de la plataforma y podrías enfrentar sanciones. <strong>¡Has sido advertido!</strong>",
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Permisos de Incrustación<br><small>Selecciona qué roles podrán incrustar imágenes.</small>"
   },
 
   "twitch": {
@@ -113,7 +115,8 @@
     "pronouns": "Pronombres",
     "pronouns_hint": "Muestra los Pronombres de quienes los activaron en el chat de Twitch.",
     "statistics": "Estadísticas",
-    "statistics_hint": "Muestra los Espectadores de Twitch."
+    "statistics_hint": "Muestra los Espectadores de Twitch.",
+    "embed_images_label" : "Imágenes Incrustadas de Twitch<br><small>Convierte enlaces de imágenes en imágenes incrustadas en ChatRD.</small>"
   },
 
   "youtube": {
@@ -134,7 +137,8 @@
     "statistics_hint": "Muestra Espectadores y Me Gustas de YouTube.",
     "custom_emotes_label": "Emotes Exclusivos de Miembros",
     "custom_emotes_hint": "Necesitas añadir los emotes de miembros manualmente porque la API de YouTube no los transfiere a Streamer.bot.",
-    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>No</strong> uses Discord, Imgur ni ninguna plataforma temporal de alojamiento de imágenes para alojar tus emotes. Puedes hacer clic derecho en la imagen del emote en YouTube y copiar la URL de la imagen 😊"
+    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>No</strong> uses Discord, Imgur ni ninguna plataforma temporal de alojamiento de imágenes para alojar tus emotes. Puedes hacer clic derecho en la imagen del emote en YouTube y copiar la URL de la imagen 😊",
+    "embed_images_label" : "Imágenes Incrustadas de YouTube<br><small>Convierte enlaces de imágenes en imágenes incrustadas en ChatRD.</small>"
   },
 
   "tiktok": {
@@ -156,7 +160,8 @@
     "superfans": "SuperFans/Suscriptores",
     "statistics": "Estadísticas",
     "statistics_hint": "Muestra Espectadores y Me Gustas de TikTok.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Si tienes el <strong>Campo de Chat</strong> activado, necesitas <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">seguir las instrucciones</a></strong> para enviar mensajes a TikTok."
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Si tienes el <strong>Campo de Chat</strong> activado, necesitas <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">seguir las instrucciones</a></strong> para enviar mensajes a TikTok.",
+    "embed_images_label" : "Imágenes Incrustadas de TikTok<br><small>Convierte enlaces de imágenes en imágenes incrustadas en ChatRD.</small>"
   },
 
   "kick": {
@@ -182,7 +187,8 @@
     "raids": "Host",
     "raids_hint": "Es como un \"raid\", pero en Kick.",
     "statistics": "Estadísticas",
-    "statistics_hint": "Muestra Espectadores de Kick."
+    "statistics_hint": "Muestra Espectadores de Kick.",
+    "embed_images_label" : "Imágenes Incrustadas de Kick<br><small>Convierte enlaces de imágenes en imágenes incrustadas en ChatRD.</small>"
   },
 
   "streamelements": {

@@ -4,8 +4,10 @@ let kickWebSocket = null;
 let tikfinityWebSocket = null;
 let speakerBotClient = null;
 
-
-
+let twitchRoleChoices = null;
+let youtubeRoleChoices = null;
+let kickRoleChoices = null;
+let tiktokRoleChoices = null;
 
 /* -------------------------
    Salvar configurações no localStorage
@@ -17,6 +19,7 @@ function saveSettingsToLocalStorage() {
     const colorfields = document.querySelectorAll("input[type=color]:not(.avoid)");
     const selects = document.querySelectorAll("select:not(.avoid)");
     const ranges = document.querySelectorAll("input[type=range]:not(.avoid)");
+    const hiddens = document.querySelectorAll("input[type=hidden]:not(.avoid)");
     const settings = {};
 
     checkboxes.forEach(cb => settings[cb.name] = cb.checked);
@@ -25,6 +28,7 @@ function saveSettingsToLocalStorage() {
     numberfields.forEach(nf => settings[nf.name] = nf.value);
     colorfields.forEach(cf => settings[cf.name] = cf.value);
     selects.forEach(s => settings[s.name] = s.value);
+    hiddens.forEach(s => settings[s.name] = s.value);
 
     localStorage.setItem("chatrdWidgetSettings", JSON.stringify(settings));
 
@@ -683,6 +687,93 @@ function streamerBotConnect() {
             setupPlatformToggles();
             speakerBotConnection();
             loadYouTubeCustomEmotes();
+
+
+
+            if (!twitchRoleChoices) {
+
+                twitchRoleChoices = multiChoiceField('#twitchEmbedImageRoles', {
+                    placeholder: '...',
+                    choices: [
+                        { value: 'streamer',            label: 'Streamer' },
+                        { value: 'moderator',           label: 'Mods' },
+                        { value: 'vip',                 label: 'VIPs' },
+                        { value: 'tier-one-sub',        label: 'Tier 1 Subs' },
+                        { value: 'tier-two-sub',        label: 'Tier 2 Subs' },
+                        { value: 'tier-three-sub',      label: 'Tier 3 Subs' }
+                    ],
+                    onAdd: () => saveSettingsToLocalStorage(),
+                    onRemove: () => saveSettingsToLocalStorage()
+                });
+                
+            }
+
+
+            
+
+            if (!youtubeRoleChoices) {
+
+                twitchRoleChoices = multiChoiceField('#youtubeEmbedImageRoles', {
+                    placeholder: '...',
+                    choices: [
+                        { value: 'streamer',            label: 'Streamer' },
+                        { value: 'moderator',           label: 'Mods' },
+                        { value: 'sponsor',             label: 'Members' }
+                    ],
+                    onAdd: () => saveSettingsToLocalStorage(),
+                    onRemove: () => saveSettingsToLocalStorage()
+                });
+                
+            }
+
+
+            
+
+            if (!kickRoleChoices) {
+
+                kickRoleChoices = multiChoiceField('#kickEmbedImageRoles', {
+                    placeholder: '...',
+                    choices: [
+                        { value: 'broadcaster',         label: 'Streamer' },
+                        { value: 'moderator',           label: 'Mods' },
+                        { value: 'vip',                 label: 'VIPs' },
+                        { value: 'og',                  label: 'OGs' },
+                        { value: 'subscriber',          label: 'Subs' }
+                    ],
+                    onAdd: () => saveSettingsToLocalStorage(),
+                    onRemove: () => saveSettingsToLocalStorage()
+                });
+                
+            }
+
+
+            
+
+            /*if (!tiktokRoleChoices) {
+
+                tiktokRoleChoices = multiChoiceField('#tiktokEmbedImageRoles', {
+                    placeholder: '...',
+                    choices: [
+                        { value: 'streamer',                    label: 'Streamer' },
+                        { value: 'moderator',                   label: 'Mods' },
+                        { value: 'subscriber',                  label: 'Subs/Super Fans' },
+                        { value: 'top-gifter-1',                label: 'Top Gifter No.1',       group: 'top-gifter' },
+                        { value: 'top-gifter-2',                label: 'Top Gifter No.2 ',      group: 'top-gifter' },
+                        { value: 'top-gifter-3',                label: 'Top Gifter No.3',       group: 'top-gifter' },
+                        { value: 'fan-one',                     label: 'Fan Lv.1+',        group: 'fans' },
+                        { value: 'fan-ten',                     label: 'Fan Lv.10+',       group: 'fans' },
+                        { value: 'fan-twenty',                  label: 'Fan Lv.20+',       group: 'fans' },
+                        { value: 'fan-thirty',                  label: 'Fan Lv.30+',       group: 'fans' },
+                        { value: 'fan-forty',                   label: 'Fan Lv.40+',       group: 'fans' },
+                        { value: 'fan-fifty',                   label: 'Fan Lv.50+',       group: 'fans' }
+                    ],
+                    onAdd: () => saveSettingsToLocalStorage(),
+                    onRemove: () => saveSettingsToLocalStorage()
+                });
+
+            }*/
+
+
         },
         onDisconnect: () => {
             streamerBotStatus.classList.remove('connected');
@@ -691,6 +782,7 @@ function streamerBotConnect() {
         }
     });
 }
+
 
 
 async function speakerBotConnection() {
@@ -733,11 +825,11 @@ async function speakerBotConnection() {
     });
 }
 
-
 /* -------------------------
    Inicialização
 -------------------------- */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+
     loadStreamerBotSettings();
     setTimeout(() => { streamerBotConnect(); }, 1000);
 
@@ -749,6 +841,7 @@ document.addEventListener('DOMContentLoaded', () => {
         streamerBotConnect();
         generateUrl();
     });
+
     streamerBotServerPortSwitch.addEventListener('input', () => {
         saveStreamerBotSettings();
         streamerBotConnect();
@@ -759,4 +852,5 @@ document.addEventListener('DOMContentLoaded', () => {
     speakerBotSwitcher.addEventListener('change', () => {
         speakerBotConnection();
     });
+
 });

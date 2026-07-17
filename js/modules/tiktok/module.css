@@ -67,7 +67,7 @@
 .chat .item.tiktok span.badge.top-gifter { background: rgba(254, 44, 85, 0.4); }
 .chat .item.tiktok span.badge.sceneEight { background: rgba(71, 90, 255, 0.5); }
 .chat .item.tiktok span.badge.sceneTen { background: rgba(255, 94, 58, 0.5); }
-.chat .item.tiktok.sub span.badge.sceneTen {
+.chat .item.tiktok.subscriber span.badge.sceneTen {
     outline: 1px solid rgba(255,255,255,1);
     outline-offset: -1px;
 }

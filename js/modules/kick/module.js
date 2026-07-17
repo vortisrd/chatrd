@@ -767,7 +767,7 @@ async function getKickEmotes(text) {
 async function parseKickEmojis(content) {
     const message = content;
     const messagewithemotes = message.replace(/\[emote:(\d+):([^\]]+)\]/g, (_, id, name) => {
-        return `<img src="https://files.kick.com/emotes/${id}/fullsize" alt="${name}" class="emote" >`;
+        return `<img src="https://files.kick.com/emotes/${id}/fullsize" alt="${name}" class="emote">`;
     });
 
     return messagewithemotes;
@@ -779,7 +779,7 @@ async function parseKick7TVEmotes(text) {
     const parsedWords = words.map(word => {
         if (kick7TVEmojis.has(word)) {
             const url = kick7TVEmojis.get(word);
-            return `<img src="${url}" alt="${word}" class="emote" />`;
+            return `<img src="${url}" alt="${word}" class="emote">`;
         }
         return word;
     });

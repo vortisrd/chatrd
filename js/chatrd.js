@@ -41,16 +41,33 @@ const eventLittleContainer          = document.querySelector('#little-events');
 const chatTemplate                  = document.querySelector('#chat-message');
 const eventTemplate                 = document.querySelector('#event-message');
 
+
+
+const showTwitchEmbedImages         = getURLParam("showTwitchEmbedImages", false);
+const twitchEmbedImageRoles         = getURLParam("twitchEmbedImageRoles", "streamer,moderator");
+
+const showYouTubeEmbedImages        = getURLParam("showYouTubeEmbedImages", false);
+const youtubeEmbedImageRoles        = getURLParam("youtubeEmbedImageRoles", "streamer,moderator");
+
+const showKickEmbedImages           = getURLParam("showKickEmbedImages", false);
+const kickEmbedImageRoles           = getURLParam("kickEmbedImageRoles", "broadcaster,moderator");
+
+const showTikTokEmbedImages         = getURLParam("showTikTokEmbedImages", false);
+const tiktokEmbedImageRoles         = getURLParam("tiktokEmbedImageRoles", "streamer,moderator");
+
+
+
+
 const userColors = new Map();
 
 const loadedEmotes = new Set();
 
 /* ✅ Explicit whitelist */
 const SKINS = {
-    default: "skin-default.css?nocache=37",
-    nutting: "skin-nutting.css?nocache=37",
-    kimballs: "skin-kimballs.css?nocache=37",
-    bubbles: "skin-bubbles.css?nocache=37"
+    default: "skin-default.css?nocache=38",
+    nutting: "skin-nutting.css?nocache=38",
+    kimballs: "skin-kimballs.css?nocache=38",
+    bubbles: "skin-bubbles.css?nocache=38"
 };
 
 const skinFile = SKINS[chatrdSkin] || SKINS.default;
@@ -176,10 +193,9 @@ function addMessageItem(platform, clone, classes, userid, messageid) {
 
     if (showSpeakerbot == true && speakerBotChatRead == true) { speakerBotTTSRead(clone, 'chat'); }
 
-    const messageEl = clone.querySelector('.actual-message');
     const infoEl = clone.querySelector('.info');
     
-    getAndReplaceLinks(messageEl);
+    getAndReplaceLinks(platform, root);
 
     const platformElement = clone.querySelector('.platform');
     
@@ -832,60 +848,125 @@ async function executeModCommand(event, command) {
 }
 
 
-async function getAndReplaceLinks(el) {
-  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-  const urlRegex = /\b((?:https?:\/\/|www\.)[^\s<>"')]+)\b/g;
-  const nodes = [];
 
-  // coleta os nós de texto
-  while (walker.nextNode()) {
-    const node = walker.currentNode;
-    if (!node.parentElement.closest('a,script,style,textarea,code,pre')) {
-      nodes.push(node);
-    }
-  }
+async function getAndReplaceLinks(platform, element) {
+	const el = element.querySelector('.actual-message');
+	const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+	const urlRegex = /\b((?:https?:\/\/|www\.)[^\s<>"')]+)\b/g;
+	const singleUrlRegex = /^((?:https?:\/\/|www\.)[^\s<>"')]+)$/;
+	const imageExtRegex = /\.(jpe?g|png|gif|webp)(\?.*)?$/i;
+	const nodes = [];
 
-  nodes.forEach(node => {
-    const text = node.nodeValue;
-    let match, lastIndex = 0;
-    const frag = document.createDocumentFragment();
+	const embedImageConfig = {
+		twitch: { enabled: showTwitchEmbedImages, roles: twitchEmbedImageRoles },
+		youtube: { enabled: showYouTubeEmbedImages, roles: youtubeEmbedImageRoles },
+		kick: { enabled: showKickEmbedImages, roles: kickEmbedImageRoles },
+	};
 
-    while ((match = urlRegex.exec(text))) {
-      const raw = match[1];
+	// coleta os nós de texto
+	while (walker.nextNode()) {
+		const node = walker.currentNode;
+		if (!node.parentElement.closest('a,script,style,textarea,code,pre')) {
+			nodes.push(node);
+		}
+	}
 
-      // texto antes do link
-      if (match.index > lastIndex) {
-        frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-      }
+	// cria o <a> normal (fallback e caso padrão)
+	function createLink(cleanUrl) {
+		const a = document.createElement('a');
+		a.href = cleanUrl.startsWith('http') ? cleanUrl : `https://${cleanUrl}`;
+		a.textContent = cleanUrl;
+		a.target = '_blank';
+		a.rel = 'noopener noreferrer';
+		return a;
+	}
 
-      // cria <a>
-      const clean = raw.replace(/[.,!?;:)\]\}]+$/, '');
-      const a = document.createElement('a');
-      a.href = clean.startsWith('http') ? clean : `https://${clean}`;
-      a.textContent = clean;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      frag.appendChild(a);
+	// cria o <img> com proxy do DuckDuckGo
+	function createProxiedImage(rawUrl) {
+		const fullUrl = rawUrl.startsWith('http') ? rawUrl : `https://${rawUrl}`;
 
-      // se tinha pontuação colada, mantém
-      if (clean.length < raw.length) {
-        frag.appendChild(document.createTextNode(raw.slice(clean.length)));
-      }
+		let proxiedSrc;
+		try {
+			const urlObj = new URL(fullUrl);
+			urlObj.search = '';
+			urlObj.hash = '';
+			proxiedSrc = 'https://external-content.duckduckgo.com/iu/?u=' + encodeURIComponent(urlObj.toString());
+		}
+		catch {
+			// URL inválida, não cria imagem
+			return null;
+		}
 
-      lastIndex = match.index + raw.length;
-    }
+		const img = document.createElement('img');
+		img.classList.add('embedded');
+		img.src = proxiedSrc;
 
-    if (lastIndex === 0) return; // nada casou
+		// se der erro (404, CORS, etc), substitui pelo link normal
+		img.onerror = () => {
+			img.replaceWith(createLink(rawUrl));
+		};
 
-    if (lastIndex < text.length) {
-      frag.appendChild(document.createTextNode(text.slice(lastIndex)));
-    }
+		return img;
+	}
 
-    node.parentNode.replaceChild(frag, node);
-  });
+	nodes.forEach(node => {
+		const text = node.nodeValue;
+
+		// só é candidato a imagem se o nó inteiro (sem espaços nas pontas) for exclusivamente o link
+		const isWholeMessageLink = singleUrlRegex.test(text.trim());
+
+		let match, lastIndex = 0;
+		const frag = document.createDocumentFragment();
+
+		while ((match = urlRegex.exec(text))) {
+			const raw = match[1];
+
+			// texto antes do link
+			if (match.index > lastIndex) {
+				frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+			}
+
+			const clean = raw.replace(/[.,!?;:)\]\}]+$/, '');
+
+			let isImage = isWholeMessageLink && imageExtRegex.test(clean);
+			if (isImage && embedImageConfig[platform]) {
+				const config = embedImageConfig[platform];
+				if (!config.enabled) {
+					isImage = false;
+				} else {
+					const requiredRoles = config.roles.split(',').map(role => role.trim());
+					isImage = requiredRoles.some(role => element.classList.contains(role));
+				}
+			}
+
+			if (isImage) {
+				const img = createProxiedImage(clean);
+				if (img) {
+					frag.appendChild(img);
+				} else {
+					frag.appendChild(createLink(clean));
+				}
+			} else {
+				frag.appendChild(createLink(clean));
+			}
+
+			// se tinha pontuação colada, mantém
+			if (clean.length < raw.length) {
+				frag.appendChild(document.createTextNode(raw.slice(clean.length)));
+			}
+
+			lastIndex = match.index + raw.length;
+		}
+
+		if (lastIndex === 0) return; // nada casou
+
+		if (lastIndex < text.length) {
+			frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+		}
+
+		node.parentNode.replaceChild(frag, node);
+	});
 }
-
-
 
 
 

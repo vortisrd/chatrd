@@ -74,7 +74,9 @@
     "chat_field_hint": "Fügt ein Eingabefeld hinzu, um in deinen Chat zu schreiben.",
     "moderation_buttons": "Moderationsschaltflächen",
     "moderation_buttons_hint": "Fügt Schaltflächen für Moderatoraktionen hinzu.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Das Chat-Eingabefeld unterstützt auch <strong>/Befehle</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Unterstützte Befehle</a>.</strong>"
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Das Chat-Eingabefeld unterstützt auch <strong>/Befehle</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Unterstützte Befehle</a>.</strong>",
+    "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Sei vorsichtig, wenn du dies aktivierst.</u></strong> Deine Zuschauer könnten Bilder posten, die gegen die Nutzungsbedingungen der Plattform verstoßen, und du könntest Strafen erhalten. <strong>Du wurdest gewarnt!</strong>",
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Einbettungsberechtigungen<br><small>Wähle aus, welche Rollen Bilder einbetten dürfen.</small>"
   },
 
   "twitch": {
@@ -113,7 +115,8 @@
     "pronouns": "Pronomen",
     "pronouns_hint": "Zeigt Pronomen für Nutzer an, die sie im Twitch-Chat aktiviert haben.",
     "statistics": "Statistiken",
-    "statistics_hint": "Zeigt Twitch-Zuschauer an."
+    "statistics_hint": "Zeigt Twitch-Zuschauer an.",
+    "embed_images_label" : "Twitch Eingebettete Bilder<br><small>Wandelt Bildlinks in ChatRD in eingebettete Bilder um.</small>"
   },
 
   "youtube": {
@@ -134,7 +137,8 @@
     "statistics_hint": "Zeigt YouTube-Zuschauer und Likes an.",
     "custom_emotes_label": "Nur-Mitglieder-Emotes",
     "custom_emotes_hint": "Mitglieder-Emotes müssen manuell hinzugefügt werden, da die YouTube-API sie nicht an Streamer.bot weiterleitet.",
-    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Verwende</strong> Discord, Imgur oder andere temporäre Bild-Hosting-Plattformen <strong>nicht</strong>, um deine Emotes zu hosten. Du kannst mit der rechten Maustaste auf das Emote-Bild auf YouTube klicken und die Bild-URL kopieren 😊"
+    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Verwende</strong> Discord, Imgur oder andere temporäre Bild-Hosting-Plattformen <strong>nicht</strong>, um deine Emotes zu hosten. Du kannst mit der rechten Maustaste auf das Emote-Bild auf YouTube klicken und die Bild-URL kopieren 😊",
+    "embed_images_label" : "YouTube Eingebettete Bilder<br><small>Wandelt Bildlinks in ChatRD in eingebettete Bilder um.</small>"
   },
 
   "tiktok": {
@@ -156,7 +160,8 @@
     "superfans": "Superfans/Abonnenten",
     "statistics": "Statistiken",
     "statistics_hint": "Zeigt TikTok-Zuschauer und Likes an.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Wenn du das <strong>Chat-Eingabefeld</strong> aktiviert hast, musst du <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">den Anweisungen folgen</a></strong>, um Nachrichten an TikTok zu senden."
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Wenn du das <strong>Chat-Eingabefeld</strong> aktiviert hast, musst du <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">den Anweisungen folgen</a></strong>, um Nachrichten an TikTok zu senden.",
+    "embed_images_label" : "TikTok Eingebettete Bilder<br><small>Wandelt Bildlinks in ChatRD in eingebettete Bilder um.</small>"
   },
 
   "kick": {
@@ -182,7 +187,8 @@
     "raids": "Host",
     "raids_hint": "Ähnlich wie ein \"Raid\", aber auf Kick.",
     "statistics": "Statistiken",
-    "statistics_hint": "Zeigt Kick-Zuschauer an."
+    "statistics_hint": "Zeigt Kick-Zuschauer an.",
+    "embed_images_label" : "Kick Eingebettete Bilder<br><small>Wandelt Bildlinks in ChatRD in eingebettete Bilder um.</small>"
   },
 
   "streamelements": {

@@ -270,7 +270,14 @@ async function twitchChatMessage(data) {
     if (showAvatar) avatar.innerHTML = `<img src="${avatarImage}">`; else avatar.remove();
     if (showBadges) badges.innerHTML = badgeList; else badges.remove();
     
-    if (data.user.subscribed == true) { classes.push('subscriber'); }
+    const tierClasses = { '1000': 'tier-one-sub', '2000': 'tier-two-sub', '3000': 'tier-three-sub' };
+
+    if (data.user.subscribed == true) {
+        classes.push('subscriber');
+
+        const tierClass = tierClasses[data.user.subscriptionTier];
+        if (tierClass) classes.push(tierClass);
+    }
     if (data.user.role == 2) { classes.push('vip'); }
     if (data.user.role == 3) { classes.push('moderator'); }
     if (data.user.role == 4) { classes.push('streamer'); }
@@ -295,20 +302,31 @@ async function twitchChatMessage(data) {
     
     else { reply.remove(); }
 
-    if (data.isFromSharedChatGuest) {
+    if (data.isInSharedChat) {
         if (showTwitchSharedChat == true) {
             classes.push('shared-chat');
 
-            let sharedStreamer = data.sharedChatSource.login.toLowerCase();
-            let sharedStreamerAvatar = await getTwitchAvatar( sharedStreamer );
+            const sharedChatAvatar = sharedChat.querySelector('span.origin img');
+            const sharedChatUser = sharedChat.querySelector('span.origin strong');
+            
+            if (data.isFromSharedChatGuest) {
 
-            sharedChat.querySelector('span.origin img').src = sharedStreamerAvatar;
-            sharedChat.querySelector('span.origin strong').textContent = data.sharedChatSource.name;
+                let sharedStreamer = data.sharedChatSource.login.toLowerCase();
+                let sharedStreamerAvatar = await getTwitchAvatar( sharedStreamer );
+
+                sharedChatAvatar.src = sharedStreamerAvatar;
+                sharedChatUser.textContent = data.sharedChatSource.name;
+            }
+            else {
+                sharedChatAvatar.src = avatarImage;
+                sharedChatUser.textContent = data.user.name;
+            }
         }
         else {
             return;
         }
     }
+    
     else { sharedChat.remove(); }
 
     if (showTwitchPronouns === true) {

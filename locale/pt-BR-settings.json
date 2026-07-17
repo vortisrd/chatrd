@@ -74,7 +74,9 @@
     "chat_field_hint": "Adiciona um campo para você digitar no seu chat.",
     "moderation_buttons": "Botões de Moderação",
     "moderation_buttons_hint": "Adiciona botões para ações de moderação.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> O Campo de Chat também aceita <strong>/comandos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Comandos Suportados</a>.</strong>"
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> O Campo de Chat também aceita <strong>/comandos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Comandos Suportados</a>.</strong>",
+    "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Tenha cuidado ao ativar isso.</u></strong> Seus espectadores podem postar imagens que violem os Termos de Serviço da plataforma e você pode sofrer penalidades. <strong>Você foi avisado!</strong>",
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Permissões de Incorporação<br><small>Selecione quais cargos poderão incorporar imagens.</small>"
   },
 
   "twitch": {
@@ -112,7 +114,8 @@
     "pronouns": "Pronomes",
     "pronouns_hint": "Exibe os Pronomes de quem os ativou no chat da Twitch.",
     "statistics": "Estatísticas",
-    "statistics_hint": "Exibe os Espectadores da Twitch."
+    "statistics_hint": "Exibe os Espectadores da Twitch.",
+    "embed_images_label" : "Imagens Incorporadas da Twitch<br><small>Transforma links de imagens em imagens incorporadas no ChatRD.</small>"
   },
 
   "youtube": {
@@ -133,7 +136,8 @@
     "statistics_hint": "Exibe Espectadores e Curtidas do YouTube.",
     "custom_emotes_label": "Emotes Exclusivos de Membros",
     "custom_emotes_hint": "Você precisa adicionar os emotes de membros manualmente porque a API do YouTube não os repassa ao Streamer.bot.",
-    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Não</strong> use Discord, Imgur ou qualquer plataforma temporária de hospedagem de imagens para hospedar seus emotes. Você pode clicar com o botão direito na imagem do emote no YouTube e copiar a URL da imagem 😊"
+    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Não</strong> use Discord, Imgur ou qualquer plataforma temporária de hospedagem de imagens para hospedar seus emotes. Você pode clicar com o botão direito na imagem do emote no YouTube e copiar a URL da imagem 😊",
+    "embed_images_label" : "Imagens Incorporadas do YouTube<br><small>Transforma links de imagens em imagens incorporadas no ChatRD.</small>"
   },
 
   "tiktok": {
@@ -155,15 +159,16 @@
     "superfans": "SuperFãs/Inscritos",
     "statistics": "Estatísticas",
     "statistics_hint": "Exibe Espectadores e Curtidas do TikTok.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Se você tiver o <strong>Campo de Chat</strong> ativado, precisa <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">seguir as instruções</a></strong> para enviar mensagens ao TikTok."
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Se você tiver o <strong>Campo de Chat</strong> ativado, precisa <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">seguir as instruções</a></strong> para enviar mensagens ao TikTok.",
+    "embed_images_label" : "Imagens Incorporadas do TikTok<br><small>Transforma links de imagens em imagens incorporadas no ChatRD.</small>"
   },
 
   "kick": {
     "title": "Kick",
     "enable": "Ativar",
-    "api_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> Em horários de pico, <strong>a API do Kick fica instável</strong> e demora mais para repassar eventos. Isso não é um problema do Streamer.bot ou do ChatRD. O Kick tem o <em>\"glitch de dinheiro infinito\"</em>, então espero que melhore no futuro. 😣",
+    "api_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> Em horários de pico, <strong>a API da Kick fica instável</strong> e demora mais para repassar eventos. Isso não é um problema do Streamer.bot ou do ChatRD. A Kick tem o <em>\"glitch de dinheiro infinito\"</em>, então espero que melhore no futuro. 😣",
     "chat": "Chat",
-    "chat_hint": "Lê o chat do Kick.",
+    "chat_hint": "Lê o chat da Kick.",
     "followers": "Seguidores",
     "kicks_gift": "Kicks Gift",
     "kicks_gift_hint": "Exibe eventos de Kicks Gift.",
@@ -179,9 +184,10 @@
     "gifted_bomb_train_hint": "Exibe todos os usuários que receberam uma inscrição em um Gifted Bomb.",
     "channel_points": "Resgates de Pontos do Canal",
     "raids": "Host",
-    "raids_hint": "É como um \"raid\", mas no Kick.",
+    "raids_hint": "É como um \"raid\", mas na Kick.",
     "statistics": "Estatísticas",
-    "statistics_hint": "Exibe Espectadores do Kick."
+    "statistics_hint": "Exibe Espectadores da Kick.",
+    "embed_images_label" : "Imagens Incorporadas da Kick<br><small>Transforma links de imagens em imagens incorporadas no ChatRD.</small>"
   },
 
   "streamelements": {

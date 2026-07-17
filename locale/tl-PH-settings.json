@@ -74,7 +74,9 @@
     "chat_field_hint": "Nagdaragdag ng chat field para mag-type sa iyong chat.",
     "moderation_buttons": "Mga Pindutan ng Moderasyon",
     "moderation_buttons_hint": "Nagdaragdag ng mga pindutan para sa mga aksyon ng moderator.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Tinatanggap din ng Chat Field ang mga <strong>/utos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Mga Sinusuportahang Utos</a>.</strong>"
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Tinatanggap din ng Chat Field ang mga <strong>/utos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Mga Sinusuportahang Utos</a>.</strong>",
+    "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Mag-ingat sa pag-enable nito.</u></strong> Maaaring mag-post ang iyong mga viewer ng mga larawan na labag sa Mga Tuntunin ng Serbisyo ng platform, at maaari kang humarap sa mga parusa. <strong>Ikaw ay binalaan na!</strong>",
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Mga Pahintulot sa Pag-embed<br><small>Piliin kung aling mga role ang makakapag-embed ng mga larawan.</small>"
   },
 
   "twitch": {
@@ -113,7 +115,8 @@
     "pronouns": "Mga Panghalip",
     "pronouns_hint": "Ipinapakita ang mga Panghalip ng mga nag-enable nito sa chat ng Twitch.",
     "statistics": "Mga Istatistika",
-    "statistics_hint": "Ipinapakita ang mga Manonood sa Twitch."
+    "statistics_hint": "Ipinapakita ang mga Manonood sa Twitch.",
+    "embed_images_label" : "Twitch Embedded Images<br><small>Ginagawang embedded na larawan ang mga image link sa ChatRD.</small>"
   },
 
   "youtube": {
@@ -134,7 +137,8 @@
     "statistics_hint": "Ipinapakita ang mga Manonood at Like sa YouTube.",
     "custom_emotes_label": "Mga Emote para sa Miyembro Lamang",
     "custom_emotes_hint": "Kailangan mong mano-manong idagdag ang mga emote ng miyembro dahil hindi sila ipinaabot ng API ng YouTube sa Streamer.bot.",
-    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Huwag</strong> gumamit ng Discord, Imgur o anumang pansamantalang platform sa pag-host ng larawan para i-host ang iyong mga emote. Maaari kang mag-right click sa larawan ng emote sa YouTube at kopyahin ang URL ng larawan 😊"
+    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Huwag</strong> gumamit ng Discord, Imgur o anumang pansamantalang platform sa pag-host ng larawan para i-host ang iyong mga emote. Maaari kang mag-right click sa larawan ng emote sa YouTube at kopyahin ang URL ng larawan 😊",
+    "embed_images_label" : "YouTube Embedded Images<br><small>Ginagawang embedded na larawan ang mga image link sa ChatRD.</small>"
   },
 
   "tiktok": {
@@ -156,7 +160,8 @@
     "superfans": "SuperFans/Subscribers",
     "statistics": "Mga Istatistika",
     "statistics_hint": "Ipinapakita ang mga Manonood at Like sa TikTok.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Kung naka-aktibo ang <strong>Chat Field</strong>, kailangan mong <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">sundan ang mga tagubilin</a></strong> para magpadala ng mensahe sa TikTok."
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Kung naka-aktibo ang <strong>Chat Field</strong>, kailangan mong <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">sundan ang mga tagubilin</a></strong> para magpadala ng mensahe sa TikTok.",
+    "embed_images_label" : "TikTok Embedded Images<br><small>Ginagawang embedded na larawan ang mga image link sa ChatRD.</small>"
   },
 
   "kick": {
@@ -182,7 +187,8 @@
     "raids": "Host",
     "raids_hint": "Katulad ng \"raid\" ngunit sa Kick.",
     "statistics": "Mga Istatistika",
-    "statistics_hint": "Ipinapakita ang mga Manonood sa Kick. <strong>Awtomatikong ina-update tuwing 15 segundo.</strong>"
+    "statistics_hint": "Ipinapakita ang mga Manonood sa Kick. <strong>Awtomatikong ina-update tuwing 15 segundo.</strong>",
+    "embed_images_label" : "Kick Embedded Images<br><small>Ginagawang embedded na larawan ang mga image link sa ChatRD.</small>"
   },
 
   "streamelements": {

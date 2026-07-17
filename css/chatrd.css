@@ -256,17 +256,30 @@ body {
 }
 
 #chat-input button.active {
-    color: #ffcc00;
+    color: #dbb048;
     transition: var(--transition);
 }
 
 #chat-input button:hover {
-    color: #ffcc00;
+    color: #dbb048;
     transition: var(--transition);
 }
 
 #chat-input #chat-input-send { right: 20px; }
 #chat-input #chat-input-settings { right: 50px; }
+
+#chat-input #chat-input-gifs-search {
+    background: #efeff1;
+    color: #111;
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: 8px;
+    right: 85px;
+}
+
+#chat-input #chat-input-gifs-search:hover {
+    background: #dbb048;
+}
 
 #chat-input .settings {
     display: none;
@@ -326,7 +339,7 @@ body {
 } 
 
 #chat-input .settings .hint a {
-    color: #ffcc00;
+    color: #dbb048;
     font-weight: bold;
 }
 
@@ -477,7 +490,7 @@ body {
 }
 
 .item.msg .chatmoderation button:hover {
-    color: #ffcc00;
+    color: #dbb048;
 }
 
 
@@ -539,6 +552,13 @@ body {
 
 .chat .item.msg img {
     filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.25));
+}
+
+#chat .item .actual-message img.embedded,
+#chat-ghost .item .actual-message img.embedded {
+    border-radius: 5px;
+    display: block;
+    height: 108px;
 }
 
 .chat.vertical {
@@ -1063,6 +1083,181 @@ body {
 
 
 
+
+.modal {
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background: rgba(0, 0, 0, 0.75);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+    color: #FFF;
+}
+
+.modal small {
+    color: #717171;
+}
+
+.modal.hidden {
+	display: none;
+}
+
+.modal-content {
+	background: #121212;
+	padding: 1.5em;
+	border-radius: 1em;
+	width: 640px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.modal-content label {
+    position: relative;
+}
+
+.modal-content label i { 
+    position: absolute;
+    top: 23px;
+    right: 15px;
+    color: #FFF;
+}
+
+
+.modal-content input[type=text],
+.modal-content input[type=number],
+.modal-content textarea {
+    font-family: "DM Sans", sans-serif;
+    border: none;
+    background:#1b1b1b;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 10px;
+    outline: none;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 1px solid #222;
+}
+
+
+.modal-content button {
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    border: none;
+    padding: 10px 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #252525;
+    color: #FFF;
+    transition: .4s;
+    font-size: 14px;
+}
+
+.modal-content .confirm {
+    background: #00dd63;
+}
+
+.modal-content .cancel {
+    background: #252525;
+}
+
+.modal-content .cancel:hover {
+    background: #ff0000;
+}
+
+.modal-content h3 {
+	margin: 0 0 0.5em;
+}
+
+.modal-content label {
+	display: flex;
+	flex-direction: column;
+	font-size: 0.9em;
+}
+
+.modal-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+}
+
+#chat-input-gifs-list {
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: #666 #1a1a1e;
+}
+
+#chat-input-gifs-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-input-gifs-list::-webkit-scrollbar-track {
+    background: #1a1a1e;
+    border-radius: 8px;
+}
+
+#chat-input-gifs-list::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 8px;
+    border: 2px solid #1a1a1e;
+}
+
+#chat-input-gifs-list::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+#chat-input-gifs-list .wrapper {
+    columns: 3;
+    column-gap: 10px;
+    margin: auto;
+    padding: 10px;
+    background: #1b1b1b;
+    border-radius: 10px;
+    border: 1px solid #222;
+}
+
+#chat-input-gifs-list .wrapper a {
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    line-height: 0;
+    text-decoration: none;
+    transition: transform 250ms linear;
+    border: 1px solid #2b2b2b;
+    background: #222;
+}
+
+#chat-input-gifs-list .wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 250ms linear;
+}
+
+#chat-input-gifs-list .wrapper a:hover {
+    border-color: #333;
+}
+
+#chat-input-gifs-list .wrapper a:hover img {
+    transform: scale(1.2);
+}
+
+#chat-input-gifs-modal input[type=text]:focus {
+    border-color: #333;
+}
+
+
+
+
 /* ---------------------------------------------- */
 /* --------- CHAT - EVENTS LITTLE DOCK ---------- */
 /* ---------- (inspired by RexBordz) ------------ */
@@ -1107,3 +1302,7 @@ body {
     padding: 0;
     background: none;
 }
+
+
+
+

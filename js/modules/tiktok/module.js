@@ -193,8 +193,9 @@ async function tiktokChatMessage(data) {
 
     const classes = ['tiktok', 'msg'];
 
-    if (data.isModerator) classes.push('mod');
-    if (data.isSubscriber) classes.push('sub');
+    if (data.uniqueId === data.tikfinityUsername) classes.push('streamer');
+    if (data.isModerator) classes.push('moderator');
+    if (data.isSubscriber) classes.push('subscriber');
 
     const [avatarImage,  badgesHTML] = await Promise.all([
         getTikTokAvatar(data),
@@ -655,6 +656,44 @@ async function getTikTokBadges(data) {
     return badgesHTML;
 }
 
+async function getTiktokRoles(data) {
+
+    const rolesArray = [];
+
+    if (data.isSubscriber) rolesArray.push('subscriber')
+    if (data.isModerator) rolesArray.push('moderator');
+
+    const { userBadges } = data;
+
+    const badgesLevelTen = [
+        { min: 1,  max: 9,  class: 'fan-one fan-ten fan-twenty fan-thirty fan-forty fan-fifty' },
+        { min: 10, max: 19, class: 'fan-ten fan-twenty fan-thirty fan-forty fan-fifty' },
+        { min: 20, max: 29, class: 'fan-twenty fan-thirty fan-forty fan-fifty' },
+        { min: 30, max: 39, class: 'fan-thirty fan-forty fan-fifty' },
+        { min: 40, max: 49, class: 'fan-forty fan-fifty' },
+        { min: 50, max: 500, class: 'fan-fifty' },
+    ];
+
+    if (userBadges.length > 0) {
+        userBadges.forEach(badge => {
+            // Top Gifter Badges
+            if (badge.badgeSceneType === 6) rolesArray.push(`top-gifter-${badge.displayType}`);
+
+            // Scene Ten - Fan Badges
+            if (badge.badgeSceneType === 10) {
+                const match = badgesLevelTen.find(lv => badge.level >= lv.min && badge.level <= lv.max);
+                if (match) {
+                    const classArrays = match.class.split(' ');
+                    rolesArray.push(...classArrays);
+                }
+            }
+        });
+    }
+
+    return rolesArray;
+}
+
+
 
 
 async function tiktokUpdateStatistics(data, type) {
@@ -672,6 +711,3 @@ async function tiktokUpdateStatistics(data, type) {
     }
     
 }
-
-
-

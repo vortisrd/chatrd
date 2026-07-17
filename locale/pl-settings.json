@@ -74,7 +74,9 @@
     "chat_field_hint": "Dodaje pole czatu, w którym możesz pisać wiadomości.",
     "moderation_buttons": "Przyciski moderacji",
     "moderation_buttons_hint": "Dodaje przyciski do akcji moderatorskich.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Pole czatu obsługuje również <strong>/komendy</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Obsługiwane komendy</a>.</strong>"
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Pole czatu obsługuje również <strong>/komendy</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Obsługiwane komendy</a>.</strong>",
+    "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Zachowaj ostrożność, włączając tę opcję.</u></strong> Twoi widzowie mogą publikować obrazy, które naruszają Regulamin platformy, a Ty możesz zostać ukarany. <strong>Zostałeś ostrzeżony!</strong>",
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Uprawnienia do osadzania<br><small>Wybierz, które role będą mogły osadzać obrazy.</small>"
   },
 
   "twitch": {
@@ -113,7 +115,8 @@
     "pronouns": "Zaimki",
     "pronouns_hint": "Pokazuje zaimki użytkownikom, którzy je włączyli na czacie Twitcha.",
     "statistics": "Statystyki",
-    "statistics_hint": "Pokazuje liczbę widzów na Twitchu."
+    "statistics_hint": "Pokazuje liczbę widzów na Twitchu.",
+    "embed_images_label" : "Osadzone Obrazy Twitcha<br><small>Zamienia linki do obrazów na osadzone obrazy w ChatRD.</small>"
   },
 
   "youtube": {
@@ -134,7 +137,8 @@
     "statistics_hint": "Pokazuje liczbę widzów i polubień na YouTube.",
     "custom_emotes_label": "Emotki tylko dla członków",
     "custom_emotes_hint": "Musisz ręcznie dodać emotki dla członków, ponieważ API YouTube nie przekazuje ich do Streamer.bot.",
-    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Nie</strong> używaj Discorda, Imgura ani żadnych tymczasowych platform do hostowania obrazów, aby hostować swoje emotki. Możesz kliknąć prawym przyciskiem myszy na obraz emotki na YouTube i skopiować adres URL obrazu 😊"
+    "custom_emote_information" : "<i class=\"fa-solid fa-circle-info\"></i> <strong>Nie</strong> używaj Discorda, Imgura ani żadnych tymczasowych platform do hostowania obrazów, aby hostować swoje emotki. Możesz kliknąć prawym przyciskiem myszy na obraz emotki na YouTube i skopiować adres URL obrazu 😊",
+    "embed_images_label" : "Osadzone Obrazy YouTube<br><small>Zamienia linki do obrazów na osadzone obrazy w ChatRD.</small>"
   },
 
   "tiktok": {
@@ -156,7 +160,8 @@
     "superfans": "SuperFani/Subskrybenci",
     "statistics": "Statystyki",
     "statistics_hint": "Pokazuje liczbę widzów i polubień na TikToku.",
-    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Jeśli masz włączone <strong>Pole czatu</strong>, musisz <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">postępować zgodnie z instrukcją</a></strong>, aby wysyłać wiadomości na TikTok."
+    "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Jeśli masz włączone <strong>Pole czatu</strong>, musisz <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd/?tab=readme-ov-file#-sending-messages-to-tiktok\">postępować zgodnie z instrukcją</a></strong>, aby wysyłać wiadomości na TikTok.",
+    "embed_images_label" : "Osadzone Obrazy TikTok<br><small>Zamienia linki do obrazów na osadzone obrazy w ChatRD.</small>"
   },
 
   "kick": {
@@ -182,7 +187,8 @@
     "raids": "Host",
     "raids_hint": "To jak \"rajd\", ale na Kicku.",
     "statistics": "Statystyki",
-    "statistics_hint": "Pokazuje liczbę widzów na Kicku."
+    "statistics_hint": "Pokazuje liczbę widzów na Kicku.",
+    "embed_images_label" : "Osadzone Obrazy Kicka<br><small>Zamienia linki do obrazów na osadzone obrazy w ChatRD.</small>"
   },
 
   "streamelements": {
