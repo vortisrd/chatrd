@@ -1,44 +1,3 @@
-/* -------------------------- */
-/* TEST MODE MODULE (ChatRD)  */
-/* -------------------------- */
-/*
-    Gera mensagens e eventos FALSOS (Twitch, YouTube, Kick, TikTok,
-    Streamlabs, StreamElements, Patreon, TipeeeStream, Ko-fi, Fourthwall)
-    para demonstração do widget, sem depender de uma conexão real com o
-    Streamer.bot ou com o TikFinity.
-
-    Funciona chamando diretamente as MESMAS funções que os outros módulos
-    usam para renderizar eventos reais (ex: twitchChatMessage,
-    kofiDonationMessage, etc), só que com um payload fake no formato que o
-    Streamer.bot normalmente entregaria. Isso faz o "modo teste" ficar
-    visualmente idêntico a um evento de verdade — usa os estilos/skins que
-    o ChatRD já tem, sem CSS nenhum extra.
-
-    IMPORTANTE: este script precisa ser carregado DEPOIS de todos os outros
-    módulos (twitch, youtube, tiktok, kick, streamelements, streamlabs,
-    patreon, tipeeestream, kofi, fourthwall) no chat.html, pois ele depende
-    das funções e variáveis globais criadas por eles. Ex:
-
-    <script src="js/modules/fourthwall/module.js?nocache=41"></script>
-    <script src="js/testmode.js"></script>
-    </body>
-
-    ---------------------------------------------------------------------
-    PARÂMETROS DE URL
-    ---------------------------------------------------------------------
-    ?testMode=true              -> já inicia disparando eventos sozinho
-    ?testModeMinInterval=2500   -> intervalo mínimo entre eventos (ms)
-    ?testModeMaxInterval=7000   -> intervalo máximo entre eventos (ms)
-
-    ---------------------------------------------------------------------
-    USO VIA CONSOLE / OUTROS SCRIPTS
-    ---------------------------------------------------------------------
-    startTestMode()             -> começa a disparar eventos aleatórios
-    stopTestMode()               -> para de disparar
-    fireRandomTestEvent()        -> dispara 1 evento aleatório agora
-    fireTestEvent('twitch:sub')  -> dispara um evento específico agora
-    TestMode.listEvents()        -> lista todas as chaves de eventos disponíveis
-*/
 
 const testModeAutoStart     = getURLParam("testMode", false);
 const testModeMinInterval   = parseInt(getURLParam("testModeMinInterval", 1500), 10);
@@ -108,9 +67,7 @@ const TestMode = (() => {
 
     const fakeColors = ['#ff4d4d', '#4dff88', '#4dc3ff', '#e14dff', '#ffd24d', '#53fc18'];
 
-    // Evita que os módulos originais tentem buscar informações do
-    // Streamer.bot real (getBroadcaster/getGlobals), o que travaria ou
-    // geraria erro caso não haja conexão ativa durante a demonstração.
+
     function ensureStreamerContext() {
         if (typeof twitchStreamer !== 'undefined' && !twitchStreamer.broadcastUser) {
             twitchStreamer.broadcastUser = 'meucanal';
@@ -122,13 +79,6 @@ const TestMode = (() => {
             kickStreamer.broadcasterUserName = 'meucanal';
         }
     }
-
-    // ---------------------------
-    // GERADORES DE EVENTOS FALSOS
-    // ---------------------------
-    // Cada chave é "plataforma:evento". A função só dispara se a função
-    // real do módulo correspondente existir (ou seja, se o módulo está
-    // carregado na página).
 
     const generators = {};
 
@@ -404,13 +354,6 @@ const TestMode = (() => {
         });
     };
 
-    // ---------------------------
-    // MOTOR DO MODO TESTE
-    // ---------------------------
-
-    // Só considera plataformas que estão de fato habilitadas na URL
-    // (showTwitch=true, showKick=true, etc). Se nenhuma estiver marcada,
-    // usa todas — útil pra testar o modo teste isoladamente.
     function activeGeneratorKeys() {
         const platformFlags = {
             twitch: typeof showTwitch !== 'undefined' && showTwitch,
@@ -432,8 +375,6 @@ const TestMode = (() => {
         const active = activeGeneratorKeys();
         const keys = active.length > 0 ? active : Object.keys(generators);
 
-        // eventos de chat (ex: "twitch:chat") entram 2x na lista,
-        // então saem sorteados com o dobro da frequência
         const weighted = keys.flatMap((key) => key.endsWith(':chat') ? [key, key] : [key]);
 
         return weighted;
@@ -508,8 +449,6 @@ window.stopTestMode = TestMode.stop;
 window.fireTestEvent = TestMode.fire;
 window.fireRandomTestEvent = TestMode.fireRandom;
 
-// Inicia sozinho quando o Streamer.bot estiver realmente conectado
-// (?testMode=true na URL). Fica tentando a cada 1s até conectar.
 if (testModeAutoStart) {
     document.addEventListener('DOMContentLoaded', () => {
         const waitForConnection = setInterval(() => {
