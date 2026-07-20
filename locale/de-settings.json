@@ -76,7 +76,8 @@
     "moderation_buttons_hint": "Fügt Schaltflächen für Moderatoraktionen hinzu.",
     "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Das Chat-Eingabefeld unterstützt auch <strong>/Befehle</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Unterstützte Befehle</a>.</strong>",
     "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Sei vorsichtig, wenn du dies aktivierst.</u></strong> Deine Zuschauer könnten Bilder posten, die gegen die Nutzungsbedingungen der Plattform verstoßen, und du könntest Strafen erhalten. <strong>Du wurdest gewarnt!</strong>",
-    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Einbettungsberechtigungen<br><small>Wähle aus, welche Rollen Bilder einbetten dürfen.</small>"
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Einbettungsberechtigungen<br><small>Wähle aus, welche Rollen Bilder einbetten dürfen.</small>",
+    "demo_mode" : "Demonstrationsmodus<br><small>Startet ChatRD im Testmodus und erzeugt zufällige Nachrichten und Ereignisse.</small>"
   },
 
   "twitch": {

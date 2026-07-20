@@ -608,7 +608,7 @@ async function getTikTokBadges(data) {
         { min: 50, max: 500, url: 'https://p16-webcast.tiktokcdn.com/webcast-va/fans_badge_icon_lv50_v4.png~tplv-obj.image' },
     ];
 
-    if (userBadges.length > 0) {
+    if ((userBadges) && (userBadges.length > 0)) {
         userBadges.forEach(badge => {
             // Top Gifter Badges
             if (badge.badgeSceneType === 6) {

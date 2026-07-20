@@ -76,7 +76,8 @@
     "moderation_buttons_hint": "Nagdaragdag ng mga pindutan para sa mga aksyon ng moderator.",
     "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> Tinatanggap din ng Chat Field ang mga <strong>/utos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Mga Sinusuportahang Utos</a>.</strong>",
     "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Mag-ingat sa pag-enable nito.</u></strong> Maaaring mag-post ang iyong mga viewer ng mga larawan na labag sa Mga Tuntunin ng Serbisyo ng platform, at maaari kang humarap sa mga parusa. <strong>Ikaw ay binalaan na!</strong>",
-    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Mga Pahintulot sa Pag-embed<br><small>Piliin kung aling mga role ang makakapag-embed ng mga larawan.</small>"
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Mga Pahintulot sa Pag-embed<br><small>Piliin kung aling mga role ang makakapag-embed ng mga larawan.</small>",
+    "demo_mode" : "Demonstration Mode<br><small>Sinisimulan ang ChatRD sa test mode, na naglalabas ng random na mga mensahe at kaganapan.</small>"
   },
 
   "twitch": {

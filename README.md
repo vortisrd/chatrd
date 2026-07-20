@@ -2,11 +2,11 @@
 
 ChatRD is a chat tool and/or overlay widget that unifies messages and events from **Twitch**, **YouTube**, **TikTok**, **Kick**, **Streamlabs**, **StreamElements**, **Patreon**, **TipeeeStream**, **Ko-Fi** and **Fourthwall**.
 
-![ChatRD Config UI](https://i.imgur.com/ezrWaI2.png)
+![ChatRD Config UI](https://i.imgur.com/cKWHE03.png)
 
 ## 🛠️ Setting it up
 
-Make sure your **Twitch**, **YouTube** and **Kick** accounts are connected on **Streamer.bot**. Also have **TikFinity Desktop App** installed and your account on **TikTok** setup. **BOTH APPS NEED TO RUN ON THE SAME PC**.
+First, download **[Streamer.bot](https://streamer.bot/)** for **Twitch**, **YouTube** and **Kick** support and the **[TikFinity Desktop App](https://tikfinity.zerody.one/app/)** for TikTok (partial) support. Make sure your **Twitch**, **YouTube** and **Kick** accounts are connected on **Streamer.bot**. Also have **TikFinity Desktop App** installed and your account on **TikTok** setup. **BOTH APPS NEED TO RUN ON THE SAME PC**.
 
 If you have both of these ready, follow these steps:
 

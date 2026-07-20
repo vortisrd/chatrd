@@ -578,7 +578,7 @@ body {
     position: relative;
     color: #efeff1;
     font-size: 18px;
-    line-height: 150%;
+    /*line-height: 150%;*/
     transition: var(--transition);
 }
 
@@ -1036,7 +1036,7 @@ body {
     background: rgba(255,255,255,0.2);
     padding: 10px 10px 10px 10px;
     border-radius: 5px;
-    line-height: 125%;
+    /*line-height: 125%;*/
 }
 
 .chat .event img {

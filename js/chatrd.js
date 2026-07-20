@@ -64,10 +64,10 @@ const loadedEmotes = new Set();
 
 /* ✅ Explicit whitelist */
 const SKINS = {
-    default: "skin-default.css?nocache=40",
-    nutting: "skin-nutting.css?nocache=40",
-    kimballs: "skin-kimballs.css?nocache=40",
-    bubbles: "skin-bubbles.css?nocache=40"
+    default: "skin-default.css?nocache=41",
+    nutting: "skin-nutting.css?nocache=41",
+    kimballs: "skin-kimballs.css?nocache=41",
+    bubbles: "skin-bubbles.css?nocache=41"
 };
 
 const skinFile = SKINS[chatrdSkin] || SKINS.default;
@@ -133,7 +133,9 @@ async function animateItemEntry(root, messageid) {
         ]);
     }));
 
-    const itemDimension = chatHorizontal ? ghostClone.offsetWidth || 0 : ghostClone.offsetHeight || 0;
+    const itemDimension = chatHorizontal
+    ? ghostClone.getBoundingClientRect().width || 0
+    : ghostClone.getBoundingClientRect().height || 0;
     
     ghostClone.remove();
     
@@ -1230,7 +1232,7 @@ function createConfettiCanvas() {
 }
 
 
-function chatGhostRezise() {
+function chatGhostResize() {
     const chat = document.getElementById('chat');
     const chatGhost = document.getElementById('chat-ghost');
     const chatWidth = `${chat.offsetWidth}px`;
@@ -1247,7 +1249,7 @@ function adjustScreenMediaQuery() {
 }
 
 window.addEventListener('resize', () => {
-    chatGhostRezise();
+    chatGhostResize();
     adjustScreenMediaQuery();
 });
 
@@ -1275,7 +1277,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     /* Making sure #chat-ghost has the same width than #chat */
-    chatGhostRezise();
+    chatGhostResize();
     adjustScreenMediaQuery();
 });
 

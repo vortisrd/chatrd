@@ -370,9 +370,15 @@ function generateUrl() {
 -------------------------- */
 function copyUrl() {
     const output = document.getElementById("outputUrl");
-    const value = output.value;
     const button = document.querySelector('#copyUrlButton');
     const buttonDefaultText = button.textContent;
+
+    // remove o parâmetro testMode (e os relacionados) antes de copiar
+    const url = new URL(output.value);
+    url.searchParams.delete('testMode');
+    url.searchParams.delete('testModeMinInterval');
+    url.searchParams.delete('testModeMaxInterval');
+    const value = url.toString();
 
     navigator.clipboard.writeText(value).then(() => {
         button.textContent = '👍';

@@ -76,7 +76,8 @@
     "moderation_buttons_hint": "Adiciona botões para ações de moderação.",
     "chat_field_warning": "<i class=\"fa-solid fa-circle-info\"></i> O Campo de Chat também aceita <strong>/comandos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Comandos Suportados</a>.</strong>",
     "embed_image_warning": "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong><u>Tenha cuidado ao ativar isso.</u></strong> Seus espectadores podem postar imagens que violem os Termos de Serviço da plataforma e você pode sofrer penalidades. <strong>Você foi avisado!</strong>",
-    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Permissões de Incorporação<br><small>Selecione quais cargos poderão incorporar imagens.</small>"
+    "embedding_roles": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Permissões de Incorporação<br><small>Selecione quais cargos poderão incorporar imagens.</small>",
+    "demo_mode" : "Modo de Demonstração<br><small>Inicia o ChatRD em modo de teste, gerando mensagens e eventos aleatórios.</small>"
   },
 
   "twitch": {
