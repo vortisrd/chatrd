@@ -349,8 +349,8 @@ const TestMode = (() => {
             username: randomFrom(fakeNames),
             total: randomFrom([20, 35, 50]),
             currency: 'USD',
-            statmessageus: 'comprou um item da loja',
-            variants: [{ name: 'Camiseta ChatRD', image: '' }]
+            statmessageus: 'bought an item from the store',
+            variants: [{ name: 'ChatRD Hoodie', image: '' }]
         });
     };
 

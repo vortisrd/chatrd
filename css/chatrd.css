@@ -1051,8 +1051,14 @@ body {
     font-weight: 300;
 }
 
-.chat .event .user a { color: #FFF; text-decoration: none; }
-.chat .event .user a:hover { text-shadow: 0 0 10px #FFF; }
+.chat .event .user a {
+    color: #FFF;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.chat .event .user a:hover {
+    text-shadow: 0 0 10px #FFF;
+}
 
 .chat .event .value .gift-info { display: inline-block; }
 .chat .event .value .gift-info span.gift-image { display: inline-block; }

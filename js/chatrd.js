@@ -64,10 +64,10 @@ const loadedEmotes = new Set();
 
 /* ✅ Explicit whitelist */
 const SKINS = {
-    default: "skin-default.css?nocache=41",
-    nutting: "skin-nutting.css?nocache=41",
-    kimballs: "skin-kimballs.css?nocache=41",
-    bubbles: "skin-bubbles.css?nocache=41"
+    default: "skin-default.css?nocache=42",
+    nutting: "skin-nutting.css?nocache=42",
+    kimballs: "skin-kimballs.css?nocache=42",
+    bubbles: "skin-bubbles.css?nocache=42"
 };
 
 const skinFile = SKINS[chatrdSkin] || SKINS.default;
