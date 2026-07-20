@@ -91,6 +91,10 @@ const twitchMessageHandlers = {
     'Twitch.RewardRedemption': (response) => {
         twitchRewardRedemption(response.data);
     },
+
+    
+
+
     'Twitch.Sub': (response) => {
         twitchSubMessage(response.data);
     },

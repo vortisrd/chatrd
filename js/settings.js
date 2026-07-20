@@ -643,7 +643,12 @@ function youtubeLoadMemberEmotes() {
         console.debug('[ChatRD][Settings] Loading Global Vars...', globals);
         const emoteglobal = globals.variables?.chatrdytcustomemotes;
         if (!emoteglobal) {
-            console.warn('[ChatRD][Settings] Global variable "chatrdytcustomemotes" not found.');
+            console.debug('[ChatRD][Settings] Global variable "chatrdytcustomemotes" not found. Creating one...');
+            streamerBotClient.doAction({ name: "[YouTube] Member Emotes" }, {
+                "chatrdytcustomemotes": "\"{}\"",
+            }).then((res) => {
+                console.debug('[ChatRD][Settings] Global variable "chatrdytcustomemotes" was saved.');
+            });
             return null;
         }
         try {

@@ -61,6 +61,7 @@ async function tiktokConnection() {
     const reconnectDelay = 10000; // 10 seconds
     const maxTries = 20;
     let retryCount = 0;
+    let errorLogged = false; // controls whether the error was already logged/notified for this outage
 
     function connect() {
         const tikfinityWebSocket = new WebSocket(tikfinityWebSocketURL);
@@ -68,6 +69,7 @@ async function tiktokConnection() {
         tikfinityWebSocket.onopen = () => {
             console.debug(`[ChatRD][TikFinity] Connected to TikFinity successfully!`);
             retryCount = 0; // Reset retry count on success
+            errorLogged = false; // Reset error flag so the next outage can log again
 
             notifySuccess({
                 title: 'ChatRD 🤝 TikFinity',
@@ -95,7 +97,7 @@ async function tiktokConnection() {
                 case 'follow': tiktokFollowMessage(tiktokData); break;
                 case 'gift': tiktokGiftMessage(tiktokData); break;
                 case 'subscribe': tiktokSubMessage(tiktokData); break;
-                //default: console.debug(`[TikTok] ${data.event}`, data); 
+                //default: console.debug(`[TikTok] ${data.event}`, data);
             }
         };
 
@@ -119,18 +121,22 @@ async function tiktokConnection() {
         };
 
         tikfinityWebSocket.onerror = (error) => {
-            console.error(`[ChatRD][TikFinity] Connection error:`, error);
+            if (!errorLogged) {
+                console.error(`[ChatRD][TikFinity] Connection error:`, error);
+
+                if (tikFinityStatus.error == false) {
+                    notifyError({
+                        title: 'ChatRD ⚠️ TikFinty',
+                        text: ``
+                    });
+                }
+
+                errorLogged = true;
+            }
 
             // Force close to trigger onclose and centralize retry logic
             if (tikfinityWebSocket.readyState !== WebSocket.CLOSED) {
                 tikfinityWebSocket.close();
-            }
-
-            if (tikFinityStatus.error == false) {
-                notifyError({
-                    title: 'ChatRD ⚠️ TikFinty',
-                    text: ``
-                });
             }
 
             tikFinityStatus.connected = false;
