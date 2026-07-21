@@ -1050,6 +1050,28 @@
     </div>
 </div>
 
+<!-- ── Modal: Actions Not Found ────────────────────────────────────────────── -->
+<div id="sbActionsNotFound" class="modal hidden">
+    <div class="modal-content">
+        <h3 data-i18n="modal_actions.title">⚠️ Streamer.bot Actions Not Found ⚠️</h3>
+        <span data-i18n="modal_actions.subtitle">You are missing the following actions:</span> 
+
+        <div id="sbActionList">
+        </div>  
+
+        <span data-i18n="modal_actions.action">Please, use the code below to add them to Streamer.bot:</span>
+
+        <label>
+            <code id="sbActionCode"></code>
+            <button id="sbActionsCopy" onclick="copySbActions()"><i class="fa-regular fa-copy"></i></button>
+        </label>
+
+        <div class="modal-buttons">
+            <button id="refreshSbActions" data-i18n="modal_actions.reload">Reload and Try Again</button>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@streamerbot/client/dist/streamerbot-client.min.js"></script>

@@ -534,6 +534,89 @@ footer .nav-bar a img {
     text-shadow: 0 0 5px #14c22b;
 }
 
+
+#sbActionList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #000;
+    color: #999;
+    padding: 10px; 
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+#sbActionList .sbAction {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#sbActionList .sbAction .found { color: #00ff00; }
+#sbActionList .sbAction .not-found { color: #ff0000; }
+
+#sbActionCode {
+    display: block;
+    background: #000;
+    color: #999;
+    padding: 10px; 
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    height: 51px;
+
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    font-family: monospace;
+    
+    scrollbar-width: thin;
+    scrollbar-color: #666 #1a1a1e;
+}
+
+#sbActionCode::-webkit-scrollbar {
+    width: 8px;
+}
+
+#sbActionCode::-webkit-scrollbar-track {
+    background: #1a1a1e;
+    border-radius: 8px;
+}
+
+#sbActionCode::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 8px;
+    border: 2px solid #1a1a1e;
+}
+
+#sbActionCode::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+#sbActionsNotFound label {
+    position: relative;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#sbActionsNotFound label button {
+    padding: 5px;
+    width: 51px;
+    height: 51px;
+    margin-top: 0;
+    transition: all ease-in-out 300ms;
+    border: 1px solid transparent;
+    font-size: 16px;
+}
+
+#sbActionsNotFound label button:hover {
+    border-color: #333;
+}
+
  .msm-platform {
     display: inline-block;
     background: #666;

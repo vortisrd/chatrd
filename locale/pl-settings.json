@@ -267,5 +267,12 @@
     "placeholder": "https://vortisrd.github.io/chatrd/chat.html?...",
     "confirm": "Importuj",
     "cancel": "Anuluj"
+  },
+
+  "modal_actions": {
+    "title": "⚠️ Nie znaleziono akcji Streamer.bot ⚠️",
+    "subtitle": "Brakuje Ci następujących akcji:",
+    "action": "Użyj poniższego kodu, aby dodać je do Streamer.bot:",
+    "reload": "Odśwież i spróbuj ponownie"
   }
 }
