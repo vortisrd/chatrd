@@ -132,7 +132,7 @@
     "gifted_membership": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Membro Presenteado",
     "gifted_membership_hint": "Exibe a pessoa que está presenteando membros.",
     "gifted_membership_train": "<i class=\"fa-solid fa-arrow-turn-up\"></i> Trem de Membros Presenteados",
-    "gifted_membership_train_hint": "Exibe todos os usuários que receberam uma membro em um presenteamento em massa.",
+    "gifted_membership_train_hint": "Exibe todos os usuários que receberam uma inscrição em um Gift Bomb.",
     "statistics": "Estatísticas",
     "statistics_hint": "Exibe Espectadores e Curtidas do YouTube.",
     "custom_emotes_label": "Emotes Exclusivos de Membros",

@@ -1,4 +1,3 @@
-
 const testModeAutoStart     = getURLParam("testMode", false);
 const testModeMinInterval   = parseInt(getURLParam("testModeMinInterval", 1500), 10);
 const testModeMaxInterval   = parseInt(getURLParam("testModeMaxInterval", 2500), 10);
@@ -65,8 +64,47 @@ const TestMode = (() => {
         'new follower, hi everyone!'
     ];
 
+    const fakeStreamTitles = [
+        'Ranked Grind Till I Rage Quit 💀',
+        'Chill Vibes And Clutch Plays',
+        'Trying The New Patch, Send Help',
+        'Road To Top 500 !discord',
+        'Chat Decides What I Play Next',
+        '!drop Hype - Giveaway Tonight',
+        'First Playthrough, No Spoilers Pls',
+        'Community Night W/ Viewers',
+        'Speedrun Attempt #47',
+        'New PB Or Bust',
+        'Late Night Stream, Who\'s Still Up?',
+        'Testing Builds Before Tourney',
+        'Variety Sunday - Chat Picks The Game',
+        '100% Completion Run',
+        'Back After A Break, Let\'s Catch Up',
+        'Sub Goal Hype Train 🔥',
+        'Chaotic Co-op With The Squad',
+        'Story Mode Marathon',
+        'Trying To Hit Diamond Before Reset',
+        'New Setup, New Stream, Let\'s Go',
+        'Q&A + Gameplay Combo Stream',
+        'Road To Affiliate Grind',
+        'Random Lobby Shenanigans',
+        'Season Finale Hype',
+        'Anniversary Stream 🎉'
+    ];
+
     const fakeColors = ['#ff4d4d', '#4dff88', '#4dc3ff', '#e14dff', '#ffd24d', '#53fc18'];
 
+
+    function getRandomBadges(badgesArray, count = 3) {
+        const shuffled = [...badgesArray];
+
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+
+        return shuffled.slice(0, count);
+    }
 
     function ensureStreamerContext() {
         if (typeof twitchStreamer !== 'undefined' && !twitchStreamer.broadcastUser) {
@@ -86,6 +124,83 @@ const TestMode = (() => {
 
     generators['twitch:chat'] = () => {
         if (typeof twitchChatMessage !== 'function') return;
+
+        const badges = [
+            {
+                "name": "moderator",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
+                "info": ""
+            },
+            {
+                "name": "leadmoderator",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/0822047b-65e0-46f2-94a9-d1091d685d33/3",
+                "info": ""
+            },
+            {
+                "name": "prime",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/bbbe0db0-a598-423e-86d0-f9fb98ca1933/3",
+                "info": ""
+            },
+            {
+                "name": "hornet",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/4dc7b047-8c59-4522-97f2-24fb63147f56/3",
+                "info": ""
+            },
+            {
+                "name": "no-audio",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/aef2cd08-f29b-45a1-8c12-d44d7fd5e6f0/3",
+                "info": ""
+            },
+            {
+                "name": "hornet",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/4dc7b047-8c59-4522-97f2-24fb63147f56/3",
+                "info": ""
+            },
+            {
+                "name": "gamer-duo",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/be750d4d-a3b9-4116-ae75-6ee4f3294a19/3",
+                "info": ""
+            },
+            {
+                "name": "umbrella-corporation",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/995ff00f-c16c-4782-86ba-f2d7668dc6a2/3",
+                "info": ""
+            },
+            {
+                "name": "ffxiv-fanfest",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/82ff2bf7-45cf-4cfa-8eb0-253dc879c2a9/3",
+                "info": ""
+            },
+            {
+                "name": "pokemon-ditto",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/b577304e-7dc9-49f2-bee1-68caf56a91e6/3",
+                "info": ""
+            },
+            {
+                "name": "share-the-love",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/2de71f4f-b152-4308-a426-127a4cf8003a/3",
+                "info": ""
+            },
+            {
+                "name": "went-outside",
+                "version": "1",
+                "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/544b6594-e11e-4230-8d42-d81c84002524/3",
+                "info": ""
+            }
+        ];
+        
+
         const name = randomFrom(fakeNames);
         const text = randomFrom(fakeMessages);
         twitchChatMessage({
@@ -100,7 +215,7 @@ const TestMode = (() => {
                 name,
                 id: randomId(),
                 color: randomFrom(fakeColors),
-                badges: [],
+                badges: getRandomBadges(badges),
                 subscribed: Math.random() < 0.3,
                 subscriptionTier: 1000,
                 role: 0
@@ -157,7 +272,7 @@ const TestMode = (() => {
                 url: `https://youtube.com/@${name}`,
                 profileImageUrl: 'images/youtube-default-user-pfp.jpg',
                 isSponsor: Math.random() < 0.2,
-                isModerator: false,
+                isModerator: Math.random() < 0.2,
                 isVerified: Math.random() < 0.1,
                 isOwner: false
             }
@@ -191,6 +306,26 @@ const TestMode = (() => {
     generators['kick:chat'] = () => {
         if (typeof kickChatMessage !== 'function') return;
         const name = randomFrom(fakeNames);
+        const badges = [
+            {
+                "type": "founder"
+            },
+            {
+                "type": "og"
+            },
+            {
+                "type": "vip"
+            },
+            {
+                "type": "subscriber"
+            },
+            {
+                "type": "moderator"
+            },
+            {
+                "type": "verified"
+            }
+        ]
         kickChatMessage({
             id: randomId(),
             type: 'message',
@@ -199,7 +334,11 @@ const TestMode = (() => {
                 id: randomId(),
                 slug: name,
                 username: name,
-                identity: { color: '#53fc18', badges: [], badges_v2: [] }
+                identity: {
+                    color: randomFrom(fakeColors),
+                    badges: getRandomBadges(badges), 
+                    badges_v2: []
+                }
             }
         });
     };
@@ -216,6 +355,25 @@ const TestMode = (() => {
         kickSubMessage({ username: name, months: randomFrom([1, 1, 3, 6, 12]) });
     };
 
+    generators['kick:kicksgifted'] = () => {
+        if (typeof kickKicksGiftedMessage !== 'function') return;
+        const name = randomFrom(fakeNames);
+        const gift = randomFrom([
+            { gift_id: 'hell-yeah', name: 'Hell Yeah', amount: 1,  },
+            { gift_id: 'hype', name: 'Hype', amount: 10 },
+            { gift_id: 'skull-emoji', name: 'Skull Emoji', amount: 50 },
+            { gift_id: 'full-send', name: 'Full Send It', amount: 100},
+            { gift_id: 'rage-quit', name: 'Rage Quit', amount: 500 },
+            { gift_id: 'flex', name: 'Flex', amount: 10000 },
+            { gift_id: 'boom', name: 'BOOOOOM', amount: 50000 }
+        ]);
+        kickKicksGiftedMessage({
+            sender: { username: name },
+            gift,
+            message: Math.random() < 0.5 ? randomFrom(fakeMessages) : ''
+        });
+    };
+
     // ---------- TIKTOK ----------
 
     generators['tiktok:chat'] = () => {
@@ -227,7 +385,7 @@ const TestMode = (() => {
             uniqueId: name,
             nickname: name,
             comment: randomFrom(fakeMessages),
-            isModerator: false,
+            isModerator: Math.random() < 0.2,
             isSubscriber: Math.random() < 0.2,
             profilePictureUrl : 'images/tiktok-default-user-pfp.jpeg'
         });
@@ -354,8 +512,8 @@ const TestMode = (() => {
         });
     };
 
-    function activeGeneratorKeys() {
-        const platformFlags = {
+    function getPlatformFlags() {
+        return {
             twitch: typeof showTwitch !== 'undefined' && showTwitch,
             youtube: typeof showYoutube !== 'undefined' && showYoutube,
             kick: typeof showKick !== 'undefined' && showKick,
@@ -367,15 +525,57 @@ const TestMode = (() => {
             kofi: typeof showKofi !== 'undefined' && showKofi,
             fourthwall: typeof showFourthwall !== 'undefined' && showFourthwall
         };
+    }
 
-        return Object.keys(generators).filter((key) => platformFlags[key.split(':')[0]]);
+    // toggle individual de cada tipo de evento, dentro da plataforma já habilitada.
+    // se uma chave não estiver mapeada aqui, ela só depende do toggle da plataforma.
+    function getEventFlags() {
+        return {
+            'twitch:chat': typeof showTwitchMessages !== 'undefined' && showTwitchMessages,
+            'twitch:follow': typeof showTwitchFollows !== 'undefined' && showTwitchFollows,
+            'twitch:sub': typeof showTwitchSubs !== 'undefined' && showTwitchSubs,
+            'twitch:cheer': typeof showTwitchBits !== 'undefined' && showTwitchBits,
+            'twitch:raid': typeof showTwitchRaids !== 'undefined' && showTwitchRaids,
+
+            'youtube:chat': typeof showYouTubeMessages !== 'undefined' && showYouTubeMessages,
+            'youtube:superchat': typeof showYouTubeSuperChats !== 'undefined' && showYouTubeSuperChats,
+            'youtube:sponsor': typeof showYouTubeMemberships !== 'undefined' && showYouTubeMemberships,
+
+            'kick:chat': typeof showKickMessages !== 'undefined' && showKickMessages,
+            'kick:follow': typeof showKickFollows !== 'undefined' && showKickFollows,
+            'kick:sub': typeof showKickSubs !== 'undefined' && showKickSubs,
+            'kick:kicksgifted': typeof showKickKicks !== 'undefined' && showKickKicks,
+
+            'tiktok:chat': typeof showTikTokMessages !== 'undefined' && showTikTokMessages,
+            'tiktok:follow': typeof showTikTokFollows !== 'undefined' && showTikTokFollows,
+            'tiktok:gift': typeof showTikTokGifts !== 'undefined' && showTikTokGifts,
+
+            'streamelements:tip': typeof showStreamElementsTips !== 'undefined' && showStreamElementsTips,
+            'streamlabs:donation': typeof showStreamlabsDonations !== 'undefined' && showStreamlabsDonations,
+            'patreon:pledge': typeof showPatreonMemberships !== 'undefined' && showPatreonMemberships,
+            'tipeeestream:donation': typeof showTipeeeDonations !== 'undefined' && showTipeeeDonations,
+            'kofi:donation': typeof showKofiDonations !== 'undefined' && showKofiDonations,
+            'kofi:sub': typeof showKofiSubscriptions !== 'undefined' && showKofiSubscriptions,
+            'fourthwall:donation': typeof showFourthwallDonations !== 'undefined' && showFourthwallDonations,
+            'fourthwall:order': typeof showFourthwallOrders !== 'undefined' && showFourthwallOrders
+        };
+    }
+
+    function activeGeneratorKeys() {
+        const platformFlags = getPlatformFlags();
+        const eventFlags = getEventFlags();
+
+        return Object.keys(generators).filter((key) => {
+            const platform = key.split(':')[0];
+            const eventFlag = key in eventFlags ? eventFlags[key] : true;
+            return platformFlags[platform] && eventFlag;
+        });
     }
 
     function usableGeneratorKeys() {
         const active = activeGeneratorKeys();
-        const keys = active.length > 0 ? active : Object.keys(generators);
 
-        const weighted = keys.flatMap((key) => key.endsWith(':chat') ? [key, key] : [key]);
+        const weighted = active.flatMap((key) => key.endsWith(':chat') ? [key, key] : [key]);
 
         return weighted;
     }
@@ -416,6 +616,47 @@ const TestMode = (() => {
         scheduleNext();
         document.dispatchEvent(new CustomEvent('chatrd:testmode:start'));
         console.info('[ChatRD][TestMode] Demo mode started.');
+
+        const platformFlags = getPlatformFlags();
+
+        console.debug(`[ChatRD][TestMode] Platform flags:`, platformFlags);
+
+        const youtubeStreamID = createRandomString(15);
+
+        if (platformFlags.twitch == true) {
+            twitchUpdateStatistics({
+                viewerCount: randomIntBetween(1, 100)
+            });
+        }
+
+        if (platformFlags.youtube == true) {
+            youTubeUpdateStatistics({
+                id: youtubeStreamID,
+                concurrentViewers: randomIntBetween(1, 100),
+                likeCount: randomIntBetween(1, 100),
+                broadcast: {
+                    status: 'live',
+                    title: `🔴 ${randomFrom(fakeStreamTitles)}`,
+                    tags: []
+                }
+            });
+        }
+
+        if (platformFlags.kick == true) {
+            kickUpdateStatistics({
+                viewerCount: randomIntBetween(1, 100)
+            });
+        }
+
+        if (platformFlags.tiktok == true) {
+            tiktokUpdateStatistics({
+                viewerCount: randomIntBetween(1, 100)
+            }, 'viewers');
+
+            tiktokUpdateStatistics({
+                totalLikeCount: randomIntBetween(100, 10000)
+            }, 'likes');
+        }
     }
 
     function stop() {

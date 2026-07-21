@@ -11,7 +11,7 @@
 }
 
 .chat.vertical .item .info .avatar {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     left: -70px;
     width: 62px;
@@ -21,8 +21,8 @@
 }
 
 .chat.vertical .item .info .avatar img {
-    width: 62px;
-    height: 62px;
+    width: 62px !important;
+    height: 62px !important;
 }
 
 
