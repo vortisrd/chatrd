@@ -64,10 +64,10 @@ const loadedEmotes = new Set();
 
 /* ✅ Explicit whitelist */
 const SKINS = {
-    default: "skin-default.css?nocache=45",
-    nutting: "skin-nutting.css?nocache=45",
-    kimballs: "skin-kimballs.css?nocache=45",
-    bubbles: "skin-bubbles.css?nocache=45"
+    default: "skin-default.css?nocache=47",
+    nutting: "skin-nutting.css?nocache=47",
+    kimballs: "skin-kimballs.css?nocache=47",
+    bubbles: "skin-bubbles.css?nocache=47"
 };
 
 const skinFile = SKINS[chatrdSkin] || SKINS.default;
@@ -134,8 +134,8 @@ async function animateItemEntry(root, messageid) {
     }));
 
     const itemDimension = chatHorizontal
-    ? ghostClone.getBoundingClientRect().width || 0
-    : ghostClone.getBoundingClientRect().height || 0;
+    ? ghostClone.offsetWidth || 0
+    : ghostClone.offsetHeight || 0;
     
     ghostClone.remove();
     
@@ -146,13 +146,11 @@ async function animateItemEntry(root, messageid) {
 
     void root[`offset${dimensionProp}`];
 
-    //setTimeout(function () {
-        root.style = `${dimensionProp.toLowerCase()}: ${itemDimension}px; opacity: 1; ${marginProp}: 0px;`;
-        setTimeout(function () {
-            const item = document.getElementById(messageid);
-            if (item) item.removeAttribute('style');
-        }, 800);
-    //}, 10);
+    root.style = `${dimensionProp.toLowerCase()}: ${itemDimension}px; opacity: 1; ${marginProp}: 0px;`;
+    setTimeout(function () {
+        const item = document.getElementById(messageid);
+        if (item) item.removeAttribute('style');
+    }, 800);
 
     if (hideAfter > 0) {
         const item = document.getElementById(messageid);
