@@ -688,6 +688,7 @@ body {
 
 .chat.vertical .item .header {
     font-size: 14px;
+    padding-bottom: 5px;
 }
 
 .chat.vertical .item .reply {
@@ -850,9 +851,14 @@ body {
     color: #999;
 }
 
+.chat.oneline .item .header {
+    font-size: 14px;
+}
+
 .chat.oneline .item.streamer-mentioned .message {
     background: rgba(255,255,255,0.1);
 }
+
 
 /* ------------------------------------------- */
 /* --------- CHAT - HORIZONTAL LAYOUT -------- */
@@ -1001,6 +1007,10 @@ body {
     display: block;
     font-size: 14px;
     color: #999;
+}
+
+.chat.horizontal .item .header {
+    font-size: 14px;
 }
 
 .chat .item.streamer-mentioned .message {

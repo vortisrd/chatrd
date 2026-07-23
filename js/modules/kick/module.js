@@ -100,6 +100,7 @@ async function kickConnection() {
     const kickMaxTries = 20;
     const kickReconnectDelay = 5000;
     let retryCount = 0;
+    let kickHasNotifiedDisconnect = false; // controla se o aviso já foi mostrado nesta "queda"
 
 
     async function connect() {
@@ -169,6 +170,7 @@ async function kickConnection() {
 
                 kickConnectionState = true;
                 retryCount = 0;
+                kickHasNotifiedDisconnect = false; // reconectou: reabilita o aviso pra próxima queda
 
                 console.debug(`[ChatRD][Pusher][Kick] Connected to Kick!`);
                 notifySuccess({
@@ -234,35 +236,28 @@ async function kickConnection() {
             };
 
             kickWebSocket.onclose = (event) => {
-                setTimeout(connect, kickReconnectDelay);
+                kickStatus.connected = false;
+                kickStatus.disconnected = true;
+                kickStatus.error = true;
 
-                if (kickStatus.disconnected == false) {                
+                retryCount++;
+
+                if (!kickHasNotifiedDisconnect) {
+                    kickHasNotifiedDisconnect = true;
                     notifyError({
                         title: 'ChatRD ❌ Kick',
                         text: ``
                     });
                 }
-                
-                kickStatus.connected = false;
-                kickStatus.disconnected = true;
-                kickStatus.error = true;
+
+                console.debug(`[ChatRD][Pusher][Kick] Disconnected. Retrying in background... (attempt ${retryCount})`);
+                setTimeout(connect, kickReconnectDelay);
             };
 
             kickWebSocket.onerror = (error) => {
                 console.error('[ChatRD][Pusher][Kick] WebSocket error:', error);
+                // Fecha o socket; o onclose acima cuida da notificação única e do reconnect em background
                 kickWebSocket.close();
-
-                if (kickStatus.error == false) {                
-                    notifyError({
-                        title: 'ChatRD ⚠️ Kick',
-                        text: ``
-                    });
-                }
-                
-                kickStatus.connected = false;
-                kickStatus.disconnected = true;
-                kickStatus.error = true;
-
             };
 
         }
