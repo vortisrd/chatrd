@@ -6,7 +6,7 @@ ChatRD is a chat tool and/or overlay widget that unifies messages and events fro
 
 ## 🛠️ Setting it up
 
-### Video Tutorial (Portuguese and English)
+### Video Tutorial (Recorded in Portuguese and English)
 [![Watch the video](https://i.imgur.com/ektZTAm.png)](https://www.youtube.com/watch?v=k90wNUquO_w)
 
 ### Detailed tutorial
