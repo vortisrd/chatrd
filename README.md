@@ -7,7 +7,7 @@ ChatRD is a chat tool and/or overlay widget that unifies messages and events fro
 ## 🛠️ Setting it up
 
 ### Video Tutorial (Portuguese and English)
-[![Watch the video](https://i.imgur.com/rDttyrC.png)](https://www.youtube.com/watch?v=k90wNUquO_w)
+[![Watch the video](https://i.imgur.com/ektZTAm.png)](https://www.youtube.com/watch?v=k90wNUquO_w)
 
 ### Detailed tutorial
 First, download **[Streamer.bot](https://streamer.bot/)** for **Twitch**, **YouTube** and **Kick** support and the **[TikFinity Desktop App](https://tikfinity.zerody.one/app/)** for TikTok (partial) support. Make sure your **Twitch**, **YouTube** and **Kick** accounts are connected on **Streamer.bot**. Also have **TikFinity Desktop App** installed and your account on **TikTok** setup. **BOTH APPS NEED TO RUN ON THE SAME PC**.
