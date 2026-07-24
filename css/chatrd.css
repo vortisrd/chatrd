@@ -57,6 +57,7 @@ body {
 
 #container .wrapper {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -564,6 +565,7 @@ body {
 
 .chat.vertical {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column-reverse;
     padding: 10px;
@@ -572,6 +574,15 @@ body {
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+/* Corrige o bug do flexbox (min-width:auto por padrão) que impede
+   os itens de encolherem em janelas estreitas, fazendo o conteúdo
+   ser cortado em vez de quebrar linha */
+.chat.vertical > .item,
+.chat.vertical > .event {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .chat.vertical .item {
@@ -713,6 +724,7 @@ body {
 
 .chat.oneline {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column-reverse;
     padding: 10px;
@@ -721,6 +733,12 @@ body {
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+.chat.oneline > .item,
+.chat.oneline > .event {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .chat.oneline .item {
@@ -1043,10 +1061,17 @@ body {
 
 .chat .event .message {
     display: inline-block;
+    max-width: 100%;
+    overflow-wrap: break-word;
     background: rgba(255,255,255,0.2);
     padding: 10px 10px 10px 10px;
     border-radius: 5px;
     /*line-height: 125%;*/
+}
+
+.chat .event .message .info span {
+    display: inline-block;
+    padding: 2px 0;
 }
 
 .chat .event img {
@@ -1070,7 +1095,11 @@ body {
     text-shadow: 0 0 10px #FFF;
 }
 
-.chat .event .value .gift-info { display: inline-block; }
+.chat .event .value .gift-info {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
 .chat .event .value .gift-info span.gift-image { display: inline-block; }
 .chat .event .value .gift-info span.gift-value { display: inline-block; }
 
@@ -1323,7 +1352,3 @@ body {
     padding: 0;
     background: none;
 }
-
-
-
-
