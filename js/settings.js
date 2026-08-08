@@ -291,6 +291,10 @@ async function loadYoutubeMemberEmotes() {
         ).then((res) => {
             console.debug('[ChatRD][Settings] YouTube Member Emotes variable was created.');
         });
+		
+		youtubeEmotes = youtubeEmotes || {};
+        await populateYoutubeMemberEmotes(youtubeEmotes);
+        return;
     }
 
     console.debug('[ChatRD][Settings][YouTube] Member Emotes are being loaded...');
