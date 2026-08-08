@@ -280,7 +280,7 @@ async function loadYoutubeMemberEmotes() {
     const youtubeCustomEmoteArea = document.querySelector('#youTubeCustomEmotes');
     const youtubeCustomEmotes = await streamerBot.client.getGlobal('chatrdytcustomemotes', true);
 
-    if (!youtubeCustomEmotes) {
+    if (!youtubeCustomEmotes || !youtubeCustomEmotes.variable) {
         console.warn('[ChatRD][Settings][YouTube] Member Emotes variable not found. Creating it...');
 
         streamerBotClient.doAction({
@@ -435,6 +435,7 @@ async function updateYoutubeEmoteToChatRD(originalName, newName, url) {
 }
 
 function updateYoutubeEmoteKey( emotes, oldKey, newKey, newValue ) {
+	if (!emotes || typeof emotes !== 'object') { emotes = {}; }
 	var keyExists = oldKey in emotes;
 	var finalKey = oldKey;
 
