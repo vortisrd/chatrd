@@ -97,11 +97,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=61",
-    nutting: "skin-nutting.css?nocache=61",
-    kimballs: "skin-kimballs.css?nocache=61",
-    bubbles: "skin-bubbles.css?nocache=61",
-    'star-wars': "skin-star-wars.css?nocache=61"
+    default: "skin-default.css?nocache=62",
+    nutting: "skin-nutting.css?nocache=62",
+    kimballs: "skin-kimballs.css?nocache=62",
+    bubbles: "skin-bubbles.css?nocache=62",
+    'star-wars': "skin-star-wars.css?nocache=62"
 };
 
 
@@ -684,6 +684,14 @@ async function cleanStringOfHTMLButEmotes(string) {
 
     const emotes = container.querySelectorAll('img.emote[alt]');
     emotes.forEach(img => {
+        const altText = img.getAttribute('alt');
+        const textNode = document.createTextNode(altText);
+        img.replaceWith(textNode);
+    });
+
+    /* GIPHY INTEGRATION OVER TWITCH HAS DESCRIPTIONS IN THE ALT ATTRIBUTE */
+    const giphyImagesOverTwitch = container.querySelectorAll('img.twitch-giphy-integration[alt]');
+    giphyImagesOverTwitch.forEach(img => {
         const altText = img.getAttribute('alt');
         const textNode = document.createTextNode(altText);
         img.replaceWith(textNode);

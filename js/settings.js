@@ -237,7 +237,7 @@ async function bindChatRDSettings() {
         await chatrdPlaySound(soundFile, soundVolume);
     });
 
-    //bindTikTokSettings();
+    bindTikTokSettings();
 }
 
 async function bindTikTokSettings() {
@@ -644,7 +644,7 @@ async function streamerBotConnect() {
             status.classList.add('connected');
 
             loadYoutubeMemberEmotes();
-            //loadChatRDTiktokService();
+            loadChatRDTiktokService();
             renderActionsStatus();
         },
         onDisconnect: () => {

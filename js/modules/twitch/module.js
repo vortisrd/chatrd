@@ -367,7 +367,7 @@ async function twitchChatMessage(data) {
         messageFromParts = await getTwitchMessageFromParts(cleanParts);
     }
     else {
-        messageFromParts = await getTwitchMessageFromParts(data.parts);
+        messageFromParts = await getTwitchMessageFromParts(data.parts,data);
     }
 
     const textIdentifier = await generateSHA256Identifier(data.text);
@@ -2148,7 +2148,7 @@ async function getTwitchBadges(badges) {
 
 
 
-async function getTwitchMessageFromParts(parts) {
+async function getTwitchMessageFromParts(parts,data = null) {
     const html = parts.map(part => {
 
         switch (part.type) {
@@ -2169,7 +2169,8 @@ async function getTwitchMessageFromParts(parts) {
 
             case 'gif': {
                 let url = part.url;
-                return `<img class="embedded" src="${escapeHTML(url)}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}">`;
+                let description = data.text.replace(/[\[\]]/g, '');
+                return `<img class="embedded twitch-giphy-integration" src="${url}" alt="${description}" title="${description}">`;
             }
 
             case 'cheer':
