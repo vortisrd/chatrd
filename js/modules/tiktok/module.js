@@ -7,8 +7,8 @@ const tikFinityStatus = {};
 
 const showTiktok                    = getURLParam("showTiktok", false);
 
-const tiktokService                 = getURLParam("tiktokService", "tikfinity");
-//const tiktokService                 = "tikfinity";
+//const tiktokService                 = getURLParam("tiktokService", "tikfinity");
+const tiktokService                 = "tikfinity";
 
 const showTikTokMessages            = getURLParam("showTikTokMessages", true);
 const showTikTokJoins               = getURLParam("showTikTokJoins", false);
