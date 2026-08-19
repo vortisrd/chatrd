@@ -2150,29 +2150,37 @@ async function getTwitchBadges(badges) {
 
 async function getTwitchMessageFromParts(parts) {
     const html = parts.map(part => {
-        if (part.type === 'emote') {
-            if (part.source == "Twemoji") {
+
+        switch (part.type) {
+            case 'emote': {
+                if (part.source === "Twemoji") {
+                    return escapeHTML(part.text);
+                }
+
+                let url = part.imageUrl;
+                switch (part.source) {
+                    case '7TVChannel':   url = url.replace('/4x', '/1x'); break;
+                    case 'FrankerFaceZ': url = url.replace('/4', '/1'); break;
+                    case 'BetterTTV':    url = url.replace('/3x', '/1x'); break;
+                }
+
+                return `<img src="${escapeHTML(url)}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}" class="emote">`;
+            }
+
+            case 'gif': {
+                let url = part.url;
+                return `<img class="embedded" src="${escapeHTML(url)}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}">`;
+            }
+
+            case 'cheer':
+                return '';
+
+            default:
                 return escapeHTML(part.text);
-            }
-
-            let url = part.imageUrl;
-            switch (part.source) {
-                case '7TVChannel':      url = url.replace('/4x', '/1x'); break;
-                case 'FrankerFaceZ':    url = url.replace('/4', '/1'); break;
-                case 'BetterTTV':       url = url.replace('/3x', '/1x'); break;
-            }
-
-            return `<img src="${escapeHTML(url)}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}" class="emote">`;
         }
 
-        if (part.type === 'cheer') {
-            return ``;
-        }
-        
-        return escapeHTML(part.text);
-        
     }).join('');
-    
+
     return html;
 }
 
