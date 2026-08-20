@@ -633,10 +633,14 @@ async function streamerBotConnect() {
     const status = document.querySelector('#streamerbot .status');
     const streamerBotIp = document.querySelector(`[data-setting=streamerBotServerAddress]`).value;
     const streamerBotPort = document.querySelector(`[data-setting=streamerBotServerPort]`).value;
+    const streamerBotWSS = document.querySelector(`[data-setting=streamerBotWSS]`).checked;
+
+    const streamerBotSchema = streamerBotWSS ? 'wss' : 'ws';
 
     streamerBot.client = new StreamerbotClient({
         host: streamerBotIp,
         port: streamerBotPort,
+        scheme: streamerBotSchema,
         autoReconnect: true,
         onConnect: () => {
             streamerBot.connected = true;
