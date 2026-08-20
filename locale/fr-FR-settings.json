@@ -5,7 +5,9 @@
   "streamerbot": {
     "title": "Streamer.bot",
     "server": "IP du serveur",
-    "port": "Port"
+    "port": "Port",
+    "schema": "Connexion Sécurisée (WSS)",
+    "schema_hint": "Activez cette option si Streamer.bot est hébergé sur un serveur distant (VPS) avec HTTPS/TLS. <strong><u>Laissez désactivé si vous ne savez pas ce que vous faites</u> 😊</strong>"
   },
   "speakerbot": {
     "title": "Speaker.bot",

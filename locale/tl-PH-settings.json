@@ -5,7 +5,9 @@
   "streamerbot": {
     "title": "Streamer.bot",
     "server": "IP ng Server",
-    "port": "Port"
+    "port": "Port",
+    "schema": "Secure na Koneksyon (WSS)",
+    "schema_hint": "I-enable kung ang Streamer.bot ay nasa remote server (VPS) na may HTTPS/TLS. <strong><u>Iwanang naka-off kung hindi mo alam ang ginagawa mo</u> 😊</strong>"
   },
   "speakerbot": {
     "title": "Speaker.bot",

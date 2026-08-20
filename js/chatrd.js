@@ -48,12 +48,6 @@ const ignoreUserList                = ignoreChatters.split(',').map(item => item
 
 const hide                          = getURLParamLegacy("hideAfter", () => getURLParam("hide", 0));
 
-const chatContainer                 = document.querySelector('#chat');
-const chatGhostContainer            = document.querySelector('#chat-ghost');
-const eventLittleContainer          = document.querySelector('#little-events');
-const chatTemplate                  = document.querySelector('#chat-message');
-const eventTemplate                 = document.querySelector('#event-message');
-
 const showTwitchEmbedImages         = getURLParam("showTwitchEmbedImages", false);
 const twitchEmbedImageRoles         = getURLParam("twitchEmbedImageRoles", "streamer,moderator");
 
@@ -82,6 +76,24 @@ const imageEmbeddingFilterDomains   = getURLParam("imageEmbeddingFilterDomains",
 
 
 
+
+
+
+const chatWrapper                   = document.querySelector('#container');
+const chatContainer                 = document.querySelector('#chat');
+const chatGhostContainer            = document.querySelector('#chat-ghost');
+const eventLittleContainer          = document.querySelector('#little-events');
+const chatTemplate                  = document.querySelector('#chat-message');
+const eventTemplate                 = document.querySelector('#event-message');
+
+
+
+
+
+
+
+
+
 /* Idem — montado uma única vez (antes era recriado a cada chamada
    de speakerBotTTSRead) */
 const embedTTSConfig = {
@@ -97,11 +109,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=62",
-    nutting: "skin-nutting.css?nocache=62",
-    kimballs: "skin-kimballs.css?nocache=62",
-    bubbles: "skin-bubbles.css?nocache=62",
-    'star-wars': "skin-star-wars.css?nocache=62"
+    default: "skin-default.css?nocache=63",
+    nutting: "skin-nutting.css?nocache=63",
+    kimballs: "skin-kimballs.css?nocache=63",
+    bubbles: "skin-bubbles.css?nocache=63",
+    'star-wars': "skin-star-wars.css?nocache=63"
 };
 
 
@@ -201,7 +213,7 @@ if (!chatHorizontal && !chatOneLine) {
 }
 
 let backgroundColor = hexToRGBA(chatBackground,chatBackgroundOpacity);
-document.body.style.backgroundColor = backgroundColor;
+chatWrapper.style.backgroundColor = backgroundColor;
 if (preview == true) document.documentElement.style.backgroundColor = "#121212";
 
 document.querySelector('#bars').style.zoom = size;

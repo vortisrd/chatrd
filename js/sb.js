@@ -7,6 +7,7 @@ let speakerBotClient = null;
 const streamerBotStatus = {};
 const streamerBotServerAddress      = getURLParam("streamerBotServerAddress", "127.0.0.1");
 const streamerBotServerPort         = getURLParam("streamerBotServerPort", "8080");
+const streamerBotWSS                = getURLParam("streamerBotWSS", false);
 const showSpeakerbot                = getURLParam("showSpeakerbot", false);
 const speakerBotServerAddress       = getURLParam("speakerBotServerAddress", "127.0.0.1");
 const speakerBotServerPort          = getURLParam("speakerBotServerPort", "7580");
@@ -37,6 +38,8 @@ function getSpeakerBotInstance() {
 let streamerBotClientActive = null;
 
 function streamerBotConnect() {
+
+    const streamerBotSchema = streamerBotWSS ? 'wss' : 'ws';
     
     if (streamerBotClientActive) {
         try {
@@ -52,7 +55,7 @@ function streamerBotConnect() {
     streamerBotClientActive = new StreamerbotClient({
         host: streamerBotServerAddress,
         port: streamerBotServerPort,
-        scheme: 'ws',
+        scheme: streamerBotSchema,
         onConnect: () => {
             streamerBotStatus.connected = true;
             streamerBotStatus.disconnected = false;

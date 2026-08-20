@@ -117,6 +117,16 @@
                         </div>
                     </div>
 
+                    <div class="config">
+                        <div class="info">    
+                            <div class="title" data-i18n="streamerbot.schema">Secure Connection (WSS)</div>
+                            <div class="description"><small data-i18n-html="streamerbot.schema_hint">Enable if Streamer.bot is on a remote server (VPS) with HTTPS/TLS. <strong><u>Leave it off if you don't know what you're doing</u> 😊</strong></small></div>
+                        </div>
+                        <div class="element">
+                            <wa-switch data-setting="streamerBotWSS" data-default="false" size="xl"></wa-switch>
+                        </div>
+                    </div>
+
                 </wa-details>
                 
 
@@ -1370,7 +1380,7 @@
                         <span class="check"><wa-switch data-setting="showTiktok" data-default="false" class="section-switch" size="xl"></wa-switch></span>
                     </span>
                     
-                    <div class="config">
+                    <!--<div class="config">
                         <div class="info">
                             <div class="title" data-i18n-html="tiktok.service_provider">Service Provider</div>
                         </div>
@@ -1423,6 +1433,8 @@
                             <span data-i18n-html="tiktok.service_save_button">Save Service Information</span>
                         </wa-button>
                     </div>
+
+                    <wa-divider></wa-divider>-->
                     
                     <!--<div class="config full"> 
                         <wa-callout size="s">
@@ -1430,8 +1442,6 @@
                             <span data-i18n-html="tiktok.service_save_button_hint">After changing the Service Provider, TikTok Username and/or EulerStream API key, it's important to click on the <strong>Save Service Information</strong> button.</span>
                         </wa-callout>
                     </div>-->
-
-                    <wa-divider></wa-divider>
 
                     <div class="config">
                         
@@ -2085,11 +2095,11 @@
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
     <script src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
 
-    <script src="js/i18n-settings.js?nocache=59"></script>
-    <script src="js/speakerbot.js?nocache=59"></script>
+    <script src="js/i18n-settings.js?nocache=63"></script>
+    <script src="js/speakerbot.js?nocache=63"></script>
 
-    <script src="js/audio.js?nocache=59"></script>
+    <script src="js/audio.js?nocache=63"></script>
     
-    <script type="module" src="js/settings.js?nocache=59"></script>
+    <script type="module" src="js/settings.js?nocache=63"></script>
 </body>
 </html>

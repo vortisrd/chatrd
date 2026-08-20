@@ -441,7 +441,7 @@ header h1 {
 
 
 
-
+#settings wa-details#streamerbot wa-switch:state(checked)::part(control) { background-color: #0e8fc6; }
 #settings wa-details#setup wa-switch:state(checked)::part(control) { background-color: #dbb048; }
 #settings wa-details#speakerbot wa-switch:state(checked)::part(control) { background-color: #00dbff; }
 #settings wa-details#twitch wa-switch:state(checked)::part(control) { background-color: #a970ff; }
