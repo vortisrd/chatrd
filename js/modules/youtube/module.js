@@ -37,6 +37,10 @@ const youtubeMessageHandlers = {
     },
     'YouTube.NewSubscriber': (response) => {
     },
+    'YouTube.NewSponsorOnlyStarted': (response) => {
+    },
+    'YouTube.NewSponsorOnlyEnded': (response) => {
+    },
     'YouTube.SuperChat': (response) => {
         youTubeSuperChatMessage(response.data);
     },

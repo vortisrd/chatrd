@@ -72,9 +72,9 @@
     font-size: 16px;
 }
 
-.chat .item.youtube.mod .user { color: #3ea6ff !important; }
+.chat .item.youtube.moderator .user a { color: #3ea6ff !important; }
 .chat .item.youtube span.member { background: #2ba640; }
-.chat .item.youtube.sub .user { color: #2ba640 !important; }
+.chat .item.youtube.sponsor .user a { color: #2ba640 !important; }
 .chat .item.youtube span.verified { background: #aaa; }
 .chat .item.youtube.streamer .user {
     background: #ffd600;
