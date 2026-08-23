@@ -1,0 +1,139 @@
+.chat .item .message {
+    outline: 1px solid #fff;
+    outline-offset: -1px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.chat .item .message .avatar {
+    outline: 1px solid #fff;
+}
+
+.chat .item.twitch .info .avatar,
+.chat .item.twitch .message { outline-color: rgba(145,70,255,1); }
+
+.chat .item.youtube .info .avatar,
+.chat .item.youtube .message { outline-color: rgba(255,0,0,1); }
+
+.chat .item.tiktok .info .avatar,
+.chat .item.tiktok .message { outline-color: rgba(241,32,74,1); }
+
+.chat .item.kick .info .avatar,
+.chat .item.kick .message { outline-color: rgba(72,212,21,1); }
+
+/* ----------------------------------------- */
+/* --------- CHAT - NORMAL LAYOUT ---------- */
+/* ----------------------------------------- */
+
+.chat.vertical:has(.avatar) .item .message {
+    padding-left: 70px;
+    min-height: 34px;
+}
+
+.chat.vertical:has(.avatar) .item .info {
+    position: relative;
+}
+
+.chat.vertical:has(.avatar) .item .info .avatar {
+    position: absolute !important;
+    top: 0;
+    left: -60px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+.chat.vertical:has(.avatar) .item .info .avatar img {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.chat.vertical:has(.avatar) .item.first-chatter .message .first-message {
+    position: relative;
+    left: -60px;
+}
+
+.chat.vertical:has(.avatar) .item:has(.reply) .info .avatar {
+    top: -20px;
+}
+
+
+/* ------------------------------------------- */
+/* --------- CHAT - ONE LINE LAYOUT ---------- */
+/* ------------------------------------------- */
+
+.chat.oneline:has(.avatar) .item .message{
+    padding-left: 52px;
+    min-height: 49px;
+}
+
+.chat.oneline:has(.avatar) .item.streamer-mentioned .message,
+.chat.oneline:has(.avatar) .item.first-chatter .message {
+    padding-left: 52px;
+    min-height: 50px;
+}
+
+.chat.oneline:has(.avatar) .item .info {
+    position: relative;
+}
+
+.chat.oneline:has(.avatar) .item .info .avatar {
+    position: absolute;
+    top: -2px;
+    left: -42px;
+    border-radius: 100px;
+}
+
+.chat.oneline:has(.avatar) .item.first-chatter .message .first-message {
+    position: relative;
+    left: -42px;
+}
+
+.chat.oneline:has(.avatar) .item:has(.reply) .info .avatar {
+    top: -20px;
+}
+
+
+/* ------------------------------------------- */
+/* --------- CHAT - HORIZONTAL LAYOUT -------- */
+/* ------------------------------------------- */
+
+.chat.horizontal:has(.avatar) .item .message{
+    padding-left: 52px;
+    min-height: 49px;
+}
+
+.chat.horizontal:has(.avatar) .item.grouped .message {
+    padding-left: 10px;
+}
+
+.chat.horizontal:has(.avatar) .item.grouped .avatar {
+    outline-color: transparent;
+}
+
+.chat.horizontal:has(.avatar) .item.streamer-mentioned .message,
+.chat.horizontal:has(.avatar) .item.first-chatter .message {
+    padding-left: 52px;
+    min-height: 50px;
+}
+
+.chat.horizontal:has(.avatar) .item .info {
+    position: relative;
+}
+
+.chat.horizontal:has(.avatar) .item .info .avatar {
+    position: absolute;
+    top: -2px;
+    left: -42px;
+    border-radius: 100px;
+}
+
+.chat.horizontal:has(.avatar) .item.first-chatter .message .first-message {
+    position: relative;
+    left: -42px;
+}
+
+.chat.horizontal:has(.avatar) .item:has(.reply) .info .avatar {
+    top: -20px;
+}

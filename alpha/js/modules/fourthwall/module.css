@@ -1,0 +1,11 @@
+.chat .event.fourthwall .message {
+    background: rgba(0,68,255,0.75);
+}
+
+.chat .event.fourthwall .header {
+    padding: 5px 0;
+    text-align: center;
+}
+.chat .event.fourthwall .header img {
+    height: 128px;
+}

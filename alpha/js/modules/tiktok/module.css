@@ -1,0 +1,147 @@
+/* --------------------------- */
+/* -------- STATISTICS ------- */
+/* --------------------------- */
+
+#statistics .platform#tiktok {
+    order: 4;
+    background: #242424;
+}
+
+
+.chat .item.tiktok.streamer-mentioned .message {
+    background: rgba(36,36,36,0.35);
+}
+
+/* -------------------------------------- */
+/* -------- CHAT - NORMAL LAYOUT -------- */
+/* -------------------------------------- */
+
+
+.chat .item.tiktok span.badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    color: #FFF;
+    background: #242424;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin: 0 1px;
+}
+
+.chat .item.tiktok span.badge.top-gifter,
+.chat .item.tiktok span.badge.sceneEight,
+.chat .item.tiktok span.badge.sceneTen {
+    width: auto;
+    padding: 3px;
+    border-radius: 3px;
+} 
+
+.chat .item.tiktok span.badge.sceneTen.inactive-fan {
+    filter: saturate(0%);
+}
+
+.chat:not([class]) .item.tiktok .badges { transform: translateY(-3px); }
+
+.chat .item.tiktok span.badge.top-gifter img,
+.chat .item.tiktok span.badge.sceneEight img,
+.chat .item.tiktok span.badge.sceneTen img {
+    margin: 0 3px 0 0;
+    height: 16px;
+    width: auto;
+}
+
+.chat .item.tiktok span.badge.sceneTen img { margin: 0; }
+
+.chat .item.tiktok span.badge.top-gifter em,
+.chat .item.tiktok span.badge.sceneEight em,
+.chat .item.tiktok span.badge.sceneTen em {
+    display: inline-block;
+    padding: 0 3px 0 3px;
+    font-style: normal;
+    font-size: 11px;
+}
+
+.chat .item.tiktok span.badge.top-gifter em:empty,
+.chat .item.tiktok span.badge.sceneEight em:empty,
+.chat .item.tiktok span.badge.sceneTen em:empty {
+    padding: 0;
+}
+
+.chat .item.tiktok span.badge.top-gifter { background: rgba(254, 44, 85, 0.4); }
+.chat .item.tiktok span.badge.sceneEight { background: rgba(71, 90, 255, 0.5); }
+.chat .item.tiktok span.badge.sceneTen { background: rgba(255, 94, 58, 0.5); }
+.chat .item.tiktok.subscriber span.badge.sceneTen {
+    outline: 1px solid rgba(255,255,255,1);
+    outline-offset: -1px;
+}
+
+
+.chat .event.tiktok .message {
+    background-color: rgba(36,36,36,0.75);
+}
+
+.chat .event.tiktok.join .message {
+    background: none;
+}
+
+.chat.vertical .item.tiktok .badges {
+    height: auto;
+}
+
+
+
+
+
+/* GIFT CUSTOMIZATION FOR BIG STREAMERS LOL */
+
+.chat .event.tiktok.gift[class*="bigger-than-"] .message {
+    position: relative;
+    z-index: 0;
+}
+
+.chat .event.tiktok.gift.bigger-than-1000 .message,
+.chat .event.tiktok.gift.bigger-than-5000 .message,
+.chat .event.tiktok.gift.bigger-than-10000 .message,
+.chat .event.tiktok.gift.bigger-than-50000 .message,
+.chat .event.tiktok.gift.bigger-than-100000 .message {
+    background-color: transparent;
+}
+
+.chat .event.tiktok.gift[class*="bigger-than-"] .message::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    z-index: -1;
+    animation: bigStreamerBGAnimate 1s ease infinite;
+    background-size: 100% 200%;
+}
+
+.chat .event.tiktok.gift.bigger-than-1000 .message::before,
+.chat .event.tiktok.gift.bigger-than-5000 .message::before {
+    background-image: linear-gradient(
+      180deg,
+      rgba(36,36,36, 0.75),
+      rgba(0, 175, 255, 0.75)
+    );
+}
+
+.chat .event.tiktok.gift.bigger-than-10000 .message::before,
+.chat .event.tiktok.gift.bigger-than-50000 .message::before,
+.chat .event.tiktok.gift.bigger-than-100000 .message::before {
+    background-image: linear-gradient(
+      180deg,
+      rgba(36,36,36, 0.75),
+      rgba(241, 32, 74, 0.75)
+    );
+}
+
+
+

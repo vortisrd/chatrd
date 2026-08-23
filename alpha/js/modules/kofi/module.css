@@ -1,0 +1,11 @@
+.chat .event.kofi .message {
+    background: rgba(114, 165, 242,0.75);
+}
+
+.chat .event.kofi .header {
+    padding: 5px 0;
+    text-align: center;
+}
+.chat .event.kofi .header img {
+    height: 128px;
+}
