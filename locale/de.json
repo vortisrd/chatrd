@@ -154,7 +154,8 @@
     "likes_singular":   "Like",
     "likes_plural":     "Likes",
     "gift_action":      " hat dir <strong>{count} {name}</strong> geschenkt",
-    "sub_action":       " hat den Kanal gerade abonniert."
+    "sub_action":       " hat den Kanal gerade abonniert.",
+    "reply_label":             "Antwort an <strong>@{user}</strong>:"
   },
 
   "kick": {

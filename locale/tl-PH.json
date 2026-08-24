@@ -154,7 +154,8 @@
     "likes_singular":   "like",
     "likes_plural":     "mga like",
     "gift_action":      " nagbigay sa iyo ng <strong>{count} {name}</strong>",
-    "sub_action":       " kaka-subscribe lang sa channel."
+    "sub_action":       " kaka-subscribe lang sa channel.",
+    "reply_label":            "Sumasagot kay <strong>@{user}</strong>"
   },
 
   "kick": {

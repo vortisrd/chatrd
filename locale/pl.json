@@ -154,7 +154,8 @@
     "likes_singular":   "polubienie",
     "likes_plural":     "polubień",
     "gift_action":      " podarował Ci <strong>{count} {name}</strong>",
-    "sub_action":       " właśnie zasubskrybował kanał."
+    "sub_action":       " właśnie zasubskrybował kanał.",
+    "reply_label":             "Odpowiedź do <strong>@{user}</strong>"
   },
 
   "kick": {

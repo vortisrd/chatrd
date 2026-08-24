@@ -62,8 +62,8 @@
       "none": "Sin animación"
     },
     "orientation": "Orientación",
-    "text_alignment" : "<i class=\"ri-corner-down-right-line\"></i> Alineación del texto",
-    "text_alignment_options" : {
+    "text_alignment": "<i class=\"ri-corner-down-right-line\"></i> Alineación del texto",
+    "text_alignment_options": {
       "left_to_right": "De izquierda a derecha",
       "right_to_left": "De derecha a izquierda",
       "centered": "Centrado"
@@ -110,8 +110,8 @@
     "chat_field": "Campo de chat",
     "chat_field_hint": "Añade un campo de chat para que escribas en tu chat.",
     "chat_field_warning": "El campo de chat también admite <strong>/comandos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Comandos admitidos</a></strong>",
-    "image_embedding_filter" : "Filtro de inserción de imágenes",
-    "image_embedding_filter_hint" : "Si está activado, solo se permiten como imágenes incrustadas las de los dominios indicados abajo. Sepáralos con comas. <strong>p. ej.: <em>imgur.com,tenor.com,giphy.com</em></strong>"
+    "image_embedding_filter": "Filtro de inserción de imágenes",
+    "image_embedding_filter_hint": "Si está activado, solo se permiten como imágenes incrustadas las de los dominios indicados abajo. Sepáralos con comas. <strong>p. ej.: <em>imgur.com,tenor.com,giphy.com</em></strong>"
   },
   "twitch": {
     "title": "Twitch",
@@ -267,7 +267,7 @@
     "tiktok_user": "Nombre de usuario de TikTok",
     "service_save_button": "Guardar información del servicio",
     "service_save_button_hint": "Después de cambiar el proveedor de servicio, el nombre de usuario de TikTok y/o la clave de API de EulerStream, es importante hacer clic en el botón <strong>Guardar información del servicio</strong>.",
-    "tikfinity_hint" : "Para usar TikFinity, debes <a href=\"https://tikfinity.zerody.one/app/\" target=\"_blank\">descargar su aplicación de escritorio</a> y seguir las instrucciones. Para más información, <a href=\"https://youtu.be/udV_VARURgU?si=TCAznTq2HktvSyK9&t=103\" target=\"_blank\">mira el tutorial</a>.",
+    "tikfinity_hint": "Para usar TikFinity, debes <a href=\"https://tikfinity.zerody.one/app/\" target=\"_blank\">descargar su aplicación de escritorio</a> y seguir las instrucciones. Para más información, <a href=\"https://youtu.be/udV_VARURgU?si=TCAznTq2HktvSyK9&t=103\" target=\"_blank\">mira el tutorial</a>.",
     "eulerstream_hint": " Usar EulerStream es <strong><u>experimental</u></strong> y tiene <strong><u>límites de uso</u>!</strong> Debes crear una cuenta en <a href=\"https://www.eulerstream.com/\" target=\"_blank\">su sitio web</a> y usar la clave de API aquí. Además, <strong>controla tu cuota diaria en <a href=\"https://www.eulerstream.com/dashboard\" target=\"_blank\">tu panel</a>.<br>No cambies el nombre de usuario indicado arriba mientras transmites en vivo, o agotarás tus sesiones gratuitas.",
     "tts_roles": {
       "streamer": "Streamer",
@@ -356,5 +356,8 @@
       "image_url": "URL de la imagen",
       "image_url_placeholder": "https://example.com/emote.png"
     }
+  },
+  "style": {
+    "title": "Estilos Visuales"
   }
 }

@@ -154,7 +154,8 @@
     "likes_singular":   "curtida",
     "likes_plural":     "curtidas",
     "gift_action":      " presenteou você com <strong>{count} {name}</strong>",
-    "sub_action":       " acabou de se inscrever no canal."
+    "sub_action":       " acabou de se inscrever no canal.",
+    "reply_label":             "Respondendo a <strong>@{user}</strong>"
   },
 
   "kick": {

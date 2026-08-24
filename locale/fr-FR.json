@@ -154,7 +154,8 @@
     "likes_singular":   "like",
     "likes_plural":     "likes",
     "gift_action":      " vous a offert <strong>{count} {name}</strong>",
-    "sub_action":       " vient de s'abonner à la chaîne."
+    "sub_action":       " vient de s'abonner à la chaîne.",
+    "reply_label":             "Réponse à <strong>@{user}</strong>"
   },
 
   "kick": {

@@ -62,8 +62,8 @@
       "none": "Walang Animation"
     },
     "orientation": "Orientation",
-    "text_alignment" : "<i class=\"ri-corner-down-right-line\"></i> Text Alignment",
-    "text_alignment_options" : {
+    "text_alignment": "<i class=\"ri-corner-down-right-line\"></i> Text Alignment",
+    "text_alignment_options": {
       "left_to_right": "Kaliwa Papuntang Kanan",
       "right_to_left": "Kanan Papuntang Kaliwa",
       "centered": "Naka-center"
@@ -110,8 +110,8 @@
     "chat_field": "Chat Field",
     "chat_field_hint": "Nagdaragdag ng chat field kung saan ka maaaring mag-type sa iyong chat.",
     "chat_field_warning": "Tinatanggap din ng Chat Field ang mga <strong>/command</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Mga Suportadong Command</a></strong>",
-    "image_embedding_filter" : "Image Embedding Filter",
-    "image_embedding_filter_hint" : "Kung naka-enable, tanging mga larawan lamang mula sa mga domain sa ibaba ang pinapayagang i-embed. Paghiwalayin ang mga ito gamit ang kuwit. <strong>hal.: <em>imgur.com,tenor.com,giphy.com</em></strong>"
+    "image_embedding_filter": "Image Embedding Filter",
+    "image_embedding_filter_hint": "Kung naka-enable, tanging mga larawan lamang mula sa mga domain sa ibaba ang pinapayagang i-embed. Paghiwalayin ang mga ito gamit ang kuwit. <strong>hal.: <em>imgur.com,tenor.com,giphy.com</em></strong>"
   },
   "twitch": {
     "title": "Twitch",
@@ -267,7 +267,7 @@
     "tiktok_user": "Username sa TikTok",
     "service_save_button": "I-save ang Impormasyon ng Serbisyo",
     "service_save_button_hint": "Pagkatapos baguhin ang Service Provider, TikTok Username, at/o EulerStream API key, mahalagang i-click ang button na <strong>I-save ang Impormasyon ng Serbisyo</strong>.",
-    "tikfinity_hint" : "Para gamitin ang TikFinity, kailangan mong <a href=\"https://tikfinity.zerody.one/app/\" target=\"_blank\">i-download ang kanilang desktop app</a> at sundin ang mga instruksyon. Para sa karagdagang impormasyon, <a href=\"https://youtu.be/udV_VARURgU?si=TCAznTq2HktvSyK9&t=103\" target=\"_blank\">panoorin ang Tutorial</a>.",
+    "tikfinity_hint": "Para gamitin ang TikFinity, kailangan mong <a href=\"https://tikfinity.zerody.one/app/\" target=\"_blank\">i-download ang kanilang desktop app</a> at sundin ang mga instruksyon. Para sa karagdagang impormasyon, <a href=\"https://youtu.be/udV_VARURgU?si=TCAznTq2HktvSyK9&t=103\" target=\"_blank\">panoorin ang Tutorial</a>.",
     "eulerstream_hint": " Ang paggamit ng EulerStream ay <strong><u>eksperimental</u></strong> at may <strong><u>rate limits</u>!</strong> Kailangan kang gumawa ng account sa <a href=\"https://www.eulerstream.com/\" target=\"_blank\">kanilang website</a> at gamitin dito ang API KEY. Gayundin, <strong>bantayan ang iyong daily quota sa <a href=\"https://www.eulerstream.com/dashboard\" target=\"_blank\">iyong dashboard.</a><br>Huwag baguhin ang username sa itaas habang naka-live stream, dahil masasayang ang iyong mga libreng sesyon.",
     "tts_roles": {
       "streamer": "Streamer",
@@ -356,5 +356,8 @@
       "image_url": "Image URL",
       "image_url_placeholder": "https://example.com/emote.png"
     }
+  },
+  "style": {
+    "title": "Mga Visual Style"
   }
 }

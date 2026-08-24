@@ -154,7 +154,8 @@
     "likes_singular":   "like",
     "likes_plural":     "likes",
     "gift_action":      " te regaló <strong>{count} {name}</strong>",
-    "sub_action":       " se acaba de suscribir al canal."
+    "sub_action":       " se acaba de suscribir al canal.",
+    "reply_label":             "Respondiendo a <strong>@{user}</strong>"
   },
 
   "kick": {
