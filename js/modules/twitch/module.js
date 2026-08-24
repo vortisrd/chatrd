@@ -565,7 +565,11 @@ async function twitchRewardRedemption(data) {
     const template = eventTemplate;
 	const clone = template.content.cloneNode(true);
     const messageId = createRandomString(40);
-    const userId = data.user_login.toLowerCase();
+
+    const userName = data.user_name ? data.user_name : data.user.name;
+    const userLogin = data.user_login ? data.user_login : data.user.login;
+
+    const userId = userLogin.toLowerCase();
 
     const {
         header,
@@ -586,12 +590,12 @@ async function twitchRewardRedemption(data) {
     
 
     const userLinkElement = user.querySelector('a');
-    const userLink = `https://twitch.tv/${data.user_login}`;
+    const userLink = `https://twitch.tv/${userLogin}`;
 
     userLinkElement.href = userLink;
     userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.user_name;
-    userLinkElement.title = `${data.user_name} @ ${userLink}`;
+    userLinkElement.textContent = userName;
+    userLinkElement.title = `${userName} @ ${userLink}`;
 
 
 
@@ -619,7 +623,11 @@ async function twitchAutomaticRewardRedemption(data) {
     const template = eventTemplate;
 	const clone = template.content.cloneNode(true);
     const messageId = createRandomString(40);
-    const userId = data.user.login.toLowerCase();
+
+    const userName = data.user.name;
+    const userLogin = data.user.login;
+
+    const userId = userLogin.toLowerCase();
 
     const {
         header,
@@ -658,12 +666,12 @@ async function twitchAutomaticRewardRedemption(data) {
     }
 
     const userLinkElement = user.querySelector('a');
-    const userLink = `https://twitch.tv/${data.user.login}`;
+    const userLink = `https://twitch.tv/${userLogin}`;
 
     userLinkElement.href = userLink;
     userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.user.name;
-    userLinkElement.title = `${data.user.name} @ ${userLink}`;
+    userLinkElement.textContent = userName;
+    userLinkElement.title = `${userName} @ ${userLink}`;
 
     action.innerHTML = tRD('twitch.reward_action');
 
@@ -693,7 +701,9 @@ async function twitchPowerUpRedemption(data) {
     const classes = ['twitch', 'power-up'];
     const rotateDeg = (Math.random() * 60 - 30).toFixed(1) + 'deg';
 
-    switch (data.type) {
+    const type = data.type;
+
+    switch (type) {
         case "message_effect" :
             title = tRD('twitch.reward_auto.message_effect');
             if (enableTwitchPowerUpEffects) twitchChatMessageEffect(data);
@@ -843,11 +853,13 @@ async function twitchChatMessageEffect(data) {
             'simmer' : `<canvas class="simmer"></canvas>`
         };
 
-        const effectHtml = messageEffects[data.message_effect_id];
-        firstMessage.classList.add( 'message-effect', data.message_effect_id );
+        const messageEffectId = data.message_effect_id ? data.message_effect_id : data.messageEffectId;
+
+        const effectHtml = messageEffects[messageEffectId];
+        firstMessage.classList.add( 'message-effect', messageEffectId );
         firstMessage.insertAdjacentHTML('afterbegin', effectHtml);
 
-        if (data.message_effect_id === 'simmer') {
+        if (messageEffectId === 'simmer') {
             setTimeout(() => { 
                 initEmoteTrampoline(firstMessage.querySelector('.simmer'), messageEffectCanvasEmotes, {
                     duration: 15000
@@ -1014,10 +1026,11 @@ async function twitchSubMessage(data) {
     userLinkElement.textContent = data.user.name;
     userLinkElement.title = `${data.user.name} @ ${userLink}`;
 
+    const monthsCount = data.duration_months ? data.duration_months : data.durationMonths;
+    const months = formatSubMonthDuration(monthsCount);
+    const tier = ( data.is_prime ? data.is_prime : data.isPrime ) ? 'Prime' : 'Tier '+Math.floor( (data.sub_tier ? data.sub_tier : data.subTier ) /1000);
 
     action.innerHTML = tRD('twitch.sub_action');
-    var months = formatSubMonthDuration(data.duration_months);
-    var tier = data.is_prime ? 'Prime' : 'Tier '+Math.floor(data.sub_tier/1000);
 
     const giftHtml = renderGiftEventSuffix({
         image : `<strong>${months}</strong>`, 
@@ -1175,15 +1188,17 @@ async function twitchGiftBombMessage(data) {
     userLinkElement.textContent = data.user.name;
     userLinkElement.title = `${data.user.name} @ ${userLink}`;
 
+    const total = data.total; 
+    const subs = total > 1 ? tRD('twitch.giftbomb_subs_plural') : tRD('twitch.giftbomb_subs_singular');
+    const cumulative = data.cumulative_total ? data.cumulative_total : data.cumulativeTotal;
+    const tier = Math.floor( (data.sub_tier ? data.sub_tier : data.subTier ) /1000);
 
-    var subs = data.total > 1 ? tRD('twitch.giftbomb_subs_plural') : tRD('twitch.giftbomb_subs_singular');
-    action.innerHTML = tRD('twitch.giftbomb_action', { total: `${data.total}`, tier: Math.floor(data.sub_tier/1000), subs: `${subs}` });
+    action.innerHTML = tRD('twitch.giftbomb_action', { total: `${total}`, tier: tier, subs: `${subs}` });
 
-    message.innerHTML = tRD('twitch.giftbomb_message', { total: `${data.cumulative_total} subs` });
+    message.innerHTML = tRD('twitch.giftbomb_message', { total: `${cumulative}` });
 
     addEventItem('twitch', clone, classes, userId, messageId);
 }
-
 
 
 async function twitchRaidMessage(data) {
@@ -1193,7 +1208,11 @@ async function twitchRaidMessage(data) {
     const template = eventTemplate;
 	const clone = template.content.cloneNode(true);
     const messageId = createRandomString(40);
-    const userId = data.from_broadcaster_user_name.toLowerCase();
+
+    const userName = data.from_broadcaster_user_name ? data.from_broadcaster_user_name : data.raider.name;
+    const userLogin = data.from_broadcaster_user_name ? data.from_broadcaster_user_name : data.raider.login;
+
+    const userId = userLogin.toLowerCase();
 
     const {
         header,
@@ -1213,12 +1232,12 @@ async function twitchRaidMessage(data) {
     message.remove();
 
     const userLinkElement = user.querySelector('a');
-    const userLink = `https://twitch.tv/${data.from_broadcaster_user_name.toLowerCase()}`;
+    const userLink = `https://twitch.tv/${userLogin}`;
 
     userLinkElement.href = userLink;
     userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.from_broadcaster_user_name;
-    userLinkElement.title = `${data.from_broadcaster_user_name} @ ${userLink}`;
+    userLinkElement.textContent = userName;
+    userLinkElement.title = `${userName} @ ${userLink}`;
 
     var viewers = data.viewers > 1 ? tRD('twitch.raid_plural') : tRD('twitch.raid_singular');
     action.innerHTML = tRD('twitch.raid_action');
