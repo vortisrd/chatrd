@@ -182,7 +182,7 @@
 .chat .item.announcement.twitch .chatmoderation { display: none; }
 
 .chat .item.twitch.streamer-mentioned .message {
-    background: rgba(145,70,255,0.35);
+    background: rgba(145,70,255,0.5);
 }
 
 /* -------------------------------------- */
@@ -204,7 +204,7 @@
     height: 28px;
     padding: 0 2px;
     font-size: 12px;
-    background: rgba(145, 70, 255, 0.5);
+    background: rgba(145, 70, 255, 0.75);
 }
 
 .chat.vertical .item.twitch .info .shared-chat .origin strong {
@@ -231,7 +231,7 @@
     height: 28px;
     padding: 0 2px;
     font-size: 12px;
-    background: rgba(145, 70, 255, 0.5);
+    background: rgba(145, 70, 255, 0.75);
     transform: translateY(6px);
 }
 
@@ -259,7 +259,7 @@
     height: 28px;
     padding: 0 2px;
     font-size: 12px;
-    background: rgba(145, 70, 255, 0.5);
+    background: rgba(145, 70, 255, 0.75);
     transform: translateY(6px);
 }
 

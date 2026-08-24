@@ -525,7 +525,7 @@ async function twitchWatchStreakMessage(data) {
 	const watchStreak = data.watchStreak ?? data.streak_count;*/
 
     const displayName = data.user.name;
-	const watchStreak = data.streak_count;
+	const watchStreak = data.streak_count ? data.streak_count : data.streakCount;
     
     const userLinkElement = user.querySelector('a');
     const userLink = `https://twitch.tv/${displayName.toLowerCase()}`;
