@@ -193,7 +193,6 @@ async function youTubeChatMessage(data) {
     if (showAvatar) avatar.innerHTML = `<img src="${data.user.profileImageUrl}">`; else avatar.remove();
     if (showBadges) badges.innerHTML = badgeList; else badges.remove();
 
-
     if (data.user.isSponsor) { roles.push('sponsor'); }
     if (data.user.isModerator) { roles.push('moderator'); }
     if (data.user.isVerified) { classes.push('verified'); }
@@ -260,8 +259,6 @@ async function youTubeSuperChatMessage(data) {
 
     addEventItem('youtube', clone, classes, userId, messageId);
 }
-
-
 
 async function youTubeSuperStickerMessage(data) {
     

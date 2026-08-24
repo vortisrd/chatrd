@@ -443,6 +443,12 @@ header h1 {
 
 #settings wa-details#streamerbot wa-switch:state(checked)::part(control) { background-color: #0e8fc6; }
 #settings wa-details#setup wa-switch:state(checked)::part(control) { background-color: #dbb048; }
+
+#settings wa-details#style wa-switch:state(checked)::part(control) { background-color: #FF7F50; }
+#settings wa-details#style wa-slider::part(indicator) { background-color: #FF7F50; }
+#settings wa-details#style .config.layout .element wa-button.enabled::part(base) { border: 1px solid #FF7F50; }
+
+
 #settings wa-details#speakerbot wa-switch:state(checked)::part(control) { background-color: #00dbff; }
 #settings wa-details#twitch wa-switch:state(checked)::part(control) { background-color: #a970ff; }
 #settings wa-details#youtube wa-switch:state(checked)::part(control) { background-color: #ff0000; }
@@ -463,6 +469,7 @@ header h1 {
 
 
 #settings wa-details#setup i { color: #dbb048; }
+#settings wa-details#style i { color: #FF7F50; }
 #settings wa-details#speakerbot i { color: #00dbff; }
 #settings wa-details#twitch i { color: #a970ff; }
 #settings wa-details#youtube i { color: #ff0000; }

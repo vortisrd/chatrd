@@ -44,6 +44,10 @@ body {
     overflow: hidden;
 }
 
+body.preview {
+    background-color: #121212;
+}
+
 
 /* --------------------------- */
 /* -------- CONTAINER ------- */

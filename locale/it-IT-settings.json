@@ -268,7 +268,7 @@
     "service_save_button": "Salva informazioni servizio",
     "service_save_button_hint": "Dopo aver modificato il Fornitore di servizio, il Nome utente TikTok e/o la chiave API EulerStream, è importante fare clic sul pulsante <strong>Salva informazioni servizio</strong>.",
     "tikfinity_hint" : "Per usare TikFinity, devi <a href=\"https://tikfinity.zerody.one/app/\" target=\"_blank\">scaricare la loro app desktop</a> e seguire le istruzioni. Per maggiori informazioni, <a href=\"https://youtu.be/udV_VARURgU?si=TCAznTq2HktvSyK9&t=103\" target=\"_blank\">guarda il tutorial</a>.",
-    "eulerstream_hint": " Usare EulerStream è <strong><u>sperimentale</u></strong> e ha <strong><u>limiti di frequenza</u>!</strong>. Devi creare un account sul <a href=\"https://www.eulerstream.com/\" target=\"_blank\">loro sito web</a> e usare qui la chiave API. Inoltre, <strong>tieni d'occhio la tua quota giornaliera sulla <a href=\"https://www.eulerstream.com/dashboard\" target=\"_blank\">tua dashboard.</a><br>Non cambiare il nome utente sopra durante una diretta, altrimenti brucerai le tue sessioni gratuite.",
+    "eulerstream_hint": " Usare EulerStream è <strong><u>sperimentale</u></strong> e ha <strong><u>limiti di frequenza</u>!</strong> Devi creare un account sul <a href=\"https://www.eulerstream.com/\" target=\"_blank\">loro sito web</a> e usare qui la chiave API. Inoltre, <strong>tieni d'occhio la tua quota giornaliera sulla <a href=\"https://www.eulerstream.com/dashboard\" target=\"_blank\">tua dashboard.</a><br>Non cambiare il nome utente sopra durante una diretta, altrimenti brucerai le tue sessioni gratuite.",
     "tts_roles": {
       "streamer": "Streamer",
       "moderator": "Mod",

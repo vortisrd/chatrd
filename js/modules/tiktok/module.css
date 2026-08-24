@@ -72,6 +72,23 @@
 
 .chat .item.tiktok span.badge.top-gifter { background: rgba(254, 44, 85, 0.4); }
 .chat .item.tiktok span.badge.sceneEight { background: rgba(71, 90, 255, 0.5); }
+
+
+.chat .item.tiktok.grade-one span.badge.sceneEight          { background: rgba(120, 158, 231, 0.6); }
+.chat .item.tiktok.grade-five span.badge.sceneEight         { background: rgba(95, 144, 239, 0.6); }
+.chat .item.tiktok.grade-ten span.badge.sceneEight          { background: rgba(63, 125, 246, 0.6); }
+.chat .item.tiktok.grade-fifteen span.badge.sceneEight      { background: rgba(71, 126, 255, 0.7); }
+.chat .item.tiktok.grade-twenty span.badge.sceneEight       { background: rgba(71, 90, 255, 0.7); }
+.chat .item.tiktok.grade-twentyfive span.badge.sceneEight   { background: rgba(39, 47, 243, 0.7); }
+.chat .item.tiktok.grade-thirty span.badge.sceneEight       { background: rgba(42, 25, 238, 0.75); }
+.chat .item.tiktok.grade-thirtyfive span.badge.sceneEight   { background: rgba(120, 158, 231, 0.6); }
+/*.chat .item.tiktok.grade-forty span.badge.sceneEight        { background: rgba(120, 158, 231, 0.6); }
+.chat .item.tiktok.grade-fortyfive span.badge.sceneEight    { background: rgba(120, 158, 231, 0.6); }
+.chat .item.tiktok.grade-fifty span.badge.sceneEight        { background: rgba(120, 158, 231, 0.6); }*/
+
+
+
+
 .chat .item.tiktok span.badge.sceneTen { background: rgba(255, 94, 58, 0.5); }
 .chat .item.tiktok.subscriber span.badge.sceneTen {
     outline: 1px solid rgba(255,255,255,1);

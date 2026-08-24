@@ -154,7 +154,9 @@
     "likes_singular":   "like",
     "likes_plural":     "likes",
     "gift_action":      " gifted you <strong>{count} {name}</strong>",
-    "sub_action":       " just subscribed to the channel."
+    "sub_action":       " just subscribed to the channel.",
+    "reply_label":      "Replying to <strong>@{user}</strong>"
+    
   },
 
   "kick": {

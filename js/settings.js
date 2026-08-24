@@ -9,6 +9,7 @@ const speakerBot = {};
 
 const sbRequiredActions = [
     '[TikTok] Msgs',
+    //'[TikTok][EulerStream] Connection',
     '[Twitch] Fetch Goals',
     '[Twitch][YouTube][Kick] Msgs/Cmds',
     '[YouTube] Member Emotes'
@@ -118,7 +119,9 @@ async function loadChatRDTiktokService() {
         }
 
         document.querySelector('[data-setting=tiktoksUser]').value = tiktokServiceUser.variable.value;
+        document.querySelector('[data-setting=tiktoksUser]').dataset.value = tiktokServiceUser.variable.value;
         document.querySelector('[data-setting=tiktokEulerStreamApiKey]').value = tiktokServiceApiKey.variable.value;
+        document.querySelector('[data-setting=tiktokEulerStreamApiKey]').dataset.value = tiktokServiceApiKey.variable.value;
     }
 
     catch (err) {
@@ -242,6 +245,61 @@ async function bindChatRDSettings() {
 
 async function bindTikTokSettings() {
 
+    document.querySelector('[data-setting="tiktoksUser"]').addEventListener('input', async (event) => {
+        const user = event.target.dataset.value;
+        const setUser = event.target.value;
+        const button = document.querySelector(`#tiktokSaveInformation`);
+
+        let previousButtonContent;
+
+        if (button.classList.contains('needs-saving')) {
+                previousButtonContent = button.dataset.text;
+        }
+        else {
+            previousButtonContent = button.querySelector('span').textContent;
+        }
+
+
+
+        if (user === setUser) {
+            button.classList.remove('needs-saving');
+            button.querySelector('span').textContent = `${previousButtonContent}`;
+        }
+        else {
+            button.classList.add('needs-saving');
+            button.dataset.text = `${previousButtonContent}`;
+            button.querySelector('span').textContent = `🙏 ${previousButtonContent} 🙏`;
+        }
+    });
+
+    document.querySelector('[data-setting="tiktokEulerStreamApiKey"]').addEventListener('input', async (event) => {
+        const user = event.target.dataset.value;
+        const setUser = event.target.value;
+        const button = document.querySelector(`#tiktokSaveInformation`);
+
+        let previousButtonContent;
+
+        if (button.classList.contains('needs-saving')) {
+                previousButtonContent = button.dataset.text;
+        }
+        else {
+            previousButtonContent = button.querySelector('span').textContent;
+        }
+
+
+
+        if (user === setUser) {
+            button.classList.remove('needs-saving');
+            button.querySelector('span').textContent = `${previousButtonContent}`;
+        }
+        else {
+            button.classList.add('needs-saving');
+            button.dataset.text = `${previousButtonContent}`;
+            button.querySelector('span').textContent = `🙏 ${previousButtonContent} 🙏`;
+        }
+    });
+
+
     document.querySelector(`[data-setting=tiktokService]`).addEventListener('change', async (event) => {
         
         const service = event.target.value;
@@ -258,7 +316,7 @@ async function bindTikTokSettings() {
 
         button.classList.add('needs-saving');
         button.dataset.text = `${previousButtonContent}`;
-        button.textContent = `🙏 ${previousButtonContent} 🙏`
+        button.querySelector('span').textContent = `🙏 ${previousButtonContent} 🙏`
         
         document.querySelectorAll('[data-tiktok-service]').forEach((el) => {
             el.style.display = 'none';
@@ -278,6 +336,9 @@ async function bindTikTokSettings() {
 
         setChatRDTiktokService(serviceEl.value, userEl.value, apiKeyEl.value);
 
+        userEl.dataset.value = userEl.value;
+        apiKeyEl.dataset.value = apiKeyEl.value;
+
         const btn = event.currentTarget;
         
         let previousButtonContent;
@@ -290,11 +351,11 @@ async function bindTikTokSettings() {
             previousButtonContent = btn.querySelector('span').textContent;
         }
 
-        btn.textContent = '👍';
+        btn.querySelector('span').textContent = '👍';
         btn.classList.add('success');
 
         setTimeout(() => {
-            btn.textContent = previousButtonContent;
+            btn.querySelector('span').textContent = previousButtonContent;
             btn.classList.remove('success');
         }, 3000);
     });

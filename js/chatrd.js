@@ -109,11 +109,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=66",
-    nutting: "skin-nutting.css?nocache=66",
-    kimballs: "skin-kimballs.css?nocache=66",
-    bubbles: "skin-bubbles.css?nocache=66",
-    'star-wars': "skin-star-wars.css?nocache=66"
+    default: "skin-default.css?nocache=67",
+    nutting: "skin-nutting.css?nocache=67",
+    kimballs: "skin-kimballs.css?nocache=67",
+    bubbles: "skin-bubbles.css?nocache=67",
+    'star-wars': "skin-star-wars.css?nocache=67"
 };
 
 
@@ -214,7 +214,10 @@ if (!chatHorizontal && !chatOneLine) {
 
 let backgroundColor = hexToRGBA(chatBackground,chatBackgroundOpacity);
 chatWrapper.style.backgroundColor = backgroundColor;
-if (preview == true) document.documentElement.style.backgroundColor = "#121212";
+
+if (preview == true) {
+    document.body.classList.add('preview');
+}
 
 document.querySelector('#bars').style.zoom = size;
 document.querySelector('#bars').classList.add( direction );
@@ -251,18 +254,17 @@ function queueNotificationSound() {
 
     if (notificationSilenceTimer) {
         clearTimeout(notificationSilenceTimer);
+        notificationSilenceTimer = null;
     }
 
-    if (pendingNotificationCount === 1) {
-        chatrdPlaySound(playSoundFile, playSoundVolume);
-    }
-    else if (pendingNotificationCount >= playMsgBatch) {
+    if (pendingNotificationCount >= playMsgBatch) {
         chatrdPlaySound(playSoundFile, playSoundVolume);
         pendingNotificationCount = 0;
+        return;
     }
 
     notificationSilenceTimer = setTimeout(() => {
-        if (pendingNotificationCount > 1) {
+        if (pendingNotificationCount > 0) {
             chatrdPlaySound(playSoundFile, playSoundVolume);
         }
         pendingNotificationCount = 0;
@@ -277,16 +279,43 @@ function queueNotificationSound() {
 
 
 
+async function appendOrPrepend(target,content) {
 
+    function reverseContainerChildren(container) {
+        const children = Array.from(container.children);
+        const fragment = document.createDocumentFragment();
+        for (let i = children.length - 1; i >= 0; i--) {
+            fragment.appendChild(children[i]);
+        }
+        container.appendChild(fragment);
+    }
+
+    function setChatDirection(container, reversed) {
+        const targetClass = reversed ? 'btt' : 'twitch-chat';
+
+        if (!container.classList.contains(targetClass)) {
+            reverseContainerChildren(container);
+            container.classList.toggle('btt', reversed);
+            container.classList.toggle('twitch-chat', !reversed);
+        }
+    }
+
+    if (orientation === "twitch-chat" && !chatHorizontal) {
+        const overflowing = chatContainer.scrollHeight >= chatWrapper.offsetHeight;
+
+        setChatDirection(chatContainer, overflowing);
+
+        overflowing ? target.prepend(content) : target.append(content);
+    }
+    
+    else {
+        target.prepend(content);
+    }
+}
 
 async function animateItemEntry(root, messageid) {
 	function addToChatContainer(wrapper) {
-        if (orientation === "twitch-chat" && !chatHorizontal) {
-            chatContainer.append(wrapper);
-        }
-        else {
-            chatContainer.prepend(wrapper);
-        }
+        appendOrPrepend(chatContainer, wrapper);
         scroll?.onPrepend();
     }
 
@@ -664,8 +693,10 @@ function createRandomColor(platform, username) {
     }
     else {
         const hue = Math.random() * 360;
-        const saturation = 100;
-        const lightness = 50;
+        const saturation = 85;
+        // compensa hues que "parecem" mais escuros (azul/roxo/vermelho puro)
+        const isDarkishHue = (hue >= 200 && hue <= 280) || (hue >= 340 || hue <= 10);
+        const lightness = isDarkishHue ? 65 : 55;
 
         const randomColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
         userColors.get(platform).set(username, randomColor);
@@ -1318,7 +1349,6 @@ function useAutoScroll(container, options = {}) {
         resumeThreshold = 0.05,
         notice = null,
         smoothScroll = false,
-        reverse = true,
     } = options;
 
     let autoScroll = true;
@@ -1349,13 +1379,11 @@ function useAutoScroll(container, options = {}) {
     }
 
     function bottomScrollTop() {
-        return reverse ? 0 : (container.scrollHeight - container.clientHeight);
+        return 0;
     }
 
     function distanceFromBottom(scrollTop, totalScrollable) {
-        return reverse
-            ? Math.abs(scrollTop)
-            : (totalScrollable - scrollTop);
+        return (orientation === "ttb") ? scrollTop : Math.abs(scrollTop);
     }
 
     container.addEventListener('scroll', () => {
@@ -1402,8 +1430,7 @@ function useAutoScroll(container, options = {}) {
     };
 }
 
-function initFakeScrollbar(scrollEl, thumbEl, options = {}) {
-    const { reverse = true } = options;
+function initFakeScrollbar(scrollEl, thumbEl) {
     const track = thumbEl.parentElement;
 
     track.style.visibility = 'hidden';
@@ -1418,21 +1445,26 @@ function initFakeScrollbar(scrollEl, thumbEl, options = {}) {
         return zoom;
     }
 
-    // Converte scrollTop bruto -> posição visual (0 = topo do conteúdo, 1 = fundo)
+    // Converte scrollTop bruto -> posição visual (0 = topo da track, 1 = fundo da track)
     function scrollTopToPosition(scrollTop, maxScroll) {
         if (maxScroll <= 0) return 0;
-        if (reverse) {
-            return 1 - Math.min(1, Math.max(0, Math.abs(scrollTop) / maxScroll));
+
+        if (orientation === "ttb") {
+            return Math.min(1, Math.max(0, scrollTop / maxScroll));
         }
-        return Math.min(1, Math.max(0, scrollTop / maxScroll));
+
+        return 1 - Math.min(1, Math.max(0, Math.abs(scrollTop) / maxScroll));
     }
 
     // Converte posição visual (0 = topo, 1 = fundo) -> scrollTop bruto
     function positionToScrollTop(position, maxScroll) {
         const clamped = Math.min(1, Math.max(0, position));
-        return reverse
-            ? -((1 - clamped) * maxScroll)
-            : clamped * maxScroll;
+
+        if (orientation === "ttb") {
+            return clamped * maxScroll;
+        }
+
+        return -((1 - clamped) * maxScroll);
     }
 
     function updateThumb() {
@@ -1716,13 +1748,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     scroll = useAutoScroll(chatContainer, {
         notice: document.querySelector('#chat-scroll-bottom'),
-        reverse: !(orientation === "twitch-chat" && !chatHorizontal),
     });
 
     if (!chatContainer.classList.contains('noscrollbar')) {
-        initFakeScrollbar(chatContainer, document.querySelector('.fake-thumb'), {
-            reverse: !(orientation === "twitch-chat" && !chatHorizontal)
-        });
+        initFakeScrollbar(chatContainer, document.querySelector('.fake-thumb'));
     }
 
     chatGhostResize();

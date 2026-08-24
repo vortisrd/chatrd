@@ -113,6 +113,9 @@
     "image_embedding_filter" : "Image Embedding Filter",
     "image_embedding_filter_hint" : "If enabled, only images from the domains below are allowed to be embedded images. Separate them by commas. <strong>e.g: <em>imgur.com,tenor.com,giphy.com</em></strong>"
   },
+  "style" : {
+    "title": "Visual Styles"
+  },
   "twitch": {
     "title": "Twitch",
     "chat": "Chat",
@@ -268,7 +271,7 @@
     "service_save_button": "Save Service Information",
     "service_save_button_hint": "After changing the Service Provider, TikTok Username and/or EulerStream API key, it's important to click on the <strong>Save Service Information</strong> button.",
     "tikfinity_hint" : "To use TikFinity, you need to <a href=\"https://tikfinity.zerody.one/app/\" target=\"_blank\">download their desktop app</a> and follow the instructions. For more informations, <a href=\"https://youtu.be/udV_VARURgU?si=TCAznTq2HktvSyK9&t=103\" target=\"_blank\">watch the Tutorial</a>.",
-    "eulerstream_hint": " Using EulerStream is <strong><u>experimental</u></strong> and has <strong><u>rate limits</u>!</strong>. You need to create an account on <a href=\"https://www.eulerstream.com/\" target=\"_blank\">their website</a> and use the API KEY here. Also, <strong>keep watch on your daily quota on <a href=\"https://www.eulerstream.com/dashboard\" target=\"_blank\">your dashboard.</a><br>Don't change the username above while live streaming or else you will burn your free sessions.",
+    "eulerstream_hint": " Using EulerStream is <strong><u>experimental</u></strong> and has <strong><u>rate limits</u>!</strong> You need to create an account on <a href=\"https://www.eulerstream.com/\" target=\"_blank\">their website</a> and use the API KEY here. Also, <strong>keep watch on your daily quota on <a href=\"https://www.eulerstream.com/dashboard\" target=\"_blank\">your dashboard.</a><br>Don't change the username above while live streaming or else you will burn your free sessions.",
     "tts_roles": {
       "streamer": "Streamer",
       "moderator": "Mods",

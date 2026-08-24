@@ -93,8 +93,8 @@
                         <span class="title"><img src="images/logo-streamerbot.png" alt="Streamer.bot"> <span data-i18n="streamerbot.title">Streamer.bot</span></span>
                         <span class="check">
                             <span class="status">
-                                <wa-badge variant="danger" attention="pulse" pill></wa-badge>
-                                <wa-badge variant="success" attention="pulse" pill></wa-badge>
+                                <wa-badge variant="danger" pill></wa-badge>
+                                <wa-badge variant="success" pill></wa-badge>
                             </span>
                         </span>
                     </span>
@@ -150,7 +150,7 @@
                         <div class="element">
                             <span class="status">
                                 <wa-badge variant="danger" pill></wa-badge>
-                                <wa-badge variant="success" attention="pulse" pill></wa-badge>
+                                <wa-badge variant="success" pill></wa-badge>
                             </span>
                         </div>
                     </div>
@@ -272,21 +272,8 @@
                         </div>
                     </div>
 
-                    <div class="config">
-                        <div class="info">
-                            <div class="title" data-i18n="general.skin">Skins</div>
-                            <div class="description"><small data-i18n="general.skin_hint">Changes ChatRD visuals using "SKINS"</small></div>
-                        </div>
-                        <div class="element">
-                            <wa-select data-setting="skin" data-default="default">
-                                <wa-option value="default" selected data-i18n="general.skin_options.default">Default</wa-option>
-                                <wa-option value="nutting" data-i18n="general.skin_options.nutting">Nutting</wa-option>
-                                <wa-option value="kimballs" data-i18n="general.skin_options.kimballs">Kimballs</wa-option>
-                                <wa-option value="bubbles" data-i18n="general.skin_options.bubbles">Bubbles</wa-option>
-                                <wa-option value="star-wars">Star Wars</wa-option>
-                            </wa-select>
-                        </div>
-                    </div>
+                    <wa-divider></wa-divider>
+                    
 
                     <div class="config">
                         <div class="info">    
@@ -296,203 +283,6 @@
                         <div class="element">
                             <wa-switch data-setting="scrollbar" data-default="false" size="xl"></wa-switch>
                         </div>
-                    </div>
-
-                    <wa-divider></wa-divider>
-                    
-                    <div class="config slider">
-                        <div class="info">
-                            <div class="title" data-i18n="general.font_family">Font Family</div>
-                            <div class="description"><small data-i18n="general.font_family_hint">Changes ChatRD's font</small></div>
-                        </div>
-                        <div class="element">
-                            <wa-input data-setting="chatFontFamily" data-default="DM Sans" value="DM Sans" autocomplete="off"></wa-input>
-                        </div>
-                    </div>
-                    
-                    <div class="config slider">
-                        <div class="info">
-                            <div class="title" data-i18n="general.size">Size</div>
-                            <div class="description"><small data-i18n="general.size_hint">Changes ChatRD's size</small></div>
-                        </div>
-                        <div class="element">
-                            <wa-slider class="slider_percent" data-setting="size" data-default="1" min="0.1" max="3" value="1" step="0.1" with-tooltip></wa-slider>
-                        </div>
-                    </div>
-                    
-                    <div class="config slider">
-                        <div class="info">
-                            <div class="title" data-i18n="general.text_outline">Text Outline</div>
-                            <div class="description"><small data-i18n="general.text_outline_hint">Adds a text outline to messages for better visibility</small></div>
-                        </div>
-                        <div class="element">
-                            <wa-switch data-setting="outline" data-default="false" size="xl"></wa-switch>
-                        </div>
-                    </div>
-
-                    <div class="config slider">
-                        <div class="info">
-                            <div class="title" data-i18n="general.background_color">Background Color</div>
-                            <div class="description"><small data-i18n="general.background_color_hint">Changes ChatRD's background color</small></div>
-                        </div>
-                        <div class="element">
-                            <wa-color-picker data-setting="chatBackground" size="s" data-default="#121212" value="#121212"></wa-color-picker>
-                        </div>
-                    </div>
-
-                    <div class="config slider">
-                        <div class="info">
-                            <div class="title" data-i18n-html="general.background_opacity"><i class="ri-corner-down-right-line"></i> Background Opacity</div>
-                            <div class="description"><small data-i18n="general.background_opacity_hint">Changes ChatRD's background color opacity</small></div>
-                        </div>
-                        <div class="element">
-                            <wa-slider class="slider_percent" data-setting="chatBackgroundOpacity" data-default="0" min="0" max="1" value="0" step="0.05" with-tooltip></wa-slider>
-                        </div>
-                    </div>
-
-                    <wa-divider></wa-divider>
-
-                    <div class="config layout">
-                        <div class="info">
-                            <div class="title" data-i18n="general.layout">Layout</div>
-                        </div>
-                        <div class="element">
-                            
-                            <wa-button-group>
-                                <wa-button appearance="filled" id="vertical-chat">
-                                    <wa-icon library="remixicon" name="design/layout-horizontal-line"></wa-icon>
-                                </wa-button>
-
-                                <wa-button appearance="filled" id="one-line-chat">
-                                    <wa-icon library="remixicon" name="editor/list-view"></wa-icon>
-                                </wa-button>
-
-                                <wa-button appearance="filled" id="horizontal-chat">
-                                    <wa-icon library="remixicon" name="design/layout-bottom-2-line"></wa-icon>
-                                </wa-button>
-                            </wa-button-group>
-
-                            <wa-tooltip for="vertical-chat" data-i18n="general.layout_options.vertical">Vertical</wa-tooltip>
-                            <wa-tooltip for="one-line-chat" data-i18n="general.layout_options.one_line">One Line</wa-tooltip>
-                            <wa-tooltip for="horizontal-chat" data-i18n="general.layout_options.horizontal">Horizontal</wa-tooltip>
-
-                            <label id="layout-checkboxes">
-                                <input type="checkbox" data-setting="chatOneLine" name="chatOneLine" data-default="false">
-                                <input type="checkbox" data-setting="chatHorizontal" name="chatHorizontal" data-default="false">
-                            </label>
-                            
-                        </div>
-                    </div>
-
-                    <div class="config">
-                        <div class="info">
-                            <div class="title" data-i18n="general.animation">Animation</div>
-                        </div>
-                        <div class="element">
-                            <wa-select data-setting="animation" data-default="default">
-                                
-                                <wa-option value="none" data-i18n="general.animation_options.none">No Animations</wa-option>
-                                <wa-option value="default" data-i18n="general.animation_options.default" selected>Default</wa-option>
-                                <!-- Back entrances -->
-                                <wa-option value="backInDown">backInDown</wa-option>
-                                <wa-option value="backInLeft">backInLeft</wa-option>
-                                <wa-option value="backInRight">backInRight</wa-option>
-                                <wa-option value="backInUp">backInUp</wa-option>
-
-                                <!-- Bouncing entrances -->
-                                <wa-option value="bounceIn">bounceIn</wa-option>
-                                <wa-option value="bounceInDown">bounceInDown</wa-option>
-                                <wa-option value="bounceInLeft">bounceInLeft</wa-option>
-                                <wa-option value="bounceInRight">bounceInRight</wa-option>
-                                <wa-option value="bounceInUp">bounceInUp</wa-option>
-
-                                <!-- Fading entrances -->
-                                <wa-option value="fadeIn">fadeIn</wa-option>
-                                <wa-option value="fadeInDown">fadeInDown</wa-option>
-                                <wa-option value="fadeInDownBig">fadeInDownBig</wa-option>
-                                <wa-option value="fadeInLeft">fadeInLeft</wa-option>
-                                <wa-option value="fadeInLeftBig">fadeInLeftBig</wa-option>
-                                <wa-option value="fadeInRight">fadeInRight</wa-option>
-                                <wa-option value="fadeInRightBig">fadeInRightBig</wa-option>
-                                <wa-option value="fadeInUp">fadeInUp</wa-option>
-                                <wa-option value="fadeInUpBig">fadeInUpBig</wa-option>
-                                <wa-option value="fadeInTopLeft">fadeInTopLeft</wa-option>
-                                <wa-option value="fadeInTopRight">fadeInTopRight</wa-option>
-                                <wa-option value="fadeInBottomLeft">fadeInBottomLeft</wa-option>
-                                <wa-option value="fadeInBottomRight">fadeInBottomRight</wa-option>
-
-                                <!-- Flippers -->
-                                <wa-option value="flipInX">flipInX</wa-option>
-                                <wa-option value="flipInY">flipInY</wa-option>
-
-                                <!-- Lightspeed -->
-                                <wa-option value="lightSpeedInRight">lightSpeedInRight</wa-option>
-                                <wa-option value="lightSpeedInLeft">lightSpeedInLeft</wa-option>
-
-                                <!-- Rotating entrances -->
-                                <wa-option value="rotateIn">rotateIn</wa-option>
-                                <wa-option value="rotateInDownLeft">rotateInDownLeft</wa-option>
-                                <wa-option value="rotateInDownRight">rotateInDownRight</wa-option>
-                                <wa-option value="rotateInUpLeft">rotateInUpLeft</wa-option>
-                                <wa-option value="rotateInUpRight">rotateInUpRight</wa-option>
-
-                                <!-- Specials -->
-                                <wa-option value="jackInTheBox">jackInTheBox</wa-option>
-                                <wa-option value="rollIn">rollIn</wa-option>
-
-                                <!-- Zooming entrances -->
-                                <wa-option value="zoomIn">zoomIn</wa-option>
-                                <wa-option value="zoomInDown">zoomInDown</wa-option>
-                                <wa-option value="zoomInLeft">zoomInLeft</wa-option>
-                                <wa-option value="zoomInRight">zoomInRight</wa-option>
-                                <wa-option value="zoomInUp">zoomInUp</wa-option>
-
-                                <!-- Sliding entrances -->
-                                <wa-option value="slideInDown">slideInDown</wa-option>
-                                <wa-option value="slideInLeft">slideInLeft</wa-option>
-                                <wa-option value="slideInRight">slideInRight</wa-option>
-                                <wa-option value="slideInUp">slideInUp</wa-option>
-                            </wa-select>
-                        </div>
-                    </div>
-
-                    <div class="config">
-                        <div class="info">
-                            <div class="title" data-i18n="general.orientation">Orientation</div>
-                        </div>
-                    </div>
-
-                    <div class="config">
-                        <div class="info">
-                            <div class="title" data-i18n-html="general.text_alignment"><i class="ri-corner-down-right-line"></i> Text Alignment</div>
-                        </div>
-                        <div class="element">
-                            <wa-select data-setting="direction" data-default="ltr">
-                                <wa-option value="ltr" data-i18n="general.text_alignment_options.left_to_right" selected>Left to Right</wa-option>
-                                <wa-option value="rtl" data-i18n="general.text_alignment_options.right_to_left">Right to Left</wa-option>
-                                <wa-option value="cc" data-i18n="general.text_alignment_options.centered">Centered</wa-option>
-                            </wa-select>
-                        </div>
-                    </div>
-
-                    <div class="config">
-                        <div class="info">
-                            <div class="title" data-i18n-html="general.new_messages_from"><i class="ri-corner-down-right-line"></i> New Messages From</div>
-                        </div>
-                        <div class="element">
-                            <wa-select data-setting="orientation" data-default="btt">
-                                <wa-option value="btt" data-i18n="general.new_messages_from_options.bottom_to_top" selected>Bottom to Top</wa-option>
-                                <wa-option value="ttb" data-i18n="general.new_messages_from_options.top_to_bottom">Top to Bottom</wa-option>
-                                <wa-option value="twitch-chat" data-i18n="general.new_messages_from_options.twitch_chat">Same as Twitch chat</wa-option>
-                            </wa-select>
-                        </div>
-                    </div>
-
-                    <div class="config">
-                        <wa-callout size="s">
-                            <wa-icon slot="icon" name="circle-info"></wa-icon>
-                            <span data-i18n-html="general.orientation_warning">Chat Orientation <strong>will not work if Chat Layout is set to <u>Horizontal</u></strong>.</span>
-                        </wa-callout>
                     </div>
 
                     <wa-divider></wa-divider>
@@ -745,6 +535,239 @@
                         <wa-input data-setting="imageEmbeddingFilterDomains" data-default="" value="" autocomplete="off"></wa-input>
                     </div>
 
+
+                </wa-details>
+                
+
+
+
+
+
+                
+
+                <!-- ── Styling ────────────────────────────────────────────── -->
+                <wa-details id="style" class="section">
+                    <span class="header" slot="summary">
+                        <span class="title"><i class="ri-paint-fill"></i> <span data-i18n="style.title">Visual Styles</span></span>
+                    </span>
+
+                    <div class="config">
+                        <div class="info">
+                            <div class="title" data-i18n="general.skin">Skins</div>
+                            <div class="description"><small data-i18n="general.skin_hint">Changes ChatRD visuals using "SKINS"</small></div>
+                        </div>
+                        <div class="element">
+                            <wa-select data-setting="skin" data-default="default">
+                                <wa-option value="default" selected data-i18n="general.skin_options.default">Default</wa-option>
+                                <wa-option value="nutting" data-i18n="general.skin_options.nutting">Nutting</wa-option>
+                                <wa-option value="kimballs" data-i18n="general.skin_options.kimballs">Kimballs</wa-option>
+                                <wa-option value="bubbles" data-i18n="general.skin_options.bubbles">Bubbles</wa-option>
+                                <wa-option value="star-wars">Star Wars</wa-option>
+                            </wa-select>
+                        </div>
+                    </div>
+                    
+                    <div class="config slider">
+                        <div class="info">
+                            <div class="title" data-i18n="general.font_family">Font Family</div>
+                            <div class="description"><small data-i18n="general.font_family_hint">Changes ChatRD's font</small></div>
+                        </div>
+                        <div class="element">
+                            <wa-input data-setting="chatFontFamily" data-default="DM Sans" value="DM Sans" autocomplete="off"></wa-input>
+                        </div>
+                    </div>
+                    
+                    <div class="config slider">
+                        <div class="info">
+                            <div class="title" data-i18n="general.size">Size</div>
+                            <div class="description"><small data-i18n="general.size_hint">Changes ChatRD's size</small></div>
+                        </div>
+                        <div class="element">
+                            <wa-slider class="slider_percent" data-setting="size" data-default="1" min="0.1" max="3" value="1" step="0.1" with-tooltip></wa-slider>
+                        </div>
+                    </div>
+                    
+                    <div class="config slider">
+                        <div class="info">
+                            <div class="title" data-i18n="general.text_outline">Text Outline</div>
+                            <div class="description"><small data-i18n="general.text_outline_hint">Adds a text outline to messages for better visibility</small></div>
+                        </div>
+                        <div class="element">
+                            <wa-switch data-setting="outline" data-default="false" size="xl"></wa-switch>
+                        </div>
+                    </div>
+
+                    <div class="config slider">
+                        <div class="info">
+                            <div class="title" data-i18n="general.background_color">Background Color</div>
+                            <div class="description"><small data-i18n="general.background_color_hint">Changes ChatRD's background color</small></div>
+                        </div>
+                        <div class="element">
+                            <wa-color-picker data-setting="chatBackground" size="s" data-default="#121212" value="#121212"></wa-color-picker>
+                        </div>
+                    </div>
+
+                    <div class="config slider">
+                        <div class="info">
+                            <div class="title" data-i18n-html="general.background_opacity"><i class="ri-corner-down-right-line"></i> Background Opacity</div>
+                            <div class="description"><small data-i18n="general.background_opacity_hint">Changes ChatRD's background color opacity</small></div>
+                        </div>
+                        <div class="element">
+                            <wa-slider class="slider_percent" data-setting="chatBackgroundOpacity" data-default="0" min="0" max="1" value="0" step="0.05" with-tooltip></wa-slider>
+                        </div>
+                    </div>
+
+                    <wa-divider></wa-divider>
+
+                    <div class="config layout">
+                        <div class="info">
+                            <div class="title" data-i18n="general.layout">Layout</div>
+                        </div>
+                        <div class="element">
+                            
+                            <wa-button-group>
+                                <wa-button appearance="filled" id="vertical-chat">
+                                    <wa-icon library="remixicon" name="design/layout-horizontal-line"></wa-icon>
+                                </wa-button>
+
+                                <wa-button appearance="filled" id="one-line-chat">
+                                    <wa-icon library="remixicon" name="editor/list-view"></wa-icon>
+                                </wa-button>
+
+                                <wa-button appearance="filled" id="horizontal-chat">
+                                    <wa-icon library="remixicon" name="design/layout-bottom-2-line"></wa-icon>
+                                </wa-button>
+                            </wa-button-group>
+
+                            <wa-tooltip for="vertical-chat" data-i18n="general.layout_options.vertical">Vertical</wa-tooltip>
+                            <wa-tooltip for="one-line-chat" data-i18n="general.layout_options.one_line">One Line</wa-tooltip>
+                            <wa-tooltip for="horizontal-chat" data-i18n="general.layout_options.horizontal">Horizontal</wa-tooltip>
+
+                            <label id="layout-checkboxes">
+                                <input type="checkbox" data-setting="chatOneLine" name="chatOneLine" data-default="false">
+                                <input type="checkbox" data-setting="chatHorizontal" name="chatHorizontal" data-default="false">
+                            </label>
+                            
+                        </div>
+                    </div>
+
+                    <div class="config">
+                        <div class="info">
+                            <div class="title" data-i18n="general.animation">Animation</div>
+                        </div>
+                        <div class="element">
+                            <wa-select data-setting="animation" data-default="default">
+                                
+                                <wa-option value="none" data-i18n="general.animation_options.none">No Animations</wa-option>
+                                <wa-option value="default" data-i18n="general.animation_options.default" selected>Default</wa-option>
+                                <!-- Back entrances -->
+                                <wa-option value="backInDown">backInDown</wa-option>
+                                <wa-option value="backInLeft">backInLeft</wa-option>
+                                <wa-option value="backInRight">backInRight</wa-option>
+                                <wa-option value="backInUp">backInUp</wa-option>
+
+                                <!-- Bouncing entrances -->
+                                <wa-option value="bounceIn">bounceIn</wa-option>
+                                <wa-option value="bounceInDown">bounceInDown</wa-option>
+                                <wa-option value="bounceInLeft">bounceInLeft</wa-option>
+                                <wa-option value="bounceInRight">bounceInRight</wa-option>
+                                <wa-option value="bounceInUp">bounceInUp</wa-option>
+
+                                <!-- Fading entrances -->
+                                <wa-option value="fadeIn">fadeIn</wa-option>
+                                <wa-option value="fadeInDown">fadeInDown</wa-option>
+                                <wa-option value="fadeInDownBig">fadeInDownBig</wa-option>
+                                <wa-option value="fadeInLeft">fadeInLeft</wa-option>
+                                <wa-option value="fadeInLeftBig">fadeInLeftBig</wa-option>
+                                <wa-option value="fadeInRight">fadeInRight</wa-option>
+                                <wa-option value="fadeInRightBig">fadeInRightBig</wa-option>
+                                <wa-option value="fadeInUp">fadeInUp</wa-option>
+                                <wa-option value="fadeInUpBig">fadeInUpBig</wa-option>
+                                <wa-option value="fadeInTopLeft">fadeInTopLeft</wa-option>
+                                <wa-option value="fadeInTopRight">fadeInTopRight</wa-option>
+                                <wa-option value="fadeInBottomLeft">fadeInBottomLeft</wa-option>
+                                <wa-option value="fadeInBottomRight">fadeInBottomRight</wa-option>
+
+                                <!-- Flippers -->
+                                <wa-option value="flipInX">flipInX</wa-option>
+                                <wa-option value="flipInY">flipInY</wa-option>
+
+                                <!-- Lightspeed -->
+                                <wa-option value="lightSpeedInRight">lightSpeedInRight</wa-option>
+                                <wa-option value="lightSpeedInLeft">lightSpeedInLeft</wa-option>
+
+                                <!-- Rotating entrances -->
+                                <wa-option value="rotateIn">rotateIn</wa-option>
+                                <wa-option value="rotateInDownLeft">rotateInDownLeft</wa-option>
+                                <wa-option value="rotateInDownRight">rotateInDownRight</wa-option>
+                                <wa-option value="rotateInUpLeft">rotateInUpLeft</wa-option>
+                                <wa-option value="rotateInUpRight">rotateInUpRight</wa-option>
+
+                                <!-- Specials -->
+                                <wa-option value="jackInTheBox">jackInTheBox</wa-option>
+                                <wa-option value="rollIn">rollIn</wa-option>
+
+                                <!-- Zooming entrances -->
+                                <wa-option value="zoomIn">zoomIn</wa-option>
+                                <wa-option value="zoomInDown">zoomInDown</wa-option>
+                                <wa-option value="zoomInLeft">zoomInLeft</wa-option>
+                                <wa-option value="zoomInRight">zoomInRight</wa-option>
+                                <wa-option value="zoomInUp">zoomInUp</wa-option>
+
+                                <!-- Sliding entrances -->
+                                <wa-option value="slideInDown">slideInDown</wa-option>
+                                <wa-option value="slideInLeft">slideInLeft</wa-option>
+                                <wa-option value="slideInRight">slideInRight</wa-option>
+                                <wa-option value="slideInUp">slideInUp</wa-option>
+                            </wa-select>
+                        </div>
+                    </div>
+
+                    <div class="config">
+                        <div class="info">
+                            <div class="title" data-i18n="general.orientation">Orientation</div>
+                        </div>
+                    </div>
+
+                    <div class="config">
+                        <div class="info">
+                            <div class="title" data-i18n-html="general.text_alignment"><i class="ri-corner-down-right-line"></i> Text Alignment</div>
+                        </div>
+                        <div class="element">
+                            <wa-select data-setting="direction" data-default="ltr">
+                                <wa-option value="ltr" data-i18n="general.text_alignment_options.left_to_right" selected>Left to Right</wa-option>
+                                <wa-option value="rtl" data-i18n="general.text_alignment_options.right_to_left">Right to Left</wa-option>
+                                <wa-option value="cc" data-i18n="general.text_alignment_options.centered">Centered</wa-option>
+                            </wa-select>
+                        </div>
+                    </div>
+
+                    <div class="config">
+                        <div class="info">
+                            <div class="title" data-i18n-html="general.new_messages_from"><i class="ri-corner-down-right-line"></i> New Messages From</div>
+                        </div>
+                        <div class="element">
+                            <wa-select data-setting="orientation" data-default="btt">
+                                <wa-option value="btt" data-i18n="general.new_messages_from_options.bottom_to_top" selected>Bottom to Top</wa-option>
+                                <wa-option value="ttb" data-i18n="general.new_messages_from_options.top_to_bottom">Top to Bottom</wa-option>
+                                <wa-option value="twitch-chat" data-i18n="general.new_messages_from_options.twitch_chat">Same as Twitch chat</wa-option>
+                            </wa-select>
+                        </div>
+                    </div>
+
+                    <div class="config">
+                        <wa-callout size="s">
+                            <wa-icon slot="icon" name="circle-info"></wa-icon>
+                            <span data-i18n-html="general.orientation_warning">Chat Orientation <strong>will not work if Chat Layout is set to <u>Horizontal</u></strong>.</span>
+                        </wa-callout>
+                    </div>
+
+                    <div class="config">
+                        <wa-callout size="s">
+                            <wa-icon slot="icon" name="circle-info"></wa-icon>
+                            <span data-i18n-html="general.chat_field_warning">The Chat Field also accepts <strong>/commands</strong>. <strong><a target="_blank" href="https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field">Commands Supported</a></strong></span>
+                        </wa-callout>
+                    </div>
 
                 </wa-details>
 
@@ -1417,7 +1440,13 @@
                             <span data-i18n-html="tiktok.tikfinity_hint">To use TikFinity, you need to <a href="https://tikfinity.zerody.one/app/" target="_blank">download their desktop app</a> and follow the instructions. For more informations, <a href="https://youtu.be/udV_VARURgU?si=TCAznTq2HktvSyK9&t=103" target="_blank">watch the Tutorial</a>.</span>
                         </wa-callout>
 
-                    </div>                    
+                    </div>
+
+                    <div class="config full align-middle">
+                        <wa-button class="button save" id="tiktokSaveInformation" variant="brand">
+                            <span data-i18n-html="tiktok.service_save_button">Save Service Information</span>
+                        </wa-button>
+                    </div>
 
                     <div class="config full" data-tiktok-service="eulerstream" style="display: none;"> 
                         
@@ -1426,12 +1455,6 @@
                             <span data-i18n-html="tiktok.eulerstream_hint">Using EulerStream is <strong><u>extremely experimental</u></strong> and has <strong><u>rate limits</u>!<br>You need to create an account on <a href="https://www.eulerstream.com/" target="_blank">their website</a> and use the API KEY here. Also, <strong>keep watch on your daily quota on <a href="https://www.eulerstream.com/dashboard" target="_blank">your dashboard.</a><br>Don't change the username above while live streaming or else you will burn your free sessions.</span>
                         </wa-callout>
 
-                    </div>
-
-                    <div class="config full align-middle">
-                        <wa-button class="button save" id="tiktokSaveInformation" variant="brand">
-                            <span data-i18n-html="tiktok.service_save_button">Save Service Information</span>
-                        </wa-button>
                     </div>
 
                     <wa-divider></wa-divider>-->
@@ -2095,11 +2118,11 @@
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
     <script src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
 
-    <script src="js/i18n-settings.js?nocache=66"></script>
-    <script src="js/speakerbot.js?nocache=66"></script>
+    <script src="js/i18n-settings.js?nocache=67"></script>
+    <script src="js/speakerbot.js?nocache=67"></script>
 
-    <script src="js/audio.js?nocache=66"></script>
+    <script src="js/audio.js?nocache=67"></script>
     
-    <script type="module" src="js/settings.js?nocache=66"></script>
+    <script type="module" src="js/settings.js?nocache=67"></script>
 </body>
 </html>
