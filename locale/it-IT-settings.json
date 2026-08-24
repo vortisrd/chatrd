@@ -358,6 +358,7 @@
     }
   },
   "style": {
-    "title": "Stili Visivi"
+    "title": "Stili Visivi",
+    "load_system_fonts": "Carica Font di Sistema"
   }
 }

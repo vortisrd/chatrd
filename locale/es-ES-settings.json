@@ -358,6 +358,7 @@
     }
   },
   "style": {
-    "title": "Estilos Visuales"
+    "title": "Estilos Visuales",
+    "load_system_fonts": "Cargar Fuentes del Sistema"
   }
 }

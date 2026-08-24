@@ -114,7 +114,8 @@
     "image_embedding_filter_hint" : "If enabled, only images from the domains below are allowed to be embedded images. Separate them by commas. <strong>e.g: <em>imgur.com,tenor.com,giphy.com</em></strong>"
   },
   "style" : {
-    "title": "Visual Styles"
+    "title": "Visual Styles",
+    "load_system_fonts": "Load System Fonts"
   },
   "twitch": {
     "title": "Twitch",

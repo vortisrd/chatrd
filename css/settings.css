@@ -289,6 +289,11 @@ header h1 {
 }
 
 
+#settings .config.full wa-select {
+    margin: 0;
+    width: 100%;
+}
+
 
 #settings .config.full wa-button {
     margin: 0;

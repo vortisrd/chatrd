@@ -240,8 +240,71 @@ async function bindChatRDSettings() {
         await chatrdPlaySound(soundFile, soundVolume);
     });
 
+    document.querySelector('#chatRDSelectSystemFont').addEventListener('change', (event) => {
+        const input = document.querySelector(`[data-setting="chatFontFamily"]`);
+        input.value = event.target.value;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+
+    const loadSystemFontsButton = document.querySelector('#chatRDLoadFontsFromSystem');
+
+    loadSystemFontsButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        populateFontSelect();
+    });
+
+    if ('queryLocalFonts' in window) {
+       loadSystemFontsButton.parentNode.style.display = '';
+    }
+
     //bindTikTokSettings();
 }
+
+
+
+async function populateFontSelect() {
+    const select = document.querySelector('#chatRDSelectSystemFont');
+    const currentFontInput = document.querySelector('[data-setting="chatFontFamily"]');
+    const currentFont = currentFontInput.value;
+
+    select.parentNode.style.display = '';
+    currentFontInput.parentNode.style.display = 'none';
+
+    select.innerHTML = '';
+
+    if (currentFont) {
+        const currentOption = document.createElement('wa-option');
+        currentOption.value = currentFont;
+        currentOption.textContent = currentFont;
+        currentOption.style.fontFamily = currentFont;
+        currentOption.style.fontSize = '20px';
+        currentOption.selected = true;
+        select.appendChild(currentOption);
+    }
+
+    try {
+        const fonts = await window.queryLocalFonts();
+        const uniqueNames = [...new Set(fonts.map(f => f.family))].sort();
+
+        uniqueNames.forEach(name => {
+            if (name === currentFont) return;
+
+            const option = document.createElement('wa-option');
+            option.value = name;
+            option.textContent = name;
+            option.style.fontFamily = name;
+            option.style.fontSize = '20px';
+            select.appendChild(option);
+        });
+    }
+    catch (err) {
+        console.error('[ChatRD][Settings] Permission denied or API unavailable:', err);
+    }
+}
+
+
+
 
 async function bindTikTokSettings() {
 

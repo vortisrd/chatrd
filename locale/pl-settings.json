@@ -358,6 +358,7 @@
     }
   },
   "style": {
-    "title": "Style Wizualne"
+    "title": "Style Wizualne",
+    "load_system_fonts": "Wczytaj czcionki systemowe"
   }
 }

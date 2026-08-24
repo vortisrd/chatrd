@@ -358,6 +358,7 @@
     }
   },
   "style": {
-    "title": "Styles Visuels"
+    "title": "Styles Visuels",
+    "load_system_fonts": "Charger les Polices Système"
   }
 }
