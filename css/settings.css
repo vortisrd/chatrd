@@ -512,7 +512,7 @@ header h1 {
     height: calc(100vh - 40px);
     border-radius: 10px;
     outline: none !important;
-    border: none !important;
+    border: 1px solid #222;
 }
 
 .modal {

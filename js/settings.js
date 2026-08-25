@@ -510,16 +510,21 @@ async function getChatRDUrl({ preview = false } = {}) {
 
 	base.hash = "";
 
-	if (!base.pathname.endsWith("chat.html")) {
+	const targetFile = preview ? "preview.html" : "chat.html";
+
+	if (!base.pathname.endsWith("chat.html") && !base.pathname.endsWith("preview.html")) {
 		if (base.pathname.endsWith("/") || base.pathname === "") {
-			base.pathname += "chat.html";
+			base.pathname += targetFile;
 		}
 		else if (base.pathname.endsWith("index.html")) {
-			base.pathname = base.pathname.replace(/index\.html$/, "chat.html");
+			base.pathname = base.pathname.replace(/index\.html$/, targetFile);
 		}
 		else {
-			base.pathname += "/chat.html";
+			base.pathname += "/" + targetFile;
 		}
+	}
+	else {
+		base.pathname = base.pathname.replace(/(chat|preview)\.html$/, targetFile);
 	}
 
 	const settings = await collectChatRDSettings();
@@ -527,10 +532,6 @@ async function getChatRDUrl({ preview = false } = {}) {
 	Object.entries(settings).forEach(([key, value]) => {
 		base.searchParams.set(key, value);
 	});
-
-	if (preview) {
-		base.searchParams.set("preview", "true");
-	}
 
 	return base.toString();
 }

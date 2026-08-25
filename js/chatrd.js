@@ -5,7 +5,6 @@
 let myConfetti;
 let scroll;
 
-const preview                       = getURLParam("preview", false);
 const showPlatform                  = getURLParam("showPlatform", true);
 const showAvatar                    = getURLParam("showAvatar", true);
 const showTimestamps                = getURLParam("showTimestamps", true);
@@ -109,11 +108,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=77",
-    nutting: "skin-nutting.css?nocache=77",
-    kimballs: "skin-kimballs.css?nocache=77",
-    bubbles: "skin-bubbles.css?nocache=77",
-    'star-wars': "skin-star-wars.css?nocache=77"
+    default: "skin-default.css?nocache=78",
+    nutting: "skin-nutting.css?nocache=78",
+    kimballs: "skin-kimballs.css?nocache=78",
+    bubbles: "skin-bubbles.css?nocache=78",
+    'star-wars': "skin-star-wars.css?nocache=78"
 };
 
 
@@ -214,10 +213,6 @@ if (!chatHorizontal && !chatOneLine) {
 
 let backgroundColor = hexToRGBA(chatBackground,chatBackgroundOpacity);
 chatWrapper.style.backgroundColor = backgroundColor;
-
-if (preview == true) {
-    document.body.classList.add('preview');
-}
 
 document.querySelector('#bars').style.zoom = size;
 document.querySelector('#bars').classList.add( direction );
