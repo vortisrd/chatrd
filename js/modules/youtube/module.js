@@ -4,6 +4,7 @@
 
 const showYoutube                       = getURLParam("showYoutube", false);
 const showYouTubeMessages               = getURLParam("showYouTubeMessages", true);
+const showYouTubeNewSubscriber          = getURLParam("showYouTubeNewSubscriber", true);
 const showYouTubeSuperChats             = getURLParam("showYouTubeSuperChats", true);
 const showYouTubeSuperStickers          = getURLParam("showYouTubeSuperStickers", true);
 const showYouTubeSuperStickerGif        = getURLParam("showYouTubeSuperStickerGif", true);
