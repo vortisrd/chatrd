@@ -109,11 +109,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=76",
-    nutting: "skin-nutting.css?nocache=76",
-    kimballs: "skin-kimballs.css?nocache=76",
-    bubbles: "skin-bubbles.css?nocache=76",
-    'star-wars': "skin-star-wars.css?nocache=76"
+    default: "skin-default.css?nocache=77",
+    nutting: "skin-nutting.css?nocache=77",
+    kimballs: "skin-kimballs.css?nocache=77",
+    bubbles: "skin-bubbles.css?nocache=77",
+    'star-wars': "skin-star-wars.css?nocache=77"
 };
 
 
@@ -280,36 +280,9 @@ function queueNotificationSound() {
 
 
 async function appendOrPrepend(target,content) {
-    if (chatHorizontal) {
-        target.prepend(content);
-        return;
+    if (orientation === 'twitch-chat' && !chatHorizontal) {
+        target.append(content);
     }
-
-    function reverseContainerChildren(container) {
-        const children = Array.from(container.children);
-        const fragment = document.createDocumentFragment();
-        for (let i = children.length - 1; i >= 0; i--) {
-            fragment.appendChild(children[i]);
-        }
-        container.appendChild(fragment);
-    }
-
-    function setChatDirection(container, reversed) {
-        const targetClass = reversed ? 'btt' : 'twitch-chat';
-
-        if (!container.classList.contains(targetClass)) {
-            reverseContainerChildren(container);
-            container.classList.toggle('btt', reversed);
-            container.classList.toggle('twitch-chat', !reversed);
-        }
-    }
-
-    if (orientation === "twitch-chat") {
-        const overflowing = chatContainer.scrollHeight > chatWrapper.offsetHeight;
-        setChatDirection(chatContainer, overflowing);
-        overflowing ? target.prepend(content) : target.append(content);
-    }
-    
     else {
         target.prepend(content);
     }
@@ -616,10 +589,12 @@ function removeExtraChatMessages() {
     const total = chatMessages.length;
 
     if (total >= chatThreshold) {
-        const toRemove = Math.floor(total * 0.25); // 25% do total
+        const toRemove = Math.floor(total * 0.25); 
+        const isAppendMode = orientation === 'twitch-chat' && !chatHorizontal;
+
         for (let i = 0; i < toRemove; i++) {
-            const last = chatContainer.lastElementChild;
-            if (last) chatContainer.removeChild(last);
+            const oldest = isAppendMode ? chatContainer.firstElementChild : chatContainer.lastElementChild;
+            if (oldest) chatContainer.removeChild(oldest);
         }
     }
 }
@@ -696,7 +671,6 @@ function createRandomColor(platform, username) {
     else {
         const hue = Math.random() * 360;
         const saturation = 85;
-        // compensa hues que "parecem" mais escuros (azul/roxo/vermelho puro)
         const isDarkishHue = (hue >= 200 && hue <= 280) || (hue >= 340 || hue <= 10);
         const lightness = isDarkishHue ? 65 : 55;
 
@@ -1381,10 +1355,14 @@ function useAutoScroll(container, options = {}) {
     }
 
     function bottomScrollTop() {
+        if (orientation === "twitch-chat") {
+            return container.scrollHeight - container.clientHeight;
+        }
         return 0;
     }
 
     function distanceFromBottom(scrollTop, totalScrollable) {
+        if (orientation === "twitch-chat") return totalScrollable - scrollTop;
         return (orientation === "ttb") ? scrollTop : Math.abs(scrollTop);
     }
 
@@ -1447,22 +1425,20 @@ function initFakeScrollbar(scrollEl, thumbEl) {
         return zoom;
     }
 
-    // Converte scrollTop bruto -> posição visual (0 = topo da track, 1 = fundo da track)
     function scrollTopToPosition(scrollTop, maxScroll) {
         if (maxScroll <= 0) return 0;
 
-        if (orientation === "ttb") {
+        if (orientation === "ttb" || orientation === "twitch-chat") {
             return Math.min(1, Math.max(0, scrollTop / maxScroll));
         }
 
         return 1 - Math.min(1, Math.max(0, Math.abs(scrollTop) / maxScroll));
     }
 
-    // Converte posição visual (0 = topo, 1 = fundo) -> scrollTop bruto
     function positionToScrollTop(position, maxScroll) {
         const clamped = Math.min(1, Math.max(0, position));
 
-        if (orientation === "ttb") {
+        if (orientation === "ttb" || orientation === "twitch-chat") {
             return clamped * maxScroll;
         }
 
