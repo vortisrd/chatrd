@@ -109,11 +109,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=72",
-    nutting: "skin-nutting.css?nocache=72",
-    kimballs: "skin-kimballs.css?nocache=72",
-    bubbles: "skin-bubbles.css?nocache=72",
-    'star-wars': "skin-star-wars.css?nocache=72"
+    default: "skin-default.css?nocache=73",
+    nutting: "skin-nutting.css?nocache=73",
+    kimballs: "skin-kimballs.css?nocache=73",
+    bubbles: "skin-bubbles.css?nocache=73",
+    'star-wars': "skin-star-wars.css?nocache=73"
 };
 
 
@@ -280,6 +280,10 @@ function queueNotificationSound() {
 
 
 async function appendOrPrepend(target,content) {
+    if (chatHorizontal) {
+        target.append(content);
+        return;
+    }
 
     function reverseContainerChildren(container) {
         const children = Array.from(container.children);
@@ -300,11 +304,9 @@ async function appendOrPrepend(target,content) {
         }
     }
 
-    if (orientation === "twitch-chat" && !chatHorizontal) {
-        const overflowing = chatContainer.scrollHeight >= chatWrapper.offsetHeight;
-
+    if (orientation === "twitch-chat") {
+        const overflowing = chatContainer.scrollHeight > chatWrapper.offsetHeight;
         setChatDirection(chatContainer, overflowing);
-
         overflowing ? target.prepend(content) : target.append(content);
     }
     
