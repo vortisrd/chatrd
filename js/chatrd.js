@@ -109,11 +109,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=73",
-    nutting: "skin-nutting.css?nocache=73",
-    kimballs: "skin-kimballs.css?nocache=73",
-    bubbles: "skin-bubbles.css?nocache=73",
-    'star-wars': "skin-star-wars.css?nocache=73"
+    default: "skin-default.css?nocache=74",
+    nutting: "skin-nutting.css?nocache=74",
+    kimballs: "skin-kimballs.css?nocache=74",
+    bubbles: "skin-bubbles.css?nocache=74",
+    'star-wars': "skin-star-wars.css?nocache=74"
 };
 
 
@@ -281,7 +281,7 @@ function queueNotificationSound() {
 
 async function appendOrPrepend(target,content) {
     if (chatHorizontal) {
-        target.append(content);
+        target.prepend(content);
         return;
     }
 
