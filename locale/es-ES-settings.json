@@ -177,6 +177,9 @@
   "youtube": {
     "title": "YouTube",
     "chat": "Chat",
+    "new_subscriber" : "Nuevo Suscriptor",
+    "new_subscriber_hint" : "Streamer.bot consulta tu canal de YouTube en busca de nuevos suscriptores cada 5 segundos y envía los datos a ChatRD.",
+    "new_subscriber_info" : "No recibirás un evento de Nuevo Suscriptor para usuarios que tengan sus Suscripciones Privadas y/o si la cuenta de Google no tiene un Canal de YouTube creado.",
     "superchat": "Super Chat",
     "super_sticker": "Super Sticker",
     "super_sticker_gif": "<i class=\"ri-corner-down-right-line\"></i> Activar imagen de Super Sticker",

@@ -36,6 +36,7 @@ const youtubeMessageHandlers = {
         youTubeChatMessage(response.data);
     },
     'YouTube.NewSubscriber': (response) => {
+        youTubeNewSubscriberMessage(response.data);
     },
     'YouTube.NewSponsorOnlyStarted': (response) => {
     },
@@ -206,6 +207,49 @@ async function youTubeChatMessage(data) {
 
     addMessageItem('youtube', clone, classes, userId, messageId);
 }
+
+
+
+async function youTubeNewSubscriberMessage(data) {
+
+    if (showTwitchFollows == false) return;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = data.id;
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['youtube', 'new-subscriber'];
+
+    header.remove();
+    //message.remove();
+    value.remove();
+
+    const userLinkElement = user.querySelector('a');
+    const userLink = `${data.url}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = data.name;
+    userLinkElement.title = `${data.name} @ ${userLink}`;
+
+    action.innerHTML = tRD('youtube.new_subscriber_action');
+
+    addEventItem('youtube', clone, classes, userId, messageId);
+}
+
 
 
 

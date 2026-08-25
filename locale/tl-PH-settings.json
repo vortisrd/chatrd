@@ -177,6 +177,9 @@
   "youtube": {
     "title": "YouTube",
     "chat": "Chat",
+    "new_subscriber" : "Bagong Subscriber",
+    "new_subscriber_hint" : "Chine-check ng Streamer.bot ang iyong YouTube channel para sa mga bagong subscriber tuwing 5 segundo at ipinapadala ang data sa ChatRD.",
+    "new_subscriber_info" : "Hindi ka makakatanggap ng New Subscriber event para sa mga user na private ang kanilang mga Subscription, at/o kung ang Google account ay walang nagawang YouTube Channel.",
     "superchat": "Super Chat",
     "super_sticker": "Super Sticker",
     "super_sticker_gif": "<i class=\"ri-corner-down-right-line\"></i> I-enable ang Larawan ng Super Sticker",

@@ -135,6 +135,7 @@
   },
 
   "youtube": {
+    "new_subscriber_action" : " nag-subscribe sa channel",
     "superchat_action":          " nag-superchat ng ",
     "supersticker_action":       " nagpadala ng supersticker ",
     "sponsor_action":            " naging member nang ",

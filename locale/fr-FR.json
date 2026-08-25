@@ -135,6 +135,7 @@
   },
 
   "youtube": {
+    "new_subscriber_action" : " s'est abonné(e) à la chaîne",
     "superchat_action":          " a envoyé un Superchat ",
     "supersticker_action":       " a envoyé un Supersticker ",
     "sponsor_action":            " est devenu membre pour ",
