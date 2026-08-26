@@ -224,7 +224,7 @@ body.preview {
     padding-bottom: 25px;
 }
 
-body:has(.chat:not(.noscrollbar)) #bars {
+body:has(.chat.noscrollbar) #bars {
     padding: 10px 10px 5px 10px;
 }
 
