@@ -185,7 +185,15 @@ const twitchMessageHandlers = {
             console.debug(`[ChatRD][Twitch][GoalFetch]`, response.data.data.event);
             twitchGoalsRenderer(response.data.data.event);
         }
+    },
+
+
+    'Twitch.AdRun': (response) => {
+    },
+
+    'Twitch.UpcomingAd': (response) => {
     }
+
 };
 
 
