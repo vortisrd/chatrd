@@ -84,7 +84,7 @@ const chatGhostContainer            = document.querySelector('#chat-ghost');
 const eventLittleContainer          = document.querySelector('#little-events');
 const chatTemplate                  = document.querySelector('#chat-message');
 const eventTemplate                 = document.querySelector('#event-message');
-
+const scrollButton                  = document.querySelector('#chat-scroll-bottom');
 
 
 
@@ -108,11 +108,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=79",
-    nutting: "skin-nutting.css?nocache=79",
-    kimballs: "skin-kimballs.css?nocache=79",
-    bubbles: "skin-bubbles.css?nocache=79",
-    'star-wars': "skin-star-wars.css?nocache=79"
+    default: "skin-default.css?nocache=80",
+    nutting: "skin-nutting.css?nocache=80",
+    kimballs: "skin-kimballs.css?nocache=80",
+    bubbles: "skin-bubbles.css?nocache=80",
+    'star-wars': "skin-star-wars.css?nocache=80"
 };
 
 
@@ -193,7 +193,11 @@ async function combinedViewerStatistics() {
 
 
 
-if (scrollbar == false) { chatContainer.classList.add('noscrollbar'); }
+if (scrollbar == false) {
+    chatContainer.classList.add('noscrollbar');
+    scrollButton.style.display = 'none'; 
+}
+
 if (chatOneLine == true && !chatHorizontal) {
     chatContainer.classList.add('oneline');
     chatGhostContainer.classList.add('oneline');
@@ -1362,6 +1366,7 @@ function useAutoScroll(container, options = {}) {
     }
 
     container.addEventListener('scroll', () => {
+        if (!scrollbar) return;
         if (scrolling) return;
 
         const { scrollTop, scrollHeight, clientHeight } = container;
@@ -1399,7 +1404,7 @@ function useAutoScroll(container, options = {}) {
     }
 
     return {
-        onPrepend: () => { if (autoScroll) container.scrollTop = bottomScrollTop(); },
+        onPrepend: () => { if (!scrollbar || autoScroll) container.scrollTop = bottomScrollTop(); },
         scrollToBottom,
         isActive: () => autoScroll,
     };
@@ -1720,7 +1725,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     myConfetti = confetti.create(createConfettiCanvas(), { resize: true });
 
     scroll = useAutoScroll(chatContainer, {
-        notice: document.querySelector('#chat-scroll-bottom'),
+        notice: scrollButton,
     });
 
     if (!chatContainer.classList.contains('noscrollbar')) {
