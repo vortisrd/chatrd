@@ -59,6 +59,31 @@
 }
 
 
+
+
+
+.chat.rtl.vertical:has(.avatar) .item .message {
+    padding-right: 70px;
+    padding-left: 10px;
+}
+
+.chat.rtl.vertical:has(.avatar) .item .info .avatar {
+    right: -60px;
+    left: unset;
+}
+
+.chat.rtl.vertical:has(.avatar) .item.streamer-mentioned .message,
+.chat.rtl.vertical:has(.avatar) .item.first-chatter .message {
+    padding-left: 10px;
+    padding-right: 70px;
+}
+
+.chat.rtl.vertical:has(.avatar) .item.first-chatter .message .first-message {
+    left: unset;
+    right: -60px;
+}
+
+
 /* ------------------------------------------- */
 /* --------- CHAT - ONE LINE LAYOUT ---------- */
 /* ------------------------------------------- */
@@ -92,6 +117,31 @@
 
 .chat.oneline:has(.avatar) .item:has(.reply) .info .avatar {
     top: -20px;
+}
+
+
+
+
+.chat.rtl.oneline:has(.avatar) .item .message{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chat.rtl.oneline:has(.avatar) .item.streamer-mentioned .message,
+.chat.rtl.oneline:has(.avatar) .item.first-chatter .message {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chat.oneline:has(.avatar) .item .info .avatar {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.chat.rtl.oneline:has(.avatar) .item.first-chatter .message .first-message {
+    left: unset;
 }
 
 
