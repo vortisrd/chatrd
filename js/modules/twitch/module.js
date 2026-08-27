@@ -1426,15 +1426,23 @@ async function twitchAutoModMessageHeld(data) {
     const messageFormatted = await getTwitchMessageFromParts(data.fragments);
     const userName = data.user_name;
     const reason = data.automod.category;
+    const messageid = data.message_id;
 
     header.remove();
     value.remove();
 
     action.innerHTML = tRD('twitch.automod_action', { user: userName, reason: reason });
-    message.innerHTML = `<em><strong>${userName}:</strong> ${DOMPurify.sanitize(messageFormatted)}</em>`;
+    message.innerHTML = `
+        <div class="message-held"><em><strong>${userName}:</strong> ${DOMPurify.sanitize(messageFormatted)}</em></div>
+        <div class="button-actions">
+            <button onclick="executeModCommand(event, '/automod approve ${messageid}'); this.parentNode.remove();"><i class="fa-solid fa-check"></i> ${tRD('twitch.automod_button_approve')}</button>
+            <button onclick="executeModCommand(event, '/automod deny ${messageid}'); this.parentNode.remove();"><i class="fa-solid fa-xmark"></i> ${tRD('twitch.automod_button_deny')}</button>
+        </div>
+    `;
 
     addHiddenEventItem('twitch', clone, classes, userId, messageId);
 }
+
 
 async function twitchAutoModMessageUpdate(data) {
     if (!chatField) return;
@@ -2312,11 +2320,11 @@ async function twitchAdRunMessage(data) {
 
     const classes = ['twitch', 'hidden-event'];
 
-    const adLength = convertTime(data.length_seconds * 1000);
+    const adDuration = data.length_seconds ? data.length_seconds : data.lengthSeconds;
+    const adLength = convertTime(adDuration * 1000);
 
     header.remove();
     value.remove();
-    //action.innerHTML = tRD('twitch.follow_action');
     action.innerHTML = tRD('twitch.adrun_action', { duration: `${adLength}`});
     
     addHiddenEventItem('twitch', clone, classes, userId, messageId);

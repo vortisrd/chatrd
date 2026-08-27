@@ -99,6 +99,8 @@
     "automod_action":          " nagpigil ng mensahe mula kay <strong>{user}</strong> dahil sa: <strong>{reason}</strong>.",
     "automod_approved":        " nag-approve ng mensahe mula kay <strong>{user}</strong>.",
     "automod_denied":        " tumanggi sa mensahe mula kay <strong>{user}</strong>.",
+    "automod_button_approve": "Aprubahan",
+    "automod_button_deny":    "Tanggihan",
     "hypetrain": {
       "started":               "Nagsimula na ang Hype Train! 🔥",
       "started_golden":        "Nagsimula na ang Golden Kappa Train! 🪙",

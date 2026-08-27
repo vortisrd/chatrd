@@ -99,6 +99,8 @@
     "automod_action":          " hat eine Nachricht von <strong>{user}</strong> aus folgendem Grund zurückgehalten: <strong>{reason}</strong>.",
     "automod_approved":        " hat eine Nachricht von <strong>{user}</strong> genehmigt.",
     "automod_denied":        " hat eine Nachricht von <strong>{user}</strong> abgelehnt.",
+    "automod_button_approve": "Genehmigen",
+    "automod_button_deny":    "Ablehnen",
     "hypetrain": {
       "started":               "Hype Train gestartet! 🔥",
       "started_golden":        "Golden Kappa Train gestartet! 🪙",

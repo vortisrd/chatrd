@@ -99,6 +99,8 @@
     "automod_action":          " wstrzymał wiadomość od <strong>{user}</strong> z powodu: <strong>{reason}</strong>.",
     "automod_approved":        " zatwierdził wiadomość od <strong>{user}</strong>.",
     "automod_denied":        " odrzucił wiadomość od <strong>{user}</strong>.",
+    "automod_button_approve": "Zatwierdź",
+    "automod_button_deny":    "Odrzuć",
     "hypetrain": {
       "started":               "Hype Train rozpoczęty! 🔥",
       "started_golden":        "Golden Kappa Train rozpoczęty! 🪙",

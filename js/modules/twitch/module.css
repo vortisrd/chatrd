@@ -292,6 +292,37 @@
 .chat .event.twitch.hypetrain.treasure-train .message { background: linear-gradient(to right, #2346b5, #a970ff); }
 
 
+
+.chat .event.hidden-event .actual-message .button-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0 0 0;
+    gap: 10px;
+}
+
+.chat .event.hidden-event .actual-message .button-actions button {
+    cursor: pointer;
+    color: #FFF;
+    background: rgba(145,70,255,0.50);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.chat .event.hidden-event .actual-message .button-actions button:hover {
+    background: rgba(145,70,255,1);
+}
+
+.chat .event.hidden-event .actual-message .message-held {
+    background: rgba(255,255,255,0.05);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
 /* ------------------------------------------- */
 /* ----- CHAT - POWER UP MESSAGE EFFECTS ----- */
 /* ------------------------------------------- */
