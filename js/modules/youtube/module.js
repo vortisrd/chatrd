@@ -74,12 +74,12 @@ const youtubeMessageHandlers = {
 
     
     'YouTube.UserTimedout': (response) => {
-        setTimeout(() => { youTubeUserBanned(response.data); }, 3000);
+        youTubeUserBanned(response.data);
     },
 
     
     'YouTube.UserBanned': (response) => {
-        setTimeout(() => { youTubeUserBanned(response.data); }, 3000);
+        youTubeUserBanned(response.data);
     },
 
 
@@ -602,6 +602,50 @@ async function youTubeUserBanned(data) {
     chatContainer.querySelectorAll(`[data-user="${data.targetUser.id}"]:not(.event)`).forEach(element => {
         element.parentNode.remove();
     });
+
+
+    if (!chatField) return;
+
+    let description;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['youtube', 'hidden-event'];
+
+    const targetId = data.targetUser.id;
+    const targetUser = data.targetUser.name;
+    const targetLogin = data.targetUser.login;
+
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://www.youtube.com/channel/${targetId}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = targetUser;
+    userLinkElement.title = `${targetUser} @ ${userLink}`;
+
+    description = `was timed out/banned by <strong>${data.moderator.name}</strong>.`;
+
+    header.remove();
+    value.remove();
+    action.innerHTML = `${description}`;
+
+    addHiddenEventItem('youtube', clone, classes, userId, messageId);
 }
 
 

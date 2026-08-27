@@ -126,26 +126,32 @@ const twitchMessageHandlers = {
 
 
     'Twitch.ChatMessageDeleted': (response) => {
-        setTimeout(() => { twitchChatMessageDeleted(response.data); }, 3000);
+        twitchChatMessageDeleted(response.data);
     },
     'Twitch.UserBanned': (response) => {
-        setTimeout(() => { twitchUserBanned(response.data); }, 3000);
+        twitchUserBanned(response.data, 'ban');
     },
     'Twitch.UserTimedOut': (response) => {
-        setTimeout(() => { twitchUserBanned(response.data); }, 3000);
+        twitchUserBanned(response.data, 'timeout');
+    },
+    'Twitch.UserUnbanned': (response) => {
+        twitchUserUnBanned(response.data, 'ban');
+    },
+    'Twitch.UserUntimedOut': (response) => {
+        twitchUserUnBanned(response.data, 'timeout');
     },
     
 
     'Twitch.SharedChatMessageDeleted': (response) => {
-	    setTimeout(() => { twitchChatMessageDeleted(response.data); }, 3000);
+	    twitchChatMessageDeleted(response.data);
     },
 
     'Twitch.SharedChatUserBanned': (response) => {
-        setTimeout(() => { twitchUserBanned(response.data); }, 3000);
+        twitchUserBanned(response.data, 'ban');
     },
 
     'Twitch.SharedChatUserTimedout': (response) => {
-        setTimeout(() => { twitchUserBanned(response.data); }, 3000);
+        twitchUserBanned(response.data, 'ban');
     },
 
 
@@ -188,11 +194,28 @@ const twitchMessageHandlers = {
     },
 
 
+
+
     'Twitch.AdRun': (response) => {
+        twitchAdRunMessage(response.data);
     },
 
     'Twitch.UpcomingAd': (response) => {
-    }
+        twitchUpcomingAdMessage(response.data);
+    },
+
+
+
+
+    'Twitch.AutoModMessageHeld': (response) => {
+        twitchAutoModMessageHeld(response.data);
+    },
+
+    'Twitch.AutoModMessageUpdate': (response) => {
+        twitchAutoModMessageUpdate(response.data);
+    },
+
+
 
 };
 
@@ -1262,10 +1285,200 @@ async function twitchChatMessageDeleted(data) {
 
 
 
-async function twitchUserBanned(data) {
+async function twitchUserBanned(data, type = null) {
     chatContainer.querySelectorAll(`[data-user="${data.targetUser.login}"]`).forEach(element => {
         element.parentNode.remove();
     });
+
+    if (!chatField) return;
+
+    let description;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['twitch', 'hidden-event'];
+
+    const targetUser = data.targetUser.name;
+    const targetLogin = data.targetUser.login;
+    const moderator = data.moderator.name;
+
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${targetLogin}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = targetUser;
+    userLinkElement.title = `${targetUser} @ ${userLink}`;
+
+    if (type == 'timeout') {
+        const duration = convertTime(data.duration * 1000);
+        description = tRD('twitch.timeout_action', { user: moderator, duration: `${duration}`});
+    }
+
+    if (type == 'ban') {
+        description = tRD('twitch.ban_action', { user: moderator });
+    }
+
+    if (data.reason) description += ` (${data.reason})`;
+
+    header.remove();
+    value.remove();
+    action.innerHTML = `${description}`;
+
+    addHiddenEventItem('twitch', clone, classes, userId, messageId);
+}
+
+async function twitchUserUnBanned(data, type = null) {
+
+    if (!chatField) return;
+
+    let description;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['twitch', 'hidden-event'];
+
+    const targetUser = data.targetUser.name;
+    const targetLogin = data.targetUser.login;
+    const moderator = data.moderator.name;
+
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://twitch.tv/${targetLogin}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = targetUser;
+    userLinkElement.title = `${targetUser} @ ${userLink}`;
+
+    if (type == 'timeout') {
+        description = tRD('twitch.untimeout_action', { user: moderator });
+    }
+
+    if (type == 'ban') {
+        description = tRD('twitch.unban_action', { user: moderator });
+    }
+
+    header.remove();
+    value.remove();
+    action.innerHTML = `${description}`;
+
+    addHiddenEventItem('twitch', clone, classes, userId, messageId);
+}
+
+
+
+async function twitchAutoModMessageHeld(data) {
+    if (!chatField) return;
+
+    let description;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['twitch', 'hidden-event'];
+
+    user.textContent = 'AutoMod';
+
+    const messageFormatted = await getTwitchMessageFromParts(data.fragments);
+    const userName = data.user_name;
+    const reason = data.automod.category;
+
+    header.remove();
+    value.remove();
+
+    action.innerHTML = tRD('twitch.automod_action', { user: userName, reason: reason });
+    message.innerHTML = `<em><strong>${userName}:</strong> ${DOMPurify.sanitize(messageFormatted)}</em>`;
+
+    addHiddenEventItem('twitch', clone, classes, userId, messageId);
+}
+
+async function twitchAutoModMessageUpdate(data) {
+    if (!chatField) return;
+
+    let description;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['twitch', 'hidden-event'];
+
+    user.textContent = 'AutoMod';
+
+    const userName = data.user_name;
+
+    header.remove();
+    value.remove();
+
+    let messageFromAutomod;
+
+    if (data.status === 'approved') {
+        messageFromAutomod = tRD('twitch.automod_approved', { user: userName });
+    }
+    else {
+        messageFromAutomod = tRD('twitch.automod_denied', { user: userName });
+    }
+
+    action.innerHTML = messageFromAutomod;
+
+    addHiddenEventItem('twitch', clone, classes, userId, messageId);
 }
 
 
@@ -1289,8 +1502,6 @@ async function twitchUpdateStatistics(data) {
 
     combinedViewerStatistics();
 }
-
-
 
 
 
@@ -1710,7 +1921,6 @@ function hypeTrainUpdateDisplay(remaining) {
 
 
 
-
 async function twitchGoalsRenderer(data) {
 
     const {
@@ -1785,8 +1995,6 @@ async function twitchGoalsRenderer(data) {
     }
 
 }
-
-
 
 
 
@@ -1910,8 +2118,6 @@ async function twitchGoalBegin(data) {
     }
 
 }
-
-
 
 
 
@@ -2084,7 +2290,70 @@ async function twitchGoalsFetch() {
 }
 
 
+async function twitchAdRunMessage(data) {
+    if (!chatField) return;
 
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['twitch', 'hidden-event'];
+
+    const adLength = convertTime(data.length_seconds * 1000);
+
+    header.remove();
+    value.remove();
+    //action.innerHTML = tRD('twitch.follow_action');
+    action.innerHTML = tRD('twitch.adrun_action', { duration: `${adLength}`});
+    
+    addHiddenEventItem('twitch', clone, classes, userId, messageId);
+}
+
+
+
+
+
+async function twitchUpcomingAdMessage(data) {
+    if (!chatField) return;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['twitch', 'hidden-event'];
+
+    header.remove();
+    value.remove();
+    action.innerHTML = tRD('twitch.upcomingad_action');
+
+    addHiddenEventItem('twitch', clone, classes, userId, messageId);
+}
 
 
 

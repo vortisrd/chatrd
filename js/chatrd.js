@@ -108,11 +108,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=01",
-    nutting: "skin-nutting.css?nocache=01",
-    kimballs: "skin-kimballs.css?nocache=01",
-    bubbles: "skin-bubbles.css?nocache=01",
-    'star-wars': "skin-star-wars.css?nocache=01"
+    default: "skin-default.css?nocache=82",
+    nutting: "skin-nutting.css?nocache=82",
+    kimballs: "skin-kimballs.css?nocache=82",
+    bubbles: "skin-bubbles.css?nocache=82",
+    'star-wars': "skin-star-wars.css?nocache=82"
 };
 
 
@@ -544,6 +544,26 @@ function addEventItem(platform, clone, classes, userid, messageid) {
     if (playSound && playSoundOnEvents) {
         queueNotificationSound();
     }
+}
+
+function addHiddenEventItem(platform, clone, classes, userid, messageid) {
+    const root = clone.firstElementChild;
+    root.classList.add(...classes);
+    root.dataset.user = userid;
+    root.id = messageid;
+
+    applyEventPlatformIcon(platform, root, clone.querySelector('.platform'));
+
+    const timestamp = clone.querySelector('.timestamp');    
+    if (timestamp) {
+        if (showTimestamps) {
+            timestamp.textContent = whatTimeIsIt();
+        } else {
+            timestamp.remove();
+        }
+    }
+    
+    animateItemEntry(root, messageid);
 }
 
 
@@ -1309,6 +1329,23 @@ function renderGiftEventSuffix(giftcode) {
     `;
 
     return html;
+}
+
+
+function convertTime(ms) {
+    var oneSecond = 1000;
+    var oneHour = oneSecond * 60 * 60;
+    var oneDay = oneHour * 24;
+
+    if (ms >= oneDay) {
+        return (ms / oneDay) + "d";
+    }
+
+    if (ms >= oneHour) {
+        return (ms / oneHour) + "h";
+    }
+
+    return (ms / oneSecond) + "s";
 }
 
 

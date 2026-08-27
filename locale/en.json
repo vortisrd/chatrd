@@ -90,6 +90,15 @@
     "raid_singular":           "viewer",
     "raid_plural":             "viewers",
     "reply_label":             "Replying to <strong>{user}</strong>:",
+    "upcomingad_action":       "An <strong>Ad break</strong> is about to start.",
+    "adrun_action":            "A <strong>{duration} Ad break</strong> has started.",
+    "timeout_action":          "was timed out by <strong>{user}</strong> for {duration}.",
+    "ban_action":              "was banned by <strong>{user}</strong>.",
+    "untimeout_action":        "had timeout removed by <strong>{user}</strong>.",
+    "unban_action":            "was unbanned by <strong>{user}</strong>.",
+    "automod_action":          " held a message from <strong>{user}</strong> for reason: <strong>{reason}</strong>.",
+    "automod_approved":        " approved a message from <strong>{user}</strong>.",
+    "automod_denied":        " denied a message from <strong>{user}</strong>.",
     "hypetrain": {
       "started":               "Hype Train Started! 🔥",
       "started_golden":        "Golden Kappa Train Started! 🪙",
@@ -172,7 +181,11 @@
     "raid_singular":          "viewer",
     "raid_plural":            "viewers",
     "reward_action":          " redeemed ",
-    "reply_label":            "Replying to <strong>{user}</strong>:"
+    "reply_label":            "Replying to <strong>{user}</strong>:",
+    "timeout_action":          "was timed out by <strong>{user}</strong> for {duration}.",
+    "ban_action":              "was banned by <strong>{user}</strong>.",
+    "untimeout_action":        "had timeout removed by <strong>{user}</strong>.",
+    "unban_action":            "was unbanned by <strong>{user}</strong>."
   },
 
   "streamelements": {

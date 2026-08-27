@@ -90,6 +90,15 @@
     "raid_singular":           "espectador",
     "raid_plural":             "espectadores",
     "reply_label":             "Respondendo a <strong>{user}</strong>:",
+    "upcomingad_action":       "Um <strong>intervalo comercial</strong> está prestes a começar.",
+    "adrun_action":            "Um <strong>intervalo comercial de {duration}</strong> começou.",
+    "timeout_action":          "recebeu um timeout de <strong>{user}</strong> por {duration}.",
+    "ban_action":              "foi banido por <strong>{user}</strong>.",
+    "untimeout_action":        "teve o timeout removido por <strong>{user}</strong>.",
+    "unban_action":            "teve o banimento removido por <strong>{user}</strong>.",
+    "automod_action":          " reteve uma mensagem de <strong>{user}</strong> pelo motivo: <strong>{reason}</strong>.",
+    "automod_approved":        " aprovou uma mensagem de <strong>{user}</strong>.",
+    "automod_denied":        " negou uma mensagem de <strong>{user}</strong>.",
     "hypetrain": {
       "started":               "Hype Train Iniciado! 🔥",
       "started_golden":        "Golden Kappa Train Iniciado! 🪙",
@@ -172,7 +181,11 @@
     "raid_singular":          "espectador",
     "raid_plural":            "espectadores",
     "reward_action":          " resgatou ",
-    "reply_label":            "Respondendo a <strong>{user}</strong>:"
+    "reply_label":            "Respondendo a <strong>{user}</strong>:",
+    "timeout_action":          "recebeu um timeout de <strong>{user}</strong> por {duration}.",
+    "ban_action":              "foi banido por <strong>{user}</strong>.",
+    "untimeout_action":        "teve o timeout removido por <strong>{user}</strong>.",
+    "unban_action":            "teve o banimento removido por <strong>{user}</strong>."
   },
 
   "streamelements": {

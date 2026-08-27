@@ -90,6 +90,15 @@
     "raid_singular":           "Zuschauer",
     "raid_plural":             "Zuschauern",
     "reply_label":             "Antwort an <strong>{user}</strong>:",
+    "upcomingad_action":       "Eine <strong>Werbepause</strong> beginnt gleich.",
+    "adrun_action":            "Eine <strong>Werbepause von {duration}</strong> hat begonnen.",
+    "timeout_action":          "wurde von <strong>{user}</strong> für {duration} in eine Auszeit versetzt.",
+    "ban_action":              "wurde von <strong>{user}</strong> gebannt.",
+    "untimeout_action":        "hatte die Auszeit von <strong>{user}</strong> entfernt.",
+    "unban_action":            "wurde von <strong>{user}</strong> entbannt.",
+    "automod_action":          " hat eine Nachricht von <strong>{user}</strong> aus folgendem Grund zurückgehalten: <strong>{reason}</strong>.",
+    "automod_approved":        " hat eine Nachricht von <strong>{user}</strong> genehmigt.",
+    "automod_denied":        " hat eine Nachricht von <strong>{user}</strong> abgelehnt.",
     "hypetrain": {
       "started":               "Hype Train gestartet! 🔥",
       "started_golden":        "Golden Kappa Train gestartet! 🪙",
@@ -172,7 +181,11 @@
     "raid_singular":          "Zuschauer",
     "raid_plural":            "Zuschauer",
     "reward_action":          " hat eingelöst ",
-    "reply_label":            "Antwort an <strong>{user}</strong>:"
+    "reply_label":            "Antwort an <strong>{user}</strong>:",
+    "timeout_action":          "wurde von <strong>{user}</strong> für {duration} in eine Auszeit versetzt.",
+    "ban_action":              "wurde von <strong>{user}</strong> gebannt.",
+    "untimeout_action":        "hatte die Auszeit von <strong>{user}</strong> entfernt.",
+    "unban_action":            "wurde von <strong>{user}</strong> entbannt."
   },
 
   "streamelements": {

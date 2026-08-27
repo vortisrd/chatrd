@@ -80,8 +80,14 @@ const kickMessageHandlers = {
     'Kick.UserTimedOut': (response) => {
         if (isPusherConnected) return;
         kickUserBanned({
+            banned_by: {
+                username: data.moderator.name
+            },
+            permanent: false,
+            duration: Math.floor(data.duration/60),
             user: {
-                slug : data.user.name.toLowerCase()
+                slug : data.user.name.toLowerCase(),
+                username : data.user.name
             }
         });
     },
@@ -89,8 +95,13 @@ const kickMessageHandlers = {
     'Kick.UserBanned': (response) => {
         if (isPusherConnected) return;
         kickUserBanned({
+            banned_by: {
+                username: data.moderator.name
+            },
+            permanent: true,
             user: {
-                slug : data.user.name.toLowerCase()
+                slug : data.user.name.toLowerCase(),
+                username : data.user.name
             }
         });
     },
@@ -315,6 +326,8 @@ async function kickConnectionNew() {
 
                 // Business events come as "App\\Events\\XEvent" or, sometimes, bare "XEvent".
                 const shortEventName = eventName.split('\\').pop();
+                
+                console.debug(`[ChatRD][Pusher][Kick] Event on "${payload.channel}": ${shortEventName} (${eventName})`, eventData);
 
                 switch (shortEventName) {
                     case 'ChatMessageEvent':
@@ -333,10 +346,13 @@ async function kickConnectionNew() {
                         kickRaidMessage(eventData);
                         break;
                     case 'MessageDeletedEvent':
-                        setTimeout(() => kickChatMessageDeleted(eventData), 3000);
+                        kickChatMessageDeleted(eventData);
                         break;
                     case 'UserBannedEvent':
-                        setTimeout(() => kickUserBanned(eventData), 3000);
+                        kickUserBanned(eventData);
+                        break;
+                    case 'UserUnbannedEvent':
+                        kickUserUnBanned(eventData);
                         break;
                     case 'ChatroomClearEvent':
                         kickChatClearMessages(eventData);
@@ -960,6 +976,112 @@ async function kickUserBanned(data) {
     chatContainer.querySelectorAll(`[data-user="${data.user.slug}"]`).forEach(element => {
         element.parentNode.remove();
     });
+
+    if (!chatField) return;
+
+    let description;
+    let type = data.permanent ? 'ban' : 'timeout';
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['kick', 'hidden-event'];
+
+    const targetUser = data.user.username;
+    const targetLogin = data.user.slug;
+    const moderator = data.banned_by.username;
+
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://kick.com/${targetLogin}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = targetUser;
+    userLinkElement.title = `${targetUser} @ ${userLink}`;
+
+    if (type == 'timeout') {
+        const duration = convertTime((data.duration * 60) * 1000);
+        description = tRD('kick.timeout_action', { user: moderator, duration: `${duration}`});
+    }
+
+    if (type == 'ban') {
+        description = tRD('kick.ban_action', { user: moderator });
+    }
+
+    header.remove();
+    value.remove();
+    action.innerHTML = `${description}`;
+
+    addHiddenEventItem('kick', clone, classes, userId, messageId);
+}
+
+
+
+async function kickUserUnBanned(data) {
+
+    if (!chatField) return;
+
+    let description;
+    let type = data.permanent ? 'ban' : 'timeout';
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = createRandomString(40);
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['kick', 'hidden-event'];
+
+    const targetUser = data.user.username;
+    const targetLogin = data.user.slug;
+    const moderator = data.unbanned_by.username;
+
+    const userLinkElement = user.querySelector('a');
+    const userLink = `https://kick.com/${targetLogin}`;
+
+    userLinkElement.href = userLink;
+    userLinkElement.target = '_blank';
+    userLinkElement.textContent = targetUser;
+    userLinkElement.title = `${targetUser} @ ${userLink}`;
+
+    if (type == 'timeout') {
+        description = tRD('kick.untimeout_action', { user: moderator });
+    }
+
+    if (type == 'ban') {
+        description = tRD('kick.unban_action', { user: moderator });
+    }
+
+    header.remove();
+    value.remove();
+    action.innerHTML = `${description}`;
+
+    addHiddenEventItem('kick', clone, classes, userId, messageId);
 }
 
 

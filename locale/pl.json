@@ -90,6 +90,15 @@
     "raid_singular":           "widzem",
     "raid_plural":             "widzami",
     "reply_label":             "Odpowiedź do <strong>{user}</strong>:",
+    "upcomingad_action":       "Za chwilę rozpocznie się <strong>przerwa reklamowa</strong>.",
+    "adrun_action":            "Rozpoczęła się <strong>{duration} przerwa reklamowa</strong>.",
+    "timeout_action":          "otrzymał wyciszenie od <strong>{user}</strong> na {duration}.",
+    "ban_action":              "został zbanowany przez <strong>{user}</strong>.",
+    "untimeout_action":        "miał zdjęte wyciszenie przez <strong>{user}</strong>.",
+    "unban_action":            "został odbanowany przez <strong>{user}</strong>.",
+    "automod_action":          " wstrzymał wiadomość od <strong>{user}</strong> z powodu: <strong>{reason}</strong>.",
+    "automod_approved":        " zatwierdził wiadomość od <strong>{user}</strong>.",
+    "automod_denied":        " odrzucił wiadomość od <strong>{user}</strong>.",
     "hypetrain": {
       "started":               "Hype Train rozpoczęty! 🔥",
       "started_golden":        "Golden Kappa Train rozpoczęty! 🪙",
@@ -172,7 +181,11 @@
     "raid_singular":          "widzem",
     "raid_plural":            "widzami",
     "reward_action":          " wykorzystał ",
-    "reply_label":            "Odpowiedź do <strong>{user}</strong>:"
+    "reply_label":            "Odpowiedź do <strong>{user}</strong>:",
+    "timeout_action":          "otrzymał wyciszenie od <strong>{user}</strong> na {duration}.",
+    "ban_action":              "został zbanowany przez <strong>{user}</strong>.",
+    "untimeout_action":        "miał zdjęte wyciszenie przez <strong>{user}</strong>.",
+    "unban_action":            "został odbanowany przez <strong>{user}</strong>."
   },
 
   "streamelements": {

@@ -90,6 +90,15 @@
     "raid_singular":           "manonood",
     "raid_plural":             "manonood",
     "reply_label":             "Sumasagot kay <strong>{user}</strong>:",
+    "upcomingad_action":       "Malapit nang magsimula ang <strong>Ad break</strong>.",
+    "adrun_action":            "Nagsimula na ang <strong>{duration} na Ad break</strong>.",
+    "timeout_action":          "na-timeout ni <strong>{user}</strong> sa loob ng {duration}.",
+    "ban_action":              "na-ban ni <strong>{user}</strong>.",
+    "untimeout_action":        "naalisan ng timeout ni <strong>{user}</strong>.",
+    "unban_action":            "naalisan ng ban ni <strong>{user}</strong>.",
+    "automod_action":          " nagpigil ng mensahe mula kay <strong>{user}</strong> dahil sa: <strong>{reason}</strong>.",
+    "automod_approved":        " nag-approve ng mensahe mula kay <strong>{user}</strong>.",
+    "automod_denied":        " tumanggi sa mensahe mula kay <strong>{user}</strong>.",
     "hypetrain": {
       "started":               "Nagsimula na ang Hype Train! 🔥",
       "started_golden":        "Nagsimula na ang Golden Kappa Train! 🪙",
@@ -172,7 +181,11 @@
     "raid_singular":          "manonood",
     "raid_plural":            "manonood",
     "reward_action":          " nag-redeem ng ",
-    "reply_label":            "Sumasagot kay <strong>{user}</strong>:"
+    "reply_label":            "Sumasagot kay <strong>{user}</strong>:",
+    "timeout_action":          "na-timeout ni <strong>{user}</strong> sa loob ng {duration}.",
+    "ban_action":              "na-ban ni <strong>{user}</strong>.",
+    "untimeout_action":        "naalisan ng timeout ni <strong>{user}</strong>.",
+    "unban_action":            "naalisan ng ban ni <strong>{user}</strong>."
   },
 
   "streamelements": {

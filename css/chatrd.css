@@ -1009,6 +1009,17 @@ body:has(.chat.noscrollbar) #bars {
     vertical-align: middle;
 }
 
+
+
+.chat .event.hidden-event .message {
+    border: 1px solid #222 !important;
+    background-color: rgba(0,0,0,0.5) !important;
+    color: #CCC;
+}
+
+
+
+
 @keyframes eventGiftImage {
     0% { transform: scale(1) rotate(0deg); }
     50% { transform: scale(2) rotate( var(--rotateGift) );}
