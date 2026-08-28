@@ -200,9 +200,9 @@ const twitchMessageHandlers = {
         twitchAdRunMessage(response.data);
     },
 
-    'Twitch.UpcomingAd': (response) => {
+    /*'Twitch.UpcomingAd': (response) => {
         twitchUpcomingAdMessage(response.data);
-    },
+    },*/
 
 
 
