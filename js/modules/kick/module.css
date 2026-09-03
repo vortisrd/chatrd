@@ -12,7 +12,7 @@
 /* -------------------------------------- */
 
 
-.chat .item.kick.streamer-mentioned .message {
+.chat.add-highlights .item.kick.streamer-mentioned .message {
     background: rgba(72,212,21,0.5);
 }
 

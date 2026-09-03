@@ -111,7 +111,9 @@
     "chat_field_hint": "Nagdaragdag ng chat field kung saan ka maaaring mag-type sa iyong chat.",
     "chat_field_warning": "Tinatanggap din ng Chat Field ang mga <strong>/command</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Mga Suportadong Command</a></strong>",
     "image_embedding_filter": "Image Embedding Filter",
-    "image_embedding_filter_hint": "Kung naka-enable, tanging mga larawan lamang mula sa mga domain sa ibaba ang pinapayagang i-embed. Paghiwalayin ang mga ito gamit ang kuwit. <strong>hal.: <em>imgur.com,tenor.com,giphy.com</em></strong>"
+    "image_embedding_filter_hint": "Kung naka-enable, tanging mga larawan lamang mula sa mga domain sa ibaba ang pinapayagang i-embed. Paghiwalayin ang mga ito gamit ang kuwit. <strong>hal.: <em>imgur.com,tenor.com,giphy.com</em></strong>",
+    "highlight_messages": "I-highlight ang mga Mensahe",
+    "highlight_messages_hint": "Hine-highlight ang mga mensaheng nagbabanggit sa iyo."
   },
   "twitch": {
     "title": "Twitch",

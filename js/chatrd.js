@@ -17,6 +17,7 @@ const chatThreshold                 = 100;
 const chatOneLine                   = getURLParam("chatOneLine", false);
 const chatHorizontal                = getURLParam("chatHorizontal", false); 
 const chatMessageGroup              = getURLParam("chatMessageGroup", false);
+const highlightMessages             = getURLParam("highlightMessages", true);
 
 const size                          = getURLParamLegacy("chatFontSize", () => getURLParam("size", 1));
 const chatFontFamily                = getURLParam("chatFontFamily", "DM Sans");
@@ -108,11 +109,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=85",
-    nutting: "skin-nutting.css?nocache=85",
-    kimballs: "skin-kimballs.css?nocache=85",
-    bubbles: "skin-bubbles.css?nocache=85",
-    'star-wars': "skin-star-wars.css?nocache=85"
+    default: "skin-default.css?nocache=86",
+    nutting: "skin-nutting.css?nocache=86",
+    kimballs: "skin-kimballs.css?nocache=86",
+    bubbles: "skin-bubbles.css?nocache=86",
+    'star-wars': "skin-star-wars.css?nocache=86"
 };
 
 
@@ -191,7 +192,10 @@ async function combinedViewerStatistics() {
 
 
 
-
+if (highlightMessages) {
+    chatContainer.classList.add('add-highlights');
+    chatGhostContainer.classList.add('add-highlights');
+}
 
 if (scrollbar == false) {
     chatContainer.classList.add('noscrollbar');

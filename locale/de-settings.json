@@ -111,7 +111,9 @@
     "chat_field_hint": "Fügt ein Chatfeld hinzu, in dem du deinen Chat schreiben kannst.",
     "chat_field_warning": "Das Chatfeld akzeptiert auch <strong>/Befehle</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Unterstützte Befehle</a></strong>",
     "image_embedding_filter": "Bild-Einbettungsfilter",
-    "image_embedding_filter_hint": "Wenn aktiviert, dürfen nur Bilder von den unten genannten Domains eingebettet werden. Trenne sie durch Kommas. <strong>z. B.: <em>imgur.com,tenor.com,giphy.com</em></strong>"
+    "image_embedding_filter_hint": "Wenn aktiviert, dürfen nur Bilder von den unten genannten Domains eingebettet werden. Trenne sie durch Kommas. <strong>z. B.: <em>imgur.com,tenor.com,giphy.com</em></strong>",
+    "highlight_messages": "Nachrichten Hervorheben",
+    "highlight_messages_hint": "Hebt Nachrichten hervor, die dich erwähnen."    
   },
   "twitch": {
     "title": "Twitch",

@@ -8,7 +8,7 @@
 }
 
 
-.chat .item.tiktok.streamer-mentioned .message {
+.chat.add-highlights .item.tiktok.streamer-mentioned .message {
     background: rgba(36,36,36,0.5);
 }
 

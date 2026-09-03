@@ -111,7 +111,9 @@
     "chat_field_hint": "Aggiunge un campo chat per digitare nella tua chat.",
     "chat_field_warning": "Il campo chat accetta anche i <strong>comandi /</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Comandi supportati</a></strong>",
     "image_embedding_filter": "Filtro incorporamento immagini",
-    "image_embedding_filter_hint": "Se abilitato, solo le immagini provenienti dai domini indicati di seguito potranno essere incorporate. Separali con virgole. <strong>es.: <em>imgur.com,tenor.com,giphy.com</em></strong>"
+    "image_embedding_filter_hint": "Se abilitato, solo le immagini provenienti dai domini indicati di seguito potranno essere incorporate. Separali con virgole. <strong>es.: <em>imgur.com,tenor.com,giphy.com</em></strong>",
+    "highlight_messages": "Evidenzia Messaggi",
+    "highlight_messages_hint": "Evidenzia i messaggi che ti menzionano."
   },
   "twitch": {
     "title": "Twitch",

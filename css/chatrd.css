@@ -681,7 +681,7 @@ body:has(.chat.noscrollbar) #bars {
     text-shadow: 0 0 10px #FFF;
 }
 
-.chat .item.streamer-mentioned .message {
+.chat.add-highlights .item.streamer-mentioned .message {
     display: block;
     background: rgba(255,255,255,0.15);
     padding: 10px;

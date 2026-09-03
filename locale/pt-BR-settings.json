@@ -111,7 +111,9 @@
     "chat_field_hint": "Adiciona um campo de chat para você digitar no seu chat.",
     "chat_field_warning": "O Campo de Chat também aceita <strong>/comandos</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Comandos Suportados</a></strong>",
     "image_embedding_filter": "Filtro de Incorporação de Imagens",
-    "image_embedding_filter_hint": "Se ativado, apenas imagens dos domínios abaixo poderão ser incorporadas como imagens. Separe-os por vírgulas. <strong>ex: <em>imgur.com,tenor.com,giphy.com</em></strong>"
+    "image_embedding_filter_hint": "Se ativado, apenas imagens dos domínios abaixo poderão ser incorporadas como imagens. Separe-os por vírgulas. <strong>ex: <em>imgur.com,tenor.com,giphy.com</em></strong>",
+    "highlight_messages": "Destacar Mensagens",
+    "highlight_messages_hint": "Destaca mensagens que mencionam você."
   },
   "twitch": {
     "title": "Twitch",

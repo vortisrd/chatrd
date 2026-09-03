@@ -111,7 +111,9 @@
     "chat_field_hint": "Dodaje pole czatu, w którym możesz pisać na swoim czacie.",
     "chat_field_warning": "Pole czatu obsługuje również <strong>komendy /</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Obsługiwane komendy</a></strong>",
     "image_embedding_filter": "Filtr osadzania obrazów",
-    "image_embedding_filter_hint": "Jeśli włączone, tylko obrazy z poniższych domen mogą być osadzane. Oddziel je przecinkami. <strong>np.: <em>imgur.com,tenor.com,giphy.com</em></strong>"
+    "image_embedding_filter_hint": "Jeśli włączone, tylko obrazy z poniższych domen mogą być osadzane. Oddziel je przecinkami. <strong>np.: <em>imgur.com,tenor.com,giphy.com</em></strong>",
+    "highlight_messages": "Wyróżnij Wiadomości",
+    "highlight_messages_hint": "Wyróżnia wiadomości, w których jesteś wspomniany/a."
   },
   "twitch": {
     "title": "Twitch",

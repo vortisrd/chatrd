@@ -181,7 +181,7 @@
 
 .chat .item.announcement.twitch .chatmoderation { display: none; }
 
-.chat .item.twitch.streamer-mentioned .message {
+.chat.add-highlights .item.twitch.streamer-mentioned .message {
     background: rgba(145,70,255,0.5);
 }
 

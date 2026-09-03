@@ -72,7 +72,7 @@
     left: unset;
 }
 
-.chat.rtl.vertical:has(.avatar) .item.streamer-mentioned .message,
+.chat.add-highlights.rtl.vertical:has(.avatar) .item.streamer-mentioned .message,
 .chat.rtl.vertical:has(.avatar) .item.first-chatter .message {
     padding-left: 10px;
     padding-right: 70px;
@@ -93,7 +93,7 @@
     min-height: 49px;
 }
 
-.chat.oneline:has(.avatar) .item.streamer-mentioned .message,
+.chat.add-highlights.oneline:has(.avatar) .item.streamer-mentioned .message,
 .chat.oneline:has(.avatar) .item.first-chatter .message {
     padding-left: 52px;
     min-height: 50px;
@@ -127,7 +127,7 @@
     padding-right: 10px;
 }
 
-.chat.rtl.oneline:has(.avatar) .item.streamer-mentioned .message,
+.chat.add-highlights.rtl.oneline:has(.avatar) .item.streamer-mentioned .message,
 .chat.rtl.oneline:has(.avatar) .item.first-chatter .message {
     padding-left: 10px;
     padding-right: 10px;
@@ -162,7 +162,7 @@
     outline-color: transparent;
 }
 
-.chat.horizontal:has(.avatar) .item.streamer-mentioned .message,
+.chat.add-highlights.horizontal:has(.avatar) .item.streamer-mentioned .message,
 .chat.horizontal:has(.avatar) .item.first-chatter .message {
     padding-left: 52px;
     min-height: 50px;

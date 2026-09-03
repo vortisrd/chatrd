@@ -111,7 +111,9 @@
     "chat_field_hint": "Adds a chat field for you to type in your chat.",
     "chat_field_warning": "The Chat Field also accepts <strong>/commands</strong>. <strong><a target=\"_blank\" href=\"https://github.com/vortisrd/chatrd#-commands-supported-by-the-chat-field\">Commands Supported</a></strong>",
     "image_embedding_filter" : "Image Embedding Filter",
-    "image_embedding_filter_hint" : "If enabled, only images from the domains below are allowed to be embedded images. Separate them by commas. <strong>e.g: <em>imgur.com,tenor.com,giphy.com</em></strong>"
+    "image_embedding_filter_hint" : "If enabled, only images from the domains below are allowed to be embedded images. Separate them by commas. <strong>e.g: <em>imgur.com,tenor.com,giphy.com</em></strong>",
+    "highlight_messages": "Highlight Messages",
+    "highlight_messages_hint": "Highlight messages that mentions you."
   },
   "style" : {
     "title": "Visual Styles",

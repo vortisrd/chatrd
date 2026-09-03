@@ -36,7 +36,7 @@
     display: none;
 }
 
-.chat .item.youtube.streamer-mentioned .message {
+.chat.add-highlights .item.youtube.streamer-mentioned .message {
     background: rgba(255,0,0,0.5);
 }
 
