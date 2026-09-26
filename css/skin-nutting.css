@@ -69,7 +69,7 @@
 /* ------------------------------------------- */
 
 .chat.oneline:has(.avatar) .item .message{
-    padding-left: 42px;
+    /*padding-left: 42px;*/
     min-height: 32px;
 }
 

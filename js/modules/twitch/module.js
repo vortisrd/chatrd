@@ -2447,41 +2447,99 @@ async function getTwitchBadges(badges) {
 
 
 
-async function getTwitchMessageFromParts(parts,data = null) {
-    const html = parts.map(part => {
-
+async function getTwitchMessageFromParts(parts, data = null) {
+    const rendered = await Promise.all(parts.map(async (part) => {
         switch (part.type) {
             case 'emote': {
                 if (part.source === "Twemoji") {
-                    return escapeHTML(part.text);
+                    return { type: 'text', html: escapeHTML(part.text) };
                 }
 
                 let url = part.imageUrl;
+                let zeroWidth = false;
+
                 switch (part.source) {
-                    case '7TVChannel':   url = url.replace('/4x', '/1x'); break;
+                    case '7TVChannel':
+                        url = url.replace('/4x', '/1x');
+                        if (part.zeroWidth === true) {
+                            zeroWidth = true;
+                        }
+                        break;
                     case 'FrankerFaceZ': url = url.replace('/4', '/1'); break;
                     case 'BetterTTV':    url = url.replace('/3x', '/1x'); break;
                 }
 
-                return `<img src="${escapeHTML(url)}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}" class="emote">`;
+                const html = `<img src="${escapeHTML(url)}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}" class="emote">`;
+                return { type: 'emote', html, zeroWidth };
             }
 
             case 'gif': {
                 let url = part.url;
                 let description = data.text.replace(/[\[\]]/g, '');
-                return `<img class="embedded twitch-giphy-integration" src="${url}" alt="${description}" title="${description}">`;
+                const html = `<img class="embedded twitch-giphy-integration" src="${url}" alt="${description}" title="${description}">`;
+                return { type: 'gif', html };
             }
 
             case 'cheer':
-                return '';
+                return { type: 'cheer', html: '' };
 
             default:
-                return escapeHTML(part.text);
+                return { type: 'text', html: escapeHTML(part.text), raw: part.text };
         }
+    }));
 
-    }).join('');
+    const peekNextMeaningful = (fromIndex) => {
+        for (let j = fromIndex + 1; j < rendered.length; j++) {
+            const candidate = rendered[j];
+            const isWhitespace = candidate.type === 'text' && candidate.raw !== undefined && candidate.raw.trim() === '';
+            if (isWhitespace) continue;
+            return candidate;
+        }
+        return null;
+    };
 
-    return html;
+    let output = '';
+    let buffer = [];
+    let bufferHasZeroWidth = false;
+    let pendingGap = '';
+
+    const flushBuffer = () => {
+        if (buffer.length > 0) {
+            const gridClass = bufferHasZeroWidth ? 'emote-grid zero-width' : 'emote-grid';
+            output += `<div class="${gridClass}">${buffer.join('')}</div>`;
+            buffer = [];
+            bufferHasZeroWidth = false;
+        }
+    };
+
+    for (let i = 0; i < rendered.length; i++) {
+        const item = rendered[i];
+        const isWhitespaceOnly = item.type === 'text' && item.raw !== undefined && item.raw.trim() === '';
+
+        if (item.type === 'emote') {
+            pendingGap = '';
+            buffer.push(item.html);
+            if (item.zeroWidth) bufferHasZeroWidth = true;
+
+            const nextMeaningful = peekNextMeaningful(i);
+            const nextIsZeroWidthEmote = nextMeaningful?.type === 'emote' && nextMeaningful.zeroWidth === true;
+
+            if (!nextIsZeroWidthEmote) {
+                flushBuffer();
+            }
+        } else if (isWhitespaceOnly && buffer.length > 0) {
+            pendingGap += item.html;
+        } else {
+            flushBuffer();
+            output += pendingGap + item.html;
+            pendingGap = '';
+        }
+    }
+
+    flushBuffer();
+    output += pendingGap;
+
+    return output;
 }
 
 

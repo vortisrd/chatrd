@@ -584,6 +584,22 @@ body:has(.chat.noscrollbar) #bars {
     margin-top: 5px;
 }
 
+#chat .item .actual-message .emote-grid,
+#chat-ghost .item .actual-message .emote-grid {
+    display: inline-grid;
+    width: fit-content;
+    vertical-align: top;
+    grid-template-rows: repeat(1,minmax(0,1fr));
+    grid-template-columns: repeat(1,minmax(0,1fr));
+}
+
+#chat .item .actual-message .emote-grid.zero-width .emote,
+#chat-ghost .item .actual-message .emote-grid.zero-width .emote {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    place-self: center;
+}
+
 .chat .item {
     position: relative;
     color: #efeff1;
@@ -916,6 +932,11 @@ body:has(.chat.noscrollbar) #bars {
 
 .chat.horizontal .item .reply {
     max-width: 400px;
+}
+
+.chat.horizontal .chat-element-wrapper,
+.chat.horizontal .item {
+    flex-shrink: 0;
 }
 
 /* --------------------------------------------- */
