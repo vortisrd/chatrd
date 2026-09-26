@@ -2460,13 +2460,13 @@ async function getTwitchMessageFromParts(parts, data = null) {
 
                 switch (part.source) {
                     case '7TVChannel':
-                        url = url.replace('/4x', '/1x');
+                        //url = url.replace('/4x', '/1x');
                         if (part.zeroWidth === true) {
                             zeroWidth = true;
                         }
                         break;
-                    case 'FrankerFaceZ': url = url.replace('/4', '/1'); break;
-                    case 'BetterTTV':    url = url.replace('/3x', '/1x'); break;
+                    /*case 'FrankerFaceZ': url = url.replace('/4', '/1'); break;
+                    case 'BetterTTV':    url = url.replace('/3x', '/1x'); break;*/
                 }
 
                 const html = `<img src="${escapeHTML(url)}" alt="${escapeHTML(part.text)}" title="${escapeHTML(part.text)}" class="emote">`;
