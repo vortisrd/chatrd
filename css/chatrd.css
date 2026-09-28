@@ -1067,6 +1067,31 @@ body:has(.chat.noscrollbar) #bars {
 
 
 
+
+#chat .event .actual-message .emote-grid,
+#chat-ghost .event .actual-message .emote-grid {
+    display: inline-grid;
+    width: fit-content;
+    vertical-align: top;
+    grid-template-rows: repeat(1,minmax(0,1fr));
+    grid-template-columns: repeat(1,minmax(0,1fr));
+}
+
+#chat .event .actual-message .emote-grid.zero-width .emote,
+#chat-ghost .event .actual-message .emote-grid.zero-width .emote {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    place-self: center;
+}
+
+
+
+
+
+
+
+
+
 .modal {
 	position: fixed;
 	top: 0; left: 0;

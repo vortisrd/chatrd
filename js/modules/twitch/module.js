@@ -583,7 +583,6 @@ async function twitchWatchStreakMessage(data) {
 }
 
 
-
 async function twitchRewardRedemption(data) {
 
     if (showTwitchRewardRedemptions == false) return;
