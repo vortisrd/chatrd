@@ -276,6 +276,11 @@
     transition: var(--transition);
 }
 
+#chat .item.twitch .actual-message .emote-grid.gigantic,
+#chat-ghost .item.twitch .actual-message .emote-grid.gigantic {
+    display: grid;
+}
+
 .chat .item.twitch .actual-message img.gigantified {
     display: block;
     height: 96px;
