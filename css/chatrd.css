@@ -635,7 +635,7 @@ body:has(.chat.noscrollbar) #bars {
     margin: 0 2px;
 }
 
-.chat .item .actual-message img.emote {
+.chat .item .actual-message .emote {
     height: 28px;
     vertical-align: middle;
     margin: 0 1px;
@@ -926,7 +926,7 @@ body:has(.chat.noscrollbar) #bars {
     padding-bottom: 2px;
 }
 
-.chat.horizontal .item .actual-message img.emote {
+.chat.horizontal .item .actual-message .emote {
     vertical-align: text-top;
 }
 
@@ -1023,7 +1023,7 @@ body:has(.chat.noscrollbar) #bars {
     height: 16px;
 }
 
-.chat .event .message .actual-message img.emote {
+.chat .event .message .actual-message .emote {
     height: 22px;
     filter: drop-shadow(var(--dropShadow));
     margin: 0 1px;

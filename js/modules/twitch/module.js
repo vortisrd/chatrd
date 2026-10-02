@@ -351,7 +351,7 @@ async function twitchChatMessage(data) {
     else { reply.remove(); }
 
     if (data.isInSharedChat) {
-        if (showTwitchSharedChat == true) {
+        if (showTwitchSharedChat == true && showAvatar == true) {
             classes.push('shared-chat');
 
             const sharedChatAvatar = sharedChat.querySelector('span.origin img');
@@ -371,6 +371,7 @@ async function twitchChatMessage(data) {
             }
         }
         else {
+            sharedChat.remove();
             return;
         }
     }
