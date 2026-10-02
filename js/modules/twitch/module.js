@@ -350,32 +350,36 @@ async function twitchChatMessage(data) {
     
     else { reply.remove(); }
 
-    if (data.isInSharedChat) {
-        if (showTwitchSharedChat == true && showAvatar == true) {
+    if (showTwitchSharedChat == true) {
+
+        if (data.isInSharedChat) {
+
             classes.push('shared-chat');
 
-            const sharedChatAvatar = sharedChat.querySelector('span.origin img');
-            const sharedChatUser = sharedChat.querySelector('span.origin strong');
-            
-            if (data.isFromSharedChatGuest) {
+            if (showAvatar == true) {
+                const sharedChatAvatar = sharedChat.querySelector('span.origin img');
+                const sharedChatUser = sharedChat.querySelector('span.origin strong');
+                
+                if (data.isFromSharedChatGuest) {
 
-                let sharedStreamer = data.sharedChatSource.login.toLowerCase();
-                let sharedStreamerAvatar = await getTwitchAvatar( sharedStreamer );
+                    let sharedStreamer = data.sharedChatSource.login.toLowerCase();
+                    let sharedStreamerAvatar = await getTwitchAvatar( sharedStreamer );
 
-                sharedChatAvatar.src = sharedStreamerAvatar;
-                sharedChatUser.textContent = data.sharedChatSource.name;
+                    sharedChatAvatar.src = sharedStreamerAvatar;
+                    sharedChatUser.textContent = data.sharedChatSource.name;
+                }
+                else {
+                    sharedChatAvatar.src = avatarImage;
+                    sharedChatUser.textContent = data.user.name;
+                }
             }
-            else {
-                sharedChatAvatar.src = avatarImage;
-                sharedChatUser.textContent = data.user.name;
-            }
+            else { sharedChat.remove(); }
+
         }
-        else {
-            sharedChat.remove();
-            return;
-        }
+        
+        else { sharedChat.remove(); }
+
     }
-    
     else { sharedChat.remove(); }
 
     if (showTwitchPronouns === true) {
