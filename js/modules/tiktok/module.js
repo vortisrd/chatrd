@@ -1091,7 +1091,7 @@ async function getTikTokEmotes(data, messageElement) {
         }
 
         const img = document.createElement('img');
-        img.src = emote.emoteImageUrl;
+        img.src = emote.emoteImageUrl ?? emote.emote.image?.imageUrl;
         img.className = 'emote';
         img.dataset.emoteId = emote.emoteId;
         img.onerror = () => (img.outerHTML = emote.emoteId);

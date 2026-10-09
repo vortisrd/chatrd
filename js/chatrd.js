@@ -109,11 +109,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=98",
-    nutting: "skin-nutting.css?nocache=98",
-    kimballs: "skin-kimballs.css?nocache=98",
-    bubbles: "skin-bubbles.css?nocache=98",
-    'star-wars': "skin-star-wars.css?nocache=98"
+    default: "skin-default.css?nocache=001",
+    nutting: "skin-nutting.css?nocache=001",
+    kimballs: "skin-kimballs.css?nocache=001",
+    bubbles: "skin-bubbles.css?nocache=001",
+    'star-wars': "skin-star-wars.css?nocache=001"
 };
 
 
@@ -934,12 +934,12 @@ async function pushChatInputSettings() {
 
     const twitchSwitch = chatInputPlatformButtons.querySelector('#twitch');
     const youtubeSwitch = chatInputPlatformButtons.querySelector('#youtube');
-    //const tiktokSwitch = chatInputPlatformButtons.querySelector('#tiktok');
+    const tiktokSwitch = chatInputPlatformButtons.querySelector('#tiktok');
     const kickSwitch = chatInputPlatformButtons.querySelector('#kick');
 
     if (showTwitch == false) { twitchSwitch.classList.add('hidden'); }
     if (showYoutube == false) { youtubeSwitch.classList.add('hidden'); }
-    //if (showTiktok == false) { tiktokSwitch.classList.add('hidden'); }
+    if (showTiktok == false) { tiktokSwitch.classList.add('hidden'); }
     if (showKick == false) { kickSwitch.classList.add('hidden'); }
 
     pushChatInputButtonsToSettings();
@@ -963,12 +963,12 @@ chatInputForm.addEventListener("submit", function(event) {
 
     const sendTwitchMessages = chatSettings.querySelector('input[type=checkbox][name="sendTwitchMessages"]').checked;
     const sendYouTubeMessages = chatSettings.querySelector('input[type=checkbox][name="sendYouTubeMessages"]').checked;
-    //const sendTikTokMessages = chatSettings.querySelector('input[type=checkbox][name="sendTikTokMessages"]').checked;
+    const sendTikTokMessages = chatSettings.querySelector('input[type=checkbox][name="sendTikTokMessages"]').checked;
     const sendKickMessages = chatSettings.querySelector('input[type=checkbox][name="sendKickMessages"]').checked;
 
     if (showTwitch == true && showTwitchMessages == true && sendTwitchMessages == true) { chatSendPlatforms.push('twitch'); }
     if (showYoutube == true && showYouTubeMessages == true && sendYouTubeMessages == true) { chatSendPlatforms.push('youtube'); }
-    //if (showTiktok == true && showTikTokMessages == true && sendTikTokMessages == true) { chatSendPlatforms.push('tiktok'); }
+    if (showTiktok == true && showTikTokMessages == true && sendTikTokMessages == true) { chatSendPlatforms.push('tiktok'); }
     if (showKick == true && showKickMessages == true && sendKickMessages == true) { chatSendPlatforms.push('kick'); }
 
     chatSendPlatforms = chatSendPlatforms.join(',');
