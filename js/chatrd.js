@@ -109,11 +109,11 @@ const loadedEmotes = new Set();
 
 
 const SKINS = {
-    default: "skin-default.css?nocache=96",
-    nutting: "skin-nutting.css?nocache=96",
-    kimballs: "skin-kimballs.css?nocache=96",
-    bubbles: "skin-bubbles.css?nocache=96",
-    'star-wars': "skin-star-wars.css?nocache=96"
+    default: "skin-default.css?nocache=97",
+    nutting: "skin-nutting.css?nocache=97",
+    kimballs: "skin-kimballs.css?nocache=97",
+    bubbles: "skin-bubbles.css?nocache=97",
+    'star-wars': "skin-star-wars.css?nocache=97"
 };
 
 
@@ -934,12 +934,12 @@ async function pushChatInputSettings() {
 
     const twitchSwitch = chatInputPlatformButtons.querySelector('#twitch');
     const youtubeSwitch = chatInputPlatformButtons.querySelector('#youtube');
-    //const tiktokSwitch = chatInputPlatformButtons.querySelector('#tiktok');
+    const tiktokSwitch = chatInputPlatformButtons.querySelector('#tiktok');
     const kickSwitch = chatInputPlatformButtons.querySelector('#kick');
 
     if (showTwitch == false) { twitchSwitch.classList.add('hidden'); }
     if (showYoutube == false) { youtubeSwitch.classList.add('hidden'); }
-    //if (showTiktok == false) { tiktokSwitch.classList.add('hidden'); }
+    if (showTiktok == false) { tiktokSwitch.classList.add('hidden'); }
     if (showKick == false) { kickSwitch.classList.add('hidden'); }
 
     pushChatInputButtonsToSettings();
@@ -963,12 +963,12 @@ chatInputForm.addEventListener("submit", function(event) {
 
     const sendTwitchMessages = chatSettings.querySelector('input[type=checkbox][name="sendTwitchMessages"]').checked;
     const sendYouTubeMessages = chatSettings.querySelector('input[type=checkbox][name="sendYouTubeMessages"]').checked;
-    //const sendTikTokMessages = chatSettings.querySelector('input[type=checkbox][name="sendTikTokMessages"]').checked;
+    const sendTikTokMessages = chatSettings.querySelector('input[type=checkbox][name="sendTikTokMessages"]').checked;
     const sendKickMessages = chatSettings.querySelector('input[type=checkbox][name="sendKickMessages"]').checked;
 
     if (showTwitch == true && showTwitchMessages == true && sendTwitchMessages == true) { chatSendPlatforms.push('twitch'); }
     if (showYoutube == true && showYouTubeMessages == true && sendYouTubeMessages == true) { chatSendPlatforms.push('youtube'); }
-    //if (showTiktok == true && showTikTokMessages == true && sendTikTokMessages == true) { chatSendPlatforms.push('tiktok'); }
+    if (showTiktok == true && showTikTokMessages == true && sendTikTokMessages == true) { chatSendPlatforms.push('tiktok'); }
     if (showKick == true && showKickMessages == true && sendKickMessages == true) { chatSendPlatforms.push('kick'); }
 
     chatSendPlatforms = chatSendPlatforms.join(',');
@@ -985,7 +985,7 @@ chatInputForm.addEventListener("submit", function(event) {
     });
     
     
-    /*if (chatSendPlatforms.includes('tiktok')) {
+    if (chatSendPlatforms.includes('tiktok')) {
         if (!chatInputText.startsWith('/')) {
             streamerBotClient.doAction(
             { name : "[TikTok] Msgs" },
@@ -996,7 +996,7 @@ chatInputForm.addEventListener("submit", function(event) {
                 console.debug('[ChatRD] Sending TikTok Chat to Streamer.Bot', sendchatstuff);
             });
         }
-    }*/
+    }
 
     chatInput.value = '';
 });
