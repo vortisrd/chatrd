@@ -73,7 +73,8 @@ const kickMessageHandlers = {
         kickMassGiftMessageFromStreamerBot(response.data);
     },
 
-    'Kick.sGifted': (response) => {
+    //'Kick.sGifted': (response) => {
+    'Kick.KicksGifted': (response) => {
         if (isPusherConnected) return;
     },
 
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         waitForStreamerBot('Kick').then(() => {
             registerPlatformHandlersToStreamerBot(kickMessageHandlers, '[ChatRD][Streamer.bot][Kick]');
-            kickConnectionNew();
+            //kickConnectionNew();
         });
         
     }
