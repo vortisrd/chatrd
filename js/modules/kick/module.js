@@ -34,6 +34,15 @@ const kicksGiftsClasses = [
     { min: 100000,  max: 99999999999, class: 'bigger-than-100000' },
 ];
 
+const kicksGiftsImages = [
+    { min: 500,  max: 999,  url: 'https://static.kick.com/kicks/gifts/500-kick-bundle.webp' },
+    { min: 1000,  max: 1999,  url: 'https://static.kick.com/kicks/gifts/1000-kick-bundle.webp' },
+    { min: 2000,  max: 4999,  url: 'https://static.kick.com/kicks/gifts/2000-kick-bundle.webp' },
+    { min: 5000,  max: 9999,  url: 'https://static.kick.com/kicks/gifts/5000-kick-bundle.webp' },
+    { min: 10000,  max: 24999,  url: 'https://static.kick.com/kicks/gifts/10000-kick-bundle.webp' },
+    { min: 25000,  max: 99999999999,  url: 'https://static.kick.com/kicks/gifts/25000-kick-bundle.webp' },
+];
+
 
 // KICK EVENTS HANDLERS
 
@@ -309,11 +318,14 @@ async function kickKicksGiftedMessageFromStreamerBot(data) {
 
     const kicksMatch = kicksGiftsClasses.find(lv => data.gift.amount >= lv.min && data.gift.amount <= lv.max);
     classes.push(kicksMatch.class);
+
     let giftHtml;
     
     if (data.gift.amount >= 500) {
+
+        const kicksGiftMatch = kicksGiftsImages.find(lv => data.gift.amount >= lv.min && data.gift.amount <= lv.max);
         const rotateDeg = (Math.random() * 60 - 30).toFixed(1) + 'deg';
-        var kicksGiftImage = `<img style="--rotateGift: ${rotateDeg}" class="gift-image" src="https://static.kick.com/kicks/gifts/${data.gift.amount}-kick-bundle.webp" alt="${data.gift.amount} Kicks">`;
+        var kicksGiftImage = `<img style="--rotateGift: ${rotateDeg}" class="gift-image" src="${kicksGiftMatch.url}" alt="${data.gift.amount} Kicks">`;
 
         giftHtml = renderGiftEventSuffix({
             image : `${kicksGiftImage}`, 
