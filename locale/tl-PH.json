@@ -172,7 +172,7 @@
 
   "kick": {
     "follow_action":          " nag-follow sa channel",
-    "kicksgift_action":       " nagpadala ng <strong>{name}</strong> ",
+    "kicksgift_action":       " nagpadala ng ",
     "kicks_singular":         "Kick",
     "kicks_plural":           "Kicks",
     "sub_action":             " nag-subscribe nang ",

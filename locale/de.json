@@ -172,7 +172,7 @@
 
   "kick": {
     "follow_action":          " ist dem Kanal gefolgt",
-    "kicksgift_action":       " hat einen <strong>{name}</strong> gesendet ",
+    "kicksgift_action":       " sendete ",
     "kicks_singular":         "Kick",
     "kicks_plural":           "Kicks",
     "sub_action":             " hat abonniert für ",

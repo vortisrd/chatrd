@@ -172,7 +172,7 @@
 
   "kick": {
     "follow_action":          " a suivi la chaîne",
-    "kicksgift_action":       " a envoyé un <strong>{name}</strong> ",
+    "kicksgift_action":       " a envoyé ",
     "kicks_singular":         "Kick",
     "kicks_plural":           "Kicks",
     "sub_action":             " s'est abonné pour ",

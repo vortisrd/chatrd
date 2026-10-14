@@ -76,19 +76,20 @@ const kickMessageHandlers = {
     //'Kick.sGifted': (response) => {
     'Kick.KicksGifted': (response) => {
         //if (isPusherConnected) return;
+        kickKicksGiftedMessageFromStreamerBot(response.data);
     },
 
     'Kick.UserTimedOut': (response) => {
         //if (isPusherConnected) return;
         kickUserBanned({
             banned_by: {
-                username: data.moderator.name
+                username: response.data.moderator.name
             },
             permanent: false,
-            duration: Math.floor(data.duration/60),
+            duration: Math.floor(response.data.duration/60),
             user: {
-                slug : data.user.name.toLowerCase(),
-                username : data.user.name
+                slug : response.data.user.name.toLowerCase(),
+                username : response.data.user.name
             }
         });
     },
@@ -97,12 +98,12 @@ const kickMessageHandlers = {
         //if (isPusherConnected) return;
         kickUserBanned({
             banned_by: {
-                username: data.moderator.name
+                username: response.data.moderator.name
             },
             permanent: true,
             user: {
-                slug : data.user.name.toLowerCase(),
-                username : data.user.name
+                slug : response.data.user.name.toLowerCase(),
+                username : response.data.user.name
             }
         });
     },
@@ -470,6 +471,7 @@ async function kickChatMessage(data) {
     addMessageItem('kick', clone, classes, userSlug, messageId);
 }
 */
+
 async function kickChatMessageFromStreamerBot(data) {
     
     if (showKickMessages == false) return;
@@ -651,6 +653,74 @@ async function kickKicksGiftedMessage(data) {
     addEventItem('kick', clone, classes, userId, messageId);
 }*/
 
+
+
+async function kickKicksGiftedMessageFromStreamerBot(data) {
+
+    if (showKickKicks == false) return;
+
+    const template = eventTemplate;
+	const clone = template.content.cloneNode(true);
+    const messageId = createRandomString(40);
+    const userId = data.sender.name.toLowerCase();
+
+    const {
+        header,
+        platform,
+        user,
+        action,
+        value,
+        'actual-message': message
+    } = Object.fromEntries(
+        [...clone.querySelectorAll('[class]')]
+            .map(el => [el.className, el])
+    );
+
+    const classes = ['kick', 'kicksgifted'];
+
+
+    header.remove();
+
+    var kicksGift = data.gift.amount > 1 ? tRD('kick.kicks_plural') : tRD('kick.kicks_singular');
+    
+    user.textContent = data.sender.name;
+    action.innerHTML = `${tRD('kick.kicksgift_action')} <strong>${data.gift.amount} ${kicksGift}</strong>`;
+
+    const kicksMatch = kicksGiftsClasses.find(lv => data.gift.amount >= lv.min && data.gift.amount <= lv.max);
+    classes.push(kicksMatch.class);
+    let giftHtml;
+    
+    if (data.gift.amount >= 500) {
+        const rotateDeg = (Math.random() * 60 - 30).toFixed(1) + 'deg';
+        var kicksGiftImage = `<img style="--rotateGift: ${rotateDeg}" class="gift-image" src="https://static.kick.com/kicks/gifts/${data.gift.amount}-kick-bundle.webp" alt="${data.gift.amount} Kicks">`;
+
+        giftHtml = renderGiftEventSuffix({
+            image : `${kicksGiftImage}`, 
+            value : `<img src="js/modules/kick/images/icon-kicksgift.svg" alt="${kicksGift}"> ${data.gift.amount}`
+        });
+
+        value.innerHTML = giftHtml;
+    }
+    else {
+        giftHtml = renderGiftEventSuffix({
+            image : ``, 
+            value : `<img src="js/modules/kick/images/icon-kicksgift.svg" alt="${kicksGift}"> ${data.gift.amount}`
+        });
+
+        value.innerHTML = giftHtml;
+    }
+
+    if (!data.gift.message) { message.remove(); }
+    else {
+        var kicksMessage = await getKickEmotes(data.gift.message);
+        message.innerHTML = kicksMessage;
+    }
+
+    addEventItem('kick', clone, classes, userId, messageId);
+}
+
+
+
 /*
 async function kickSubMessage(data) {
 
@@ -698,7 +768,7 @@ async function kickSubMessageFromStreamerBot(data) {
     const template = eventTemplate;
 	const clone = template.content.cloneNode(true);
     const messageId = createRandomString(40);
-    const userId = data.user.login.toLowerCase();
+    const userId = data.user.name.toLowerCase();
 
     const {
         header,
@@ -793,7 +863,7 @@ async function kickMassGiftMessageFromStreamerBot(data) {
     const template = eventTemplate;
 	const clone = template.content.cloneNode(true);
     const messageId = createRandomString(40);
-    const userId = data.user.login.toLowerCase();
+    const userId = data.user.name.toLowerCase();
 
     const {
         header,
@@ -817,7 +887,8 @@ async function kickMassGiftMessageFromStreamerBot(data) {
     var giftedLength = data.recipients.length;
     
     action.innerHTML = tRD('kick.giftbomb_action', { count: giftedLength });
-    message.innerHTML = tRD('kick.giftbomb_message', { total: data.gifter_total });
+    //message.innerHTML = tRD('kick.giftbomb_message', { total: data.gifter_total });
+    message.remove();
     value.remove();
 
     for (recipients of data.recipients) {
