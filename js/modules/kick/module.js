@@ -44,42 +44,42 @@ const kickMessageHandlers = {
     },
 
     'Kick.ChatMessage': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
         kickChatMessageFromStreamerBot(response.data);
     },
 
     'Kick.RewardRedemption': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
         kickRewardRedemptionFromStreamerBot(response.data);
     },
 
     'Kick.Subscription': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
         kickSubMessageFromStreamerBot(response.data);
     },
 
     'Kick.Resubscription': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
         kickSubMessageFromStreamerBot(response.data);
     },
 
     'Kick.GiftSubscription': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
         kickGiftMessageFromStreamerBot(response.data);
     },
 
     'Kick.MassGiftSubscription': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
         kickMassGiftMessageFromStreamerBot(response.data);
     },
 
     //'Kick.sGifted': (response) => {
     'Kick.KicksGifted': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
     },
 
     'Kick.UserTimedOut': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
         kickUserBanned({
             banned_by: {
                 username: data.moderator.name
@@ -94,7 +94,7 @@ const kickMessageHandlers = {
     },
 
     'Kick.UserBanned': (response) => {
-        if (isPusherConnected) return;
+        //if (isPusherConnected) return;
         kickUserBanned({
             banned_by: {
                 username: data.moderator.name
@@ -131,6 +131,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         waitForStreamerBot('Kick').then(() => {
             registerPlatformHandlersToStreamerBot(kickMessageHandlers, '[ChatRD][Streamer.bot][Kick]');
+
+            (async () => {
+
+                const kickStreamerLogin = await getStreamerInfo();
+                console.log('Kick streamer data: ', kickStreamerLogin.platforms.kick);
+                const kickUserId = kickStreamerLogin.platforms.kick.broadcasterUserId;
+                const kick7TVEmotes = await getKick7TVEmotes(kickUserId);
+                if (kick7TVEmotes != null) {
+                    kick7TVEmotes.forEach(emote => kick7TVEmojis.set(emote.name, emote.url));
+                }
+
+            })();
+
             //kickConnectionNew();
         });
         
@@ -146,7 +159,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 // -----------------------
 // KICK CONNECT HANDLER
 
-
+/*
 async function kickConnectionNew() {
     if (!showKick) return;
 
@@ -367,12 +380,12 @@ async function kickConnectionNew() {
         }
     };
 }
-
+*/
 
 
 // ---------------------------
 // KICK UTILITY FUNCTIONS
-
+/*
 async function kickChatMessage(data) {
     
     if (showKickMessages == false) return;
@@ -456,6 +469,7 @@ async function kickChatMessage(data) {
 
     addMessageItem('kick', clone, classes, userSlug, messageId);
 }
+*/
 async function kickChatMessageFromStreamerBot(data) {
     
     if (showKickMessages == false) return;
@@ -582,7 +596,7 @@ async function kickFollowMessage(data) {
 }
 
 
-
+/*
 async function kickKicksGiftedMessage(data) {
 
     if (showKickKicks == false) return;
@@ -635,11 +649,9 @@ async function kickKicksGiftedMessage(data) {
     }
 
     addEventItem('kick', clone, classes, userId, messageId);
-}
+}*/
 
-
-
-
+/*
 async function kickSubMessage(data) {
 
     if (showKickSubs == false) return;
@@ -677,6 +689,8 @@ async function kickSubMessage(data) {
 
     addEventItem('kick', clone, classes, userId, messageId);
 }
+*/
+
 async function kickSubMessageFromStreamerBot(data) {
 
     if (showKickSubs == false) return;
@@ -715,7 +729,7 @@ async function kickSubMessageFromStreamerBot(data) {
     addEventItem('kick', clone, classes, userId, messageId);
 }
 
-
+/*
 async function kickGiftMessage(data) {
 
     if (showKickGiftedSubs == false) return;
@@ -763,13 +777,15 @@ async function kickGiftMessage(data) {
         kickGiftSingleSub(data.gifter_username, data.gifted_usernames[0]);
     }
     
-}
+}*/
+
 async function kickGiftMessageFromStreamerBot(data) {
 
     if (showKickGiftedSubs == false) return;
     
     kickGiftSingleSub(data.user.name, data.recipient.name)
 }
+
 async function kickMassGiftMessageFromStreamerBot(data) {
 
     if (showKickGiftedSubs == false || showKickGiftedSubsUserTrain == false) return;
@@ -812,9 +828,6 @@ async function kickMassGiftMessageFromStreamerBot(data) {
     
     
 }
-
-
-
 async function kickGiftSingleSub(gifter, recipient) {
     const template = eventTemplate;
 	const clone = template.content.cloneNode(true);
@@ -848,7 +861,7 @@ async function kickGiftSingleSub(gifter, recipient) {
 }
 
 
-
+/*
 async function kickRewardRedemption(data) {
 
     if (showKickRewardRedemptions == false) return;
@@ -883,6 +896,8 @@ async function kickRewardRedemption(data) {
 
     addEventItem('kick', clone, classes, userId, messageId);
 }
+*/
+
 async function kickRewardRedemptionFromStreamerBot(data) {
 
     if (showKickRewardRedemptions == false) return;
@@ -927,7 +942,7 @@ async function kickRewardRedemptionFromStreamerBot(data) {
 
 
 
-
+/*
 async function kickRaidMessage(data) {
 
     if (showKickRaids == false) return;
@@ -962,6 +977,7 @@ async function kickRaidMessage(data) {
 
     addEventItem('kick', clone, classes, userId, messageId);
 }
+*/
 
 
 
@@ -970,8 +986,6 @@ async function kickRaidMessage(data) {
 async function kickChatMessageDeleted(data) {
     document.getElementById(data.message.id)?.parentNode.remove();
 }
-
-
 
 async function kickUserBanned(data) {
     chatContainer.querySelectorAll(`[data-user="${data.user.slug}"]`).forEach(element => {
@@ -1030,8 +1044,6 @@ async function kickUserBanned(data) {
     addHiddenEventItem('kick', clone, classes, userId, messageId);
 }
 
-
-
 async function kickUserUnBanned(data) {
 
     if (!chatField) return;
@@ -1085,15 +1097,11 @@ async function kickUserUnBanned(data) {
     addHiddenEventItem('kick', clone, classes, userId, messageId);
 }
 
-
-
 async function kickChatClearMessages() {
     chatContainer.querySelectorAll(`.item.kick`).forEach(element => {
         element.parentNode.remove();
     });
 }
-
-
 
 async function kickUpdateStatistics(data) {
     if (showPlatformStatistics == false || showKickViewers == false) return;
@@ -1108,7 +1116,7 @@ async function kickUpdateStatistics(data) {
 }
 
 
-
+/*
 async function kickGetUserInfo(user) {
     
     let data;
@@ -1184,7 +1192,7 @@ async function getKickAvatar(user) {
         console.warn(`[ChatRD][Kick] Error getting Kick avatar for ${user}:`, error);
         return DEFAULT_AVATAR;
     }
-}
+}*/
 
 
 async function getKickEmotes(text) {
@@ -1215,7 +1223,6 @@ async function parseKick7TVEmotes(text) {
 
     return parsedWords.join(' ');
 }
-
 
 async function getKick7TVEmotes(userId) {
     const userSet = await fetch(`https://7tv.io/v3/users/kick/${userId}`);
@@ -1253,8 +1260,7 @@ async function getKick7TVEmotes(userId) {
     }
 }
 
-
-
+/*
 async function getKickRoles(roles) {
     const rolesArray = [];
     
@@ -1263,22 +1269,9 @@ async function getKickRoles(roles) {
     });
 
     return rolesArray;
-}
+}*/
 
-
-
-async function getKickRolesFromStreamerBot(roles) {
-    const rolesArray = [];
-    
-    roles.forEach(role => {
-        rolesArray.push(role.id);
-    });
-
-    return rolesArray;
-}
-
-
-
+/*
 async function getKickBadges(badges) {
     const badgesArray = [];
     
@@ -1299,8 +1292,9 @@ async function getKickBadges(badges) {
     });
 
     return badgesArray.join(' ');
-}
+}*/
 
+/*
 async function getKickBadgesV2(badges) {
 
     const badgesArray = [];
@@ -1316,6 +1310,7 @@ async function getKickBadgesV2(badges) {
 
     return badgesArray.join(' ');
 }
+*/
 
 
 
@@ -1345,4 +1340,14 @@ async function getKickBadgesFromStreamerBot(badges) {
     });
 
     return badgesArray.join(' ');
+}
+
+async function getKickRolesFromStreamerBot(roles) {
+    const rolesArray = [];
+    
+    roles.forEach(role => {
+        rolesArray.push(role.id);
+    });
+
+    return rolesArray;
 }
