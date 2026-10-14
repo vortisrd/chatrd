@@ -431,47 +431,56 @@ const TestMode = (() => {
     };
 
     // ---------- KICK ----------
+    // Payloads no formato do Streamer.bot (response.data), conforme consumido
+    // pelas funções *FromStreamerBot do module.js.
+
+    const kickDefaultAvatars = [
+        'https://kick.com/img/default-profile-pictures/default-avatar-1.webp',
+        'https://kick.com/img/default-profile-pictures/default-avatar-2.webp',
+        'https://kick.com/img/default-profile-pictures/default-avatar-3.webp',
+        'https://kick.com/img/default-profile-pictures/default-avatar-4.webp',
+        'https://kick.com/img/default-profile-pictures/default-avatar-5.webp',
+        'https://kick.com/img/default-profile-pictures/default-avatar-6.webp'
+    ];
 
     generators['kick:chat'] = () => {
-        if (typeof kickChatMessage !== 'function') return;
+        if (typeof kickChatMessageFromStreamerBot !== 'function') return;
         const name = randomFrom(fakeNames);
+
+        // badge.id vira classe CSS (role) e define o svg local (badge-<id>.svg).
+        // 'subscriber' sem imageUrl usa o count para escolher o badge por meses.
         const badges = [
-            {
-                "type": "founder"
-            },
-            {
-                "type": "og"
-            },
-            {
-                "type": "vip"
-            },
-            {
-                "type": "subscriber"
-            },
-            {
-                "type": "moderator"
-            },
-            {
-                "type": "verified"
-            }
-        ]
-        kickChatMessage({
-            id: randomId(),
-            type: 'message',
-            content: randomFrom(fakeMessages),
-            sender: {
+            { id: 'founder' },
+            { id: 'og' },
+            { id: 'vip' },
+            { id: 'subscriber', count: randomFrom([1, 3, 6, 12, 24]) },
+            { id: 'moderator' },
+            { id: 'verified' }
+        ];
+
+        const isReply = Math.random() < 0.15;
+
+        kickChatMessageFromStreamerBot({
+            messageId: randomId(),
+            text: randomFrom(fakeMessages),
+            isReply,
+            reply: isReply
+                ? { content: randomFrom(fakeMessages), sender: { name: randomFrom(fakeNames) } }
+                : undefined,
+            user: {
                 id: randomId(),
-                slug: name,
-                username: name,
-                identity: {
-                    color: randomFrom(fakeColors),
-                    badges: getRandomBadges(badges), 
-                    badges_v2: []
-                }
+                login: name.toLowerCase(),
+                slug: name.toLowerCase().replace(/_/g, '-'),
+                name,
+                role: 1, // 4 = streamer (adiciona a classe 'streamer')
+                color: randomFrom(fakeColors),
+                profilePicture: randomFrom(kickDefaultAvatars),
+                badges: getRandomBadges(badges)
             }
         });
     };
 
+    // kickFollowMessage não tem versão FromStreamerBot (já usava o payload do Streamer.bot).
     generators['kick:follow'] = () => {
         if (typeof kickFollowMessage !== 'function') return;
         const name = randomFrom(fakeNames);
@@ -479,27 +488,24 @@ const TestMode = (() => {
     };
 
     generators['kick:sub'] = () => {
-        if (typeof kickSubMessage !== 'function') return;
+        if (typeof kickSubMessageFromStreamerBot !== 'function') return;
         const name = randomFrom(fakeNames);
-        kickSubMessage({ username: name, months: randomFrom([1, 1, 3, 6, 12]) });
+        kickSubMessageFromStreamerBot({
+            user: { name },
+            duration: randomFrom([1, 1, 3, 6, 12]) // meses
+        });
     };
 
     generators['kick:kicksgifted'] = () => {
-        if (typeof kickKicksGiftedMessage !== 'function') return;
+        if (typeof kickKicksGiftedMessageFromStreamerBot !== 'function') return;
         const name = randomFrom(fakeNames);
-        const gift = randomFrom([
-            { gift_id: 'hell-yeah', name: 'Hell Yeah', amount: 1,  },
-            { gift_id: 'hype', name: 'Hype', amount: 10 },
-            { gift_id: 'skull-emoji', name: 'Skull Emoji', amount: 50 },
-            { gift_id: 'full-send', name: 'Full Send It', amount: 100},
-            { gift_id: 'rage-quit', name: 'Rage Quit', amount: 500 },
-            { gift_id: 'flex', name: 'Flex', amount: 10000 },
-            { gift_id: 'boom', name: 'BOOOOOM', amount: 50000 }
-        ]);
-        kickKicksGiftedMessage({
-            sender: { username: name },
-            gift,
-            message: Math.random() < 0.5 ? randomFrom(fakeMessages) : ''
+        const amount = randomFrom([1, 10, 50, 100, 500, 10000, 50000]);
+        kickKicksGiftedMessageFromStreamerBot({
+            sender: { name },
+            gift: {
+                amount,
+                message: Math.random() < 0.5 ? randomFrom(fakeMessages) : ''
+            }
         });
     };
 
