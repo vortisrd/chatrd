@@ -37,67 +37,6 @@ const tiktokGiftsClasses = [
 
 userColors.set('tiktok', new Map());
 
-/*
-const tiktokMessageHandlers = {
-
-    'General.Custom': (response) => {
-        if (response.data?.data?.eventName === 'TikTok.EulerStream') {
-            const type = response.data.data.event.type;
-            const data = response.data.data.event.data;
-
-            console.debug(`[ChatRD][TikTok][EulerStream][${type}]`, data);
-
-            switch (type) {
-                case 'eulerSuccess' :
-                    notifySuccess({
-                        title: 'ChatRD 🤝 Eulerstream',
-                        text: `${data}`
-                    });
-                break;
-
-                
-                case 'eulerError' :
-                    notifyError({
-                        title: 'ChatRD ❌ Eulerstream',
-                        text: `${data}`
-                    });
-                break;
-
-                case 'eulerWarn' :
-                    notifyWarning({
-                        title: 'ChatRD ⚠️ Eulerstream',
-                        text: `${data}`
-                    })
-                break;
-
-                case 'WebcastChatMessage': tiktokChatMessageFromEulerStream(data); break;
-                case 'WebcastMemberMessage' : tiktokJoinMessageFromEulerStream(data); break;
-                case 'WebcastRoomUserSeqMessage': tiktokUpdateStatisticsFromEulerStream(data, 'viewers'); break;
-
-                case 'WebcastLikeMessage':
-                    tiktokLikesMessageFromEulerStream(data);
-                    tiktokUpdateStatisticsFromEulerStream(data, 'likes');
-                break;
-
-                case 'WebcastGiftMessage': tiktokGiftMessageFromEulerStream(data); break;
-                
-                case 'WebcastSocialMessage':
-                    
-                    switch (data.event.eventDetails.displayType) {
-                        case "pm_main_follow_message_viewer_2": tiktokFollowMessageFromEulerStream(data); break;
-                        case "pm_mt_guidance_share": tiktokShareMessageFromEulerStream(data); break;
-                    }
-                    
-                break;
-
-                case 'WebcastSubNotifyMessage': tiktokSubMessageFromEulerStream(data); break;
-            }
-        }
-    }
-
-};
-*/
-
 
 document.addEventListener('DOMContentLoaded', () => {
     if (showTiktok) {
@@ -116,15 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         waitForStreamerBot('TikTok').then(() => {
-            /*if (tiktokService == 'tikfinity') {
-                tiktokConnection();
-            }
-            if (tiktokService == 'eulerstream') {
-                registerPlatformHandlersToStreamerBot(tiktokMessageHandlers, '[ChatRD][TikTok][Streamer.bot]');
-            }*/
-
             tiktokConnection();
-            
         });
     }
 });
@@ -318,90 +249,6 @@ async function tiktokChatMessage(data) {
 
     addMessageItem('tiktok', clone, classes, userId, messageId);
 }
-async function tiktokChatMessageFromEulerStream(data) {
-    
-    if (!data?.comment) { data.comment = " "; }
-    if (showTikTokMessages == false) return;
-    if (ignoreUserList.includes(data.user.uniqueId.toLowerCase())) return;
-    if (data.comment.startsWith("!") && excludeCommands == true) return;
-
-	const template = chatTemplate;
-	const clone = template.content.cloneNode(true);
-    const messageId = data.event.msgId;
-    const userId = data.user.userId;
-
-    const {
-        'first-message': firstMessage,
-        'shared-chat': sharedChat,
-        
-        header,
-        timestamp,
-        platform,
-        badges,
-        avatar,
-        pronouns: pronoun,
-        user,
-        
-        reply,
-        'actual-message': message
-    } = Object.fromEntries(
-        [...clone.querySelectorAll('[class]')]
-            .map(el => [el.className, el])
-    );
-
-    const classes = ['tiktok', 'msg'];
-    
-    const avatarImage = data.user.profilePicture.urls[0]
-    const badgesHTML = await getTikTokBadgesFromEulerStream(data);
-    const roles = await getTiktokRolesFromEulerStream(data);
-
-    if (data.userIdentity.isModeratorOfAnchor) roles.push('moderator');
-    if (data.userIdentity.isSubscriberOfAnchor) roles.push('subscriber');
-
-    header.remove();
-    firstMessage.remove();
-
-    sharedChat.remove();
-
-    if (data.atUser) {
-        classes.push('reply');
-        reply.insertAdjacentHTML('beforeend', ` ${tRD('tiktok.reply_label', { user: escapeHTML(data.atUser.nickname) })}`);
-    }
-    else {
-        reply.remove();
-    }
-
-    pronoun.remove();
-
-    if (showAvatar) avatar.innerHTML = `<img src="${avatarImage}">`; else avatar.remove();
-    
-    if (showBadges) {
-        if (!badgesHTML) { badges.remove(); }
-        else { badges.innerHTML = badgesHTML; }
-     }
-    else { badges.remove(); }
-
-    var color = await createRandomColor('tiktok', data.user.uniqueId);
-
-
-    const userLinkElement = user.querySelector('a');
-    const userLink = `https://tiktok.com/@${data.user.uniqueId}`;
-
-    userLinkElement.href = userLink;
-    userLinkElement.target = '_blank';
-    userLinkElement.style = `--user-color: ${color}`;
-    userLinkElement.textContent = data.user.nickname;
-    userLinkElement.title = `${data.user.nickname} @ ${userLink}`;
-
-    if (roles.length == 0) roles.push('user');
-    classes.push(...roles);
-
-    message.textContent = data.comment;
-    await getTikTokEmotesForEulerStream(data, message),
-
-    addMessageItem('tiktok', clone, classes, userId, messageId);
-}
-
 
 
 
@@ -444,46 +291,6 @@ async function tiktokFollowMessage(data) {
 
     addEventItem('tiktok', clone, classes, userId, messageId);
 }
-async function tiktokFollowMessageFromEulerStream(data) {
-
-    if (showTikTokFollows == false) return;
-
-    const template = eventTemplate;
-	const clone = template.content.cloneNode(true);
-    const messageId = data.event.msgId;
-    const userId = data.user.userId;
-
-    const {
-        header,
-        platform,
-        user,
-        action,
-        value,
-        'actual-message': message
-    } = Object.fromEntries(
-        [...clone.querySelectorAll('[class]')]
-            .map(el => [el.className, el])
-    );
-
-    const classes = ['tiktok', 'follow'];
-
-    header.remove();
-    message.remove();
-    value.remove();
-
-    const userLinkElement = user.querySelector('a');
-    const userLink = `https://tiktok.com/@${data.user.uniqueId}`;
-
-    userLinkElement.href = userLink;
-    userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.user.nickname;
-    userLinkElement.title = `${data.user.nickname} @ ${userLink}`;
-    
-    action.innerHTML = tRD('tiktok.follow_action');
-
-    addEventItem('tiktok', clone, classes, userId, messageId);
-}
-
 
 async function tiktokShareMessage(data) {
 
@@ -524,46 +331,6 @@ async function tiktokShareMessage(data) {
 
     addEventItem('tiktok', clone, classes, userId, messageId);
 }
-async function tiktokShareMessageFromEulerStream(data) {
-
-    if (showTikTokShares == false) return;
-
-    const template = eventTemplate;
-	const clone = template.content.cloneNode(true);
-    const messageId = data.event.msgId;
-    const userId = data.user.userId;
-
-    const {
-        header,
-        platform,
-        user,
-        action,
-        value,
-        'actual-message': message
-    } = Object.fromEntries(
-        [...clone.querySelectorAll('[class]')]
-            .map(el => [el.className, el])
-    );
-
-    const classes = ['tiktok', 'share'];
-
-    header.remove();
-    message.remove();
-    value.remove();
-    
-    const userLinkElement = user.querySelector('a');
-    const userLink = `https://tiktok.com/@${data.user.uniqueId}`;
-
-    userLinkElement.href = userLink;
-    userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.user.nickname;
-    userLinkElement.title = `${data.user.nickname} @ ${userLink}`;
-
-    action.innerHTML = tRD('tiktok.share_action');
-
-    addEventItem('tiktok', clone, classes, userId, messageId);
-}
-
 
 async function tiktokJoinMessage(data) {
     
@@ -630,70 +397,6 @@ async function tiktokJoinMessage(data) {
     appendOrPrepend(chatContainer, joinParent);
 
 }
-async function tiktokJoinMessageFromEulerStream(data) {
-    
-    if (showTikTokJoins == false) return;
-
-    const template = eventTemplate;
-	const clone = template.content.cloneNode(true);
-    const messageId = data.event.msgId;
-    const userId = data.user.userId;
-
-    const {
-        header,
-        platform,
-        user,
-        action,
-        value,
-        'actual-message': message
-    } = Object.fromEntries(
-        [...clone.querySelectorAll('[class]')]
-            .map(el => [el.className, el])
-    );
-
-    const classes = ['tiktok', 'join'];
-
-    header.remove();
-    message.remove();
-    value.remove();
-
-    let userLinkElement = user.querySelector('a');
-    let userLink = `https://tiktok.com/@${data.user.uniqueId}`;
-
-    userLinkElement.href = userLink;
-    userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.user.nickname;
-    userLinkElement.title = `${data.user.nickname} @ ${userLink}`;
-
-    action.innerHTML = tRD('tiktok.join_action');
-    
-    const joinElement = [...chatContainer.querySelectorAll(".event.tiktok.join")].at(-1);
-    
-    if (!joinElement) {
-        addEventItem('tiktok', clone, classes, userId, messageId);
-        return;
-    };
-
-    const joinParent = joinElement.parentNode;
-    const messageElement = joinElement.querySelector('.message');
-
-    const animateClass = (chatHorizontal == true) ? 'animate__fadeInRight' : 'animate__fadeInUp';
-
-    userLinkElement = joinElement.querySelector('span.user a');
-    userLink = `https://tiktok.com/@${data.user.uniqueId}`;
-
-    userLinkElement.href = userLink;
-    userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.user.nickname;
-    userLinkElement.title = `${data.user.nickname} @ ${userLink}`;
-
-    messageElement.classList.add('animate__animated', 'animate__faster', animateClass);
-    
-    appendOrPrepend(chatContainer, joinParent);
-
-}
-
-
 
 async function tiktokLikesMessage(data) {
 
@@ -759,72 +462,6 @@ async function tiktokLikesMessage(data) {
 
     }
 }
-async function tiktokLikesMessageFromEulerStream(data) {
-
-    if (showTikTokLikes == false) return;
-
-    const template = eventTemplate;
-	const clone = template.content.cloneNode(true);
-    const messageId = data.event.msgId;
-    const userId = data.user.userId;
-
-    const {
-        header,
-        platform,
-        user,
-        action,
-        value,
-        'actual-message': message
-    } = Object.fromEntries(
-        [...clone.querySelectorAll('[class]')]
-            .map(el => [el.className, el])
-    );
-
-    const classes = ['tiktok', 'likes'];
-
-    var likeCountTotal = parseInt(data.likeCount);
-    
-    const previousLikeContainer = chatContainer.querySelector(`div.event.tiktok.likes[data-user="${data.user.userId}"]`);
-    const previousLikeContainerParent = previousLikeContainer?.parentNode;
-
-    if (previousLikeContainer) {
-        const likeCountElem = previousLikeContainer.querySelector('.value strong');
-        const animateClass = (chatHorizontal == true) ? 'animate__fadeInRight' : 'animate__fadeInUp';
-
-        previousLikeContainerParent.classList.add('animate__animated', 'animate__faster', animateClass);
-        if (likeCountElem) {
-            var likeCountPrev = parseInt(likeCountElem.textContent);
-            likeCountTotal = Math.floor(likeCountPrev + likeCountTotal);
-            likeCountElem.textContent = likeCountTotal;
-            
-            appendOrPrepend(chatContainer, previousLikeContainerParent);
-        }
-    }
-    else {
-
-        header.remove();
-        
-        const userLinkElement = user.querySelector('a');
-        const userLink = `https://tiktok.com/@${data.user.uniqueId}`;
-
-        userLinkElement.href = userLink;
-        userLinkElement.target = '_blank';
-        userLinkElement.textContent = data.user.nickname;
-        userLinkElement.title = `${data.user.nickname} @ ${userLink}`;
-
-        action.innerHTML = tRD('tiktok.likes_action');
-
-        var likes = likeCountTotal > 1 ? tRD('tiktok.likes_plural') : tRD('tiktok.likes_singular');
-        value.innerHTML = `<strong>${likeCountTotal}</strong> ${likes} ❤️`;
-
-        message.remove();
-
-        addEventItem('tiktok', clone, classes, userId, messageId);
-
-    }
-}
-
-
 
 async function tiktokSubMessage(data) {
 
@@ -866,51 +503,6 @@ async function tiktokSubMessage(data) {
 
     addEventItem('tiktok', clone, classes, userId, messageId);
 }
-async function tiktokSubMessageFromEulerStream(data) {
-
-    if (showTikTokSubs == false) return;
-
-    const template = eventTemplate;
-	const clone = template.content.cloneNode(true);
-    const messageId = data.event.msgId;
-    const userId = data.user.userId;
-
-    const {
-        header,
-        platform,
-        user,
-        action,
-        value,
-        'actual-message': message
-    } = Object.fromEntries(
-        [...clone.querySelectorAll('[class]')]
-            .map(el => [el.className, el])
-    );
-
-    const classes = ['tiktok', 'sub'];
-
-    header.remove();
-
-    const userLinkElement = user.querySelector('a');
-    const userLink = `https://tiktok.com/@${data.user.uniqueId}`;
-
-    userLinkElement.href = userLink;
-    userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.user.nickname;
-    userLinkElement.title = `${data.user.nickname} @ ${userLink}`;
-
-    action.innerHTML = tRD('tiktok.sub_action');
-
-    value.remove();
-    message.remove();
-
-    addEventItem('tiktok', clone, classes, userId, messageId);
-}
-
-
-
-
-
 
 async function tiktokGiftMessage(data) {
 
@@ -966,61 +558,6 @@ async function tiktokGiftMessage(data) {
 
     addEventItem('tiktok', clone, classes, userId, messageId);
 }
-async function tiktokGiftMessageFromEulerStream(data) {
-
-    if (showTikTokGifts == false) return;
-    if (data.giftDetails.giftType === 1 && !data.repeatEnd) return;
-
-    const template = eventTemplate;
-	const clone = template.content.cloneNode(true);
-    const messageId = data.event.msgId;
-    const userId = data.user.userId;
-
-    const {
-        header,
-        platform,
-        user,
-        action,
-        value,
-        'actual-message': message
-    } = Object.fromEntries(
-        [...clone.querySelectorAll('[class]')]
-            .map(el => [el.className, el])
-    );
-
-    const classes = ['tiktok', 'gift'];
-
-    header.remove();
-
-    let coins = Math.floor(data.repeatCount*data.giftDetails.diamondCount);
-
-    const tikTokGiftMatch = tiktokGiftsClasses.find(lv => coins >= lv.min && coins <= lv.max);
-    classes.push(tikTokGiftMatch.class);
-
-    const userLinkElement = user.querySelector('a');
-    const userLink = `https://tiktok.com/@${data.user.uniqueId}`;
-
-    userLinkElement.href = userLink;
-    userLinkElement.target = '_blank';
-    userLinkElement.textContent = data.user.nickname;
-    userLinkElement.title = `${data.user.nickname} @ ${userLink}`;
-
-    action.innerHTML = tRD('tiktok.gift_action', { count: data.repeatCount, name: data.giftDetails.giftName });
-
-    const rotateDeg = (Math.random() * 60 - 30).toFixed(1) + 'deg';
-
-    const giftHtml = renderGiftEventSuffix({
-        image : `<img style="--rotateGift: ${rotateDeg}" src="${data.giftDetails.giftImage.giftPictureUrl}" alt="${data.giftDetails.giftName}">`, 
-        value : `<img src="js/modules/tiktok/images/icon-tiktokcoin.svg" alt="Coins"> ${coins}`
-    });
-
-    value.innerHTML = giftHtml;
-
-    message.remove();
-
-    addEventItem('tiktok', clone, classes, userId, messageId);
-}
-
 
 
 const CUSTOM_EMOJI_BASE_PATH = 'js/modules/tiktok/addon-different-chat-emojis-images/';

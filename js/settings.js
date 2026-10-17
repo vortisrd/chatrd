@@ -9,7 +9,6 @@ const speakerBot = {};
 
 const sbRequiredActions = [
     '[TikTok] Msgs',
-    //'[TikTok][EulerStream] Connection',
     '[Twitch] Fetch Goals',
     '[Twitch][YouTube][Kick] Msgs/Cmds',
     '[YouTube] Member Emotes'
@@ -92,71 +91,6 @@ async function loadChatRDSettings() {
     const url = await getChatRDUrl({ preview: true });
     document.querySelector('#chatRDPreview').src = url;
     
-}
-
-async function loadChatRDTiktokService() {
-    let tiktokServiceUsed;
-    let tiktokServiceUser;
-    let tiktokServiceApiKey;
-
-    const tiktokServiceUsedSelect = document.querySelector('[data-setting=tiktokService]').value;
-    document.querySelectorAll(`[data-tiktok-service="${tiktokServiceUsedSelect}"]`).forEach((el) => {
-        el.style.display = '';
-    });
-
-    const tiktokServiceUsedSelected = document.querySelector('[data-setting=tiktokService]').value;
-    const tiktokServiceUserInput = document.querySelector('[data-setting=tiktoksUser]').value;
-    const tiktokServiceApiKeyInput = document.querySelector('[data-setting=tiktokEulerStreamApiKey]').value;
-
-    try {
-        console.debug('[ChatRD][Settings][TikTok] Grabbing TikTok Service Variable...');
-        tiktokServiceUsed = await streamerBot.client.getGlobal('chatrdTiktokService', true);
-        tiktokServiceUser = await streamerBot.client.getGlobal('chatrdTiktokUser', true);
-        tiktokServiceApiKey = await streamerBot.client.getGlobal('chatrdEulerStreamApiKey', true);
-
-        if (!tiktokServiceUsed || !tiktokServiceUser || !tiktokServiceApiKey) {
-            throw new Error('[ChatRD][Settings][TikTok] TikTok Service Variables not found.');
-        }
-
-        document.querySelector('[data-setting=tiktoksUser]').value = tiktokServiceUser.variable.value;
-        document.querySelector('[data-setting=tiktoksUser]').dataset.value = tiktokServiceUser.variable.value;
-        document.querySelector('[data-setting=tiktokEulerStreamApiKey]').value = tiktokServiceApiKey.variable.value;
-        document.querySelector('[data-setting=tiktokEulerStreamApiKey]').dataset.value = tiktokServiceApiKey.variable.value;
-    }
-
-    catch (err) {
-        console.warn('[ChatRD][Settings][TikTok] TikTok Service Variables not found. Creating them...');
-
-        await streamerBot.client.doAction({
-        name: "[TikTok][EulerStream] Connection" },
-        {
-            "chatrdTiktokFunction": "SaveSettings(service,user,apiKey)",
-            "service": tiktokServiceUsedSelected,
-            "user": tiktokServiceUserInput,
-            "apiKey": tiktokServiceApiKeyInput,
-        }).then((res) => {
-            console.debug('[ChatRD][Settings][TikTok] TikTok Service Variables were created.');
-        });
-
-    }
-}
-
-
-async function setChatRDTiktokService(service, user, apiKey) {
-
-    if (!streamerBot.connected) {
-        console.warn(`[ChatRD][Settings][TikTok] Streamer.bot is not connected.`);
-        return;
-    }
-    
-    await streamerBot.client.doAction({
-        name: "[TikTok][EulerStream] Connection" },
-        {
-            "chatrdTiktokFunction": "SaveSettings(service,user,apiKey)",
-            "service": service,
-            "user": user,
-            "apiKey": apiKey,
-        });
 }
 
 
@@ -258,7 +192,6 @@ async function bindChatRDSettings() {
        loadSystemFontsButton.parentNode.style.display = '';
     }
 
-    //bindTikTokSettings();
 }
 
 
@@ -306,123 +239,6 @@ async function populateFontSelect() {
 
 
 
-async function bindTikTokSettings() {
-
-    document.querySelector('[data-setting="tiktoksUser"]').addEventListener('input', async (event) => {
-        const user = event.target.dataset.value;
-        const setUser = event.target.value;
-        const button = document.querySelector(`#tiktokSaveInformation`);
-
-        let previousButtonContent;
-
-        if (button.classList.contains('needs-saving')) {
-                previousButtonContent = button.dataset.text;
-        }
-        else {
-            previousButtonContent = button.querySelector('span').textContent;
-        }
-
-
-
-        if (user === setUser) {
-            button.classList.remove('needs-saving');
-            button.querySelector('span').textContent = `${previousButtonContent}`;
-        }
-        else {
-            button.classList.add('needs-saving');
-            button.dataset.text = `${previousButtonContent}`;
-            button.querySelector('span').textContent = `🙏 ${previousButtonContent} 🙏`;
-        }
-    });
-
-    document.querySelector('[data-setting="tiktokEulerStreamApiKey"]').addEventListener('input', async (event) => {
-        const user = event.target.dataset.value;
-        const setUser = event.target.value;
-        const button = document.querySelector(`#tiktokSaveInformation`);
-
-        let previousButtonContent;
-
-        if (button.classList.contains('needs-saving')) {
-                previousButtonContent = button.dataset.text;
-        }
-        else {
-            previousButtonContent = button.querySelector('span').textContent;
-        }
-
-
-
-        if (user === setUser) {
-            button.classList.remove('needs-saving');
-            button.querySelector('span').textContent = `${previousButtonContent}`;
-        }
-        else {
-            button.classList.add('needs-saving');
-            button.dataset.text = `${previousButtonContent}`;
-            button.querySelector('span').textContent = `🙏 ${previousButtonContent} 🙏`;
-        }
-    });
-
-
-    document.querySelector(`[data-setting=tiktokService]`).addEventListener('change', async (event) => {
-        
-        const service = event.target.value;
-        const button = document.querySelector(`#tiktokSaveInformation`);
-        
-        let previousButtonContent;
-
-        if (button.classList.contains('needs-saving')) {
-            previousButtonContent = button.dataset.text;
-        }
-        else {
-            previousButtonContent = button.querySelector('span').textContent;
-        }
-
-        button.classList.add('needs-saving');
-        button.dataset.text = `${previousButtonContent}`;
-        button.querySelector('span').textContent = `🙏 ${previousButtonContent} 🙏`
-        
-        document.querySelectorAll('[data-tiktok-service]').forEach((el) => {
-            el.style.display = 'none';
-        });
-
-        document.querySelectorAll(`[data-tiktok-service="${service}"]`).forEach((el) => {
-            el.style.display = '';
-        });
-    });
-
-    document.querySelector(`#tiktokSaveInformation`).addEventListener('click', async (event) => {
-        event.preventDefault();
-        
-        const serviceEl = document.querySelector('[data-setting=tiktokService]');
-        const userEl = document.querySelector('[data-setting="tiktoksUser"]');
-        const apiKeyEl = document.querySelector('[data-setting="tiktokEulerStreamApiKey"]');
-
-        setChatRDTiktokService(serviceEl.value, userEl.value, apiKeyEl.value);
-
-        userEl.dataset.value = userEl.value;
-        apiKeyEl.dataset.value = apiKeyEl.value;
-
-        const btn = event.currentTarget;
-        
-        let previousButtonContent;
-
-        if (btn.classList.contains('needs-saving')) {
-            btn.classList.remove('needs-saving');
-            previousButtonContent = btn.dataset.text;
-        }
-        else {
-            previousButtonContent = btn.querySelector('span').textContent;
-        }
-
-        btn.querySelector('span').textContent = '👍';
-        btn.classList.add('success');
-
-        setTimeout(() => {
-            btn.querySelector('span').textContent = previousButtonContent;
-            btn.classList.remove('success');
-        }, 3000);
-    });
-}
 
 async function importChatRDSettings(url) {
 
@@ -773,7 +589,6 @@ async function streamerBotConnect() {
             status.classList.add('connected');
 
             loadYoutubeMemberEmotes();
-            //loadChatRDTiktokService();
             renderActionsStatus();
         },
         onDisconnect: () => {

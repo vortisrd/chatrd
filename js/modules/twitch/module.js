@@ -200,12 +200,6 @@ const twitchMessageHandlers = {
         twitchAdRunMessage(response.data);
     },
 
-    /*'Twitch.UpcomingAd': (response) => {
-        twitchUpcomingAdMessage(response.data);
-    },*/
-
-
-
 
     'Twitch.AutoModMessageHeld': (response) => {
         twitchAutoModMessageHeld(response.data);
@@ -551,10 +545,7 @@ async function twitchWatchStreakMessage(data) {
     const classes = ['twitch', 'watch-streak'];
 
     header.remove();
-
-    /*const displayName = data.displayName ?? data.user.name;
-	const watchStreak = data.watchStreak ?? data.streak_count;*/
-
+    
     const displayName = data.user.name;
 	const watchStreak = data.streak_count ? data.streak_count : data.streakCount;
     
@@ -568,18 +559,6 @@ async function twitchWatchStreakMessage(data) {
 
     action.innerHTML = tRD('twitch.watch_streak_action', { count: watchStreak });
     value.remove();
-
-    /* 
-    --- Maybe it's because Watch Streak doesn't have emotes ---
-    let messageFromParts = await getTwitchMessageFromParts(data.parts);
-    message.innerHTML = DOMPurify.sanitize(messageFromParts);
-    */
-
-    /* 
-    const hasParts = Array.isArray(data.parts) && data.parts.some(p => p.text || p.emote);
-    const messageContent = hasParts ? await getTwitchMessageFromParts(data.parts) : data.message ? escapeHTML(data.message) : escapeHTML(data.text);
-
-    message.textContent = messageContent;*/
 
     let messageFromParts = await getTwitchMessageFromParts(data.parts ?? []);
     message.innerHTML = DOMPurify.sanitize(messageFromParts);
@@ -746,8 +725,6 @@ async function twitchPowerUpRedemption(data) {
 
         case "celebration" :
             title = tRD('twitch.reward_auto.celebration');
-            /*classes.push('small-gift');
-            valueDesc =  `<img style="--rotateGift: ${rotateDeg}" class="gift-image" src="${data.emote.imageUrl}" alt="${data.emote.text}">`;*/
             if (enableTwitchPowerUpEffects) twitchChatOnScreenCelebration(data);
         break;
     }
