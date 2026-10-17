@@ -42,8 +42,6 @@ body {
     height: 100%;
     overflow: hidden;
     font-size: 16px;
-
-    background: url('../chatrd-social-image.jpg') center center no-repeat;
 }
 
 body.preview {
