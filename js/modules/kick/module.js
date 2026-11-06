@@ -88,7 +88,7 @@ const kickMessageHandlers = {
             permanent: false,
             duration: Math.floor(response.data.duration/60),
             user: {
-                slug : response.data.user.name.toLowerCase(),
+                slug : response.data.user.login.toLowerCase(),
                 username : response.data.user.name
             }
         });
@@ -101,7 +101,7 @@ const kickMessageHandlers = {
             },
             permanent: true,
             user: {
-                slug : response.data.user.name.toLowerCase(),
+                slug : response.data.user.login.toLowerCase(),
                 username : response.data.user.name
             }
         });
@@ -172,7 +172,7 @@ async function kickChatMessageFromStreamerBot(data) {
 	const clone = template.content.cloneNode(true);
     const messageId = data.messageId;
     const userId = data.user.id;
-    const userSlug = data.user.slug;
+    const userSlug = data.user.login;
 
     const {
         'first-message': firstMessage,
