@@ -101,7 +101,7 @@ const kickMessageHandlers = {
             },
             permanent: true,
             user: {
-                slug : response.data.user.login.toLowerCase(),
+                slug : response.data.user.name.toLowerCase(),
                 username : response.data.user.name
             }
         });
